@@ -1,0 +1,186 @@
+[
+    {
+        "exercise_name": "Barbell Back Squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Conventional Deadlift",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Glutes",
+            "Hamstrings",
+            "Lower back"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell Bench Press",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Pectoralis major",
+            "Triceps",
+            "Anterior deltoid"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell Row",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Middle trapezius",
+            "Biceps"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Machine Row (Neutral Grip)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cardio Rowing Machine",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Posterior deltoid",
+            "Quadriceps",
+            "Glutes"
+        ],
+        "equipment": "Rowing machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Fullbody",
+        "exercise_type": "cardio"
+    },
+    {
+        "exercise_name": "Dumbbell Shoulder Press",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Anterior deltoid",
+            "Lateral deltoid",
+            "Triceps"
+        ],
+        "equipment": "Dumbbells",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Smith Machine Shoulder Press",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Anterior deltoid",
+            "Triceps"
+        ],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Thrusters with Barbell",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Deltoids",
+            "Triceps"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Fullbody",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Pull-Ups (Pronated)",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Lats",
+            "Biceps",
+            "Lower trapezius"
+        ],
+        "equipment": "Pull-up bar",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "body_reps"
+    },
+    {
+        "exercise_name": "Clean and Jerk",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Trapezius",
+            "Glutes",
+            "Deltoids",
+            "Quadriceps"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Fullbody",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Box Jump",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Calves"
+        ],
+        "equipment": "Plyo box",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Snatch",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Trapezius",
+            "Deltoids",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Fullbody",
+        "exercise_type": "gym_reps"
+    }
+]
