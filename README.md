@@ -1,0 +1,3 @@
+
+Modelo de datos con relaciones
+<img width="960" height="326" alt="modelo_relacional" src="https://github.com/user-attachments/assets/8089a702-b945-4834-b627-bee8a5b07149" />
