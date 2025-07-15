@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: hartz_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: hartz_user
+      POSTGRES_PASSWORD: hartz_password
+      POSTGRES_DB: hartz_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  mongo:
+    image: mongo:6
+    container_name: hartz_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  postgres_data:
+  mongo_data:
