@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
                 .csrf(csfr -> csfr.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/", "/api/auth/**").permitAll()
                         .anyRequest().authenticated()
                 );
 
