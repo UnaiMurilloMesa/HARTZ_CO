@@ -5,43 +5,34 @@ import org.hartz.hartz_backend.auth.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.auth.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
 import org.hartz.hartz_backend.auth.jwt.JwtService;
-import org.hartz.hartz_backend.plan.PlanType;
-import org.hartz.hartz_backend.user.User;
-import org.hartz.hartz_backend.user.repository.UserRepository;
+import org.hartz.hartz_backend.user.UserMapper;
+import org.hartz.hartz_backend.user.model.User;
+import org.hartz.hartz_backend.user.persistence.JpaUserRepositoryAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UserRepository userRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
+    private final JpaUserRepositoryAdapter jpaUserRepositoryAdapter;
 
     public AuthResponseDTO register(RegisterRequestDTO requestDTO) {
-        User user = User.builder()
-                .email(requestDTO.getEmail())
-                .username(requestDTO.getUsername())
-                .password(passwordEncoder.encode(requestDTO.getPassword()))
-                .planType(PlanType.BASIC)
-                .mascot(requestDTO.getMascot())
-                .createdAt(LocalDateTime.now())
-                .build();
-
-        userRepository.save(user);
-        return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
+        User domainUser = UserMapper.toDomainUser(requestDTO, passwordEncoder);
+        User savedUser = jpaUserRepositoryAdapter.save(domainUser)
+                .orElseThrow(() -> new RuntimeException("Failed to save user"));
+        return new AuthResponseDTO(jwtService.generateToken(savedUser.email()));
     }
 
     public AuthResponseDTO login(LoginRequestDTO requestDTO) {
-        User user = userRepository.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+        User user = jpaUserRepositoryAdapter.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
 
-        if (!passwordEncoder.matches(requestDTO.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(requestDTO.getPassword(), user.password())) {
             throw new RuntimeException("Wrong credentials");
         }
 
-        return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
+        return new AuthResponseDTO(jwtService.generateToken(user.email()));
     }
 }
