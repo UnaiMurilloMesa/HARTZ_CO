@@ -1,6 +1,9 @@
 package org.hartz.hartz_backend.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.hartz.hartz_backend.common.exception.EmailTakenException;
+import org.hartz.hartz_backend.common.exception.NotCorrectEmailFormatException;
+import org.hartz.hartz_backend.common.exception.PasswordTooShortException;
 import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
@@ -26,6 +29,12 @@ public class AuthController {
             return ResponseEntity.ok(responseDTO);
         } catch (UsernameTakenException e) {
             return ResponseEntity.badRequest().body("Username taken");
+        } catch (EmailTakenException e) {
+            return ResponseEntity.badRequest().body("Email taken");
+        } catch (PasswordTooShortException e) {
+            return ResponseEntity.badRequest().body("Password shorter than 6 characters");
+        } catch (NotCorrectEmailFormatException e) {
+            return ResponseEntity.badRequest().body("Email format exception");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
