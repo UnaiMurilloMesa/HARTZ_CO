@@ -5,8 +5,10 @@ import org.hartz.hartz_backend.auth.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.auth.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
 import org.hartz.hartz_backend.common.enums.PlanType;
+import org.hartz.hartz_backend.common.exception.UsernameTakenException;
 import org.hartz.hartz_backend.user.entity.User;
 import org.hartz.hartz_backend.user.persistence.UserRepository;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,14 +25,18 @@ public class AuthService {
     public AuthResponseDTO register(RegisterRequestDTO requestDTO) {
         User user = User.builder()
                 .email(requestDTO.getEmail())
-                .username(requestDTO.getUsername())
                 .password(passwordEncoder.encode(requestDTO.getPassword()))
                 .planType(PlanType.BASIC)
                 .mascot(requestDTO.getMascot())
                 .createdAt(LocalDateTime.now())
                 .build();
 
+        if (userRepository.existsByUsername(user.getUsername())) {
+            throw new UsernameTakenException();
+        }
+
         userRepository.save(user);
+
         return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
     }
 
