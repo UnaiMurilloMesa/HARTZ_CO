@@ -10,25 +10,28 @@ import org.hartz.hartz_backend.user.persistence.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
+    private final UserRepository userRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
-    private final UserRepository userRepository;
 
     public AuthResponseDTO register(RegisterRequestDTO requestDTO) {
-        User domainUser = User.builder()
+        User user = User.builder()
                 .email(requestDTO.getEmail())
                 .username(requestDTO.getUsername())
-                .password(requestDTO.getPassword())
-                .mascot(requestDTO.getMascot())
+                .password(passwordEncoder.encode(requestDTO.getPassword()))
                 .planType(PlanType.BASIC)
+                .mascot(requestDTO.getMascot())
+                .createdAt(LocalDateTime.now())
                 .build();
 
-        User savedUser = userRepository.save(domainUser);
-        return new AuthResponseDTO(jwtService.generateToken(savedUser.getEmail()));
+        userRepository.save(user);
+        return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
     }
 
     public AuthResponseDTO login(LoginRequestDTO requestDTO) {
