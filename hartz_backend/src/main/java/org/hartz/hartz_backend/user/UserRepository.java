@@ -1,6 +1,6 @@
-package org.hartz.hartz_backend.user.repository;
+package org.hartz.hartz_backend.user;
 
-import org.hartz.hartz_backend.user.entity.User;
+import org.hartz.hartz_backend.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
