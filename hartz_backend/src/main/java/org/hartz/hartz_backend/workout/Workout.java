@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.workout.entity;
+package org.hartz.hartz_backend.workout;
 
 public class Workout {
 }

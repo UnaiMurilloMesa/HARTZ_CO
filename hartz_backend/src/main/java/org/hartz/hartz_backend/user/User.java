@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.user.entity;
+package org.hartz.hartz_backend.user;
 
 import jakarta.persistence.*;
 import lombok.*;

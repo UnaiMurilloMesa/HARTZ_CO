@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.plan.entity;
+package org.hartz.hartz_backend.plan;
 
 public class Plan {
 }
