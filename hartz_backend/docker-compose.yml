@@ -13,6 +13,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./src/main/resources/db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   mongo:
     image: mongo:6
@@ -22,3 +23,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+
+volumes:
+  postgres_data:
+  mongo_data:
