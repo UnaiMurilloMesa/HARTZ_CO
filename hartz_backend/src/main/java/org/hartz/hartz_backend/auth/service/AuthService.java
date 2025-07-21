@@ -25,6 +25,7 @@ public class AuthService {
     public AuthResponseDTO register(RegisterRequestDTO requestDTO) {
         User user = User.builder()
                 .email(requestDTO.getEmail())
+                .username(requestDTO.getUsername())
                 .password(passwordEncoder.encode(requestDTO.getPassword()))
                 .planType(PlanType.BASIC)
                 .mascot(requestDTO.getMascot())

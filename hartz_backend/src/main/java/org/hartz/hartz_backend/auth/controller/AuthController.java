@@ -26,12 +26,12 @@ public class AuthController {
     public ResponseEntity<Object> register (@RequestBody RegisterRequestDTO requestDTO) {
         try {
             AuthResponseDTO responseDTO = authService.register(requestDTO);
+            return ResponseEntity.ok(responseDTO);
         } catch (UsernameTakenException e) {
             return ResponseEntity.badRequest().body("Username taken");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
-        return ResponseEntity.ok(authService.register(requestDTO));
     }
 
     @PostMapping("/login")
