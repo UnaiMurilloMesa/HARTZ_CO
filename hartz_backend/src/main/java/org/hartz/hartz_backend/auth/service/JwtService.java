@@ -10,8 +10,8 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    private static final String SECRET = "dGhpc2lzYXZlcnlzZWN1cmVzZWNyZXRrZXl0aGF0aXNtb3JldGhhbjI1NmJpdHNsb25nZm9ySldUc2lnbmluZw";
-    private static final long EXPIRATION = 86400000;
+    private static final String SECRET = "dGhpc2lzYXZlcnlzZWN1cmVzZWNyZXRrZXl0aGF0aXNtb3JldGhhbjI1NmJpdHNsb25nZm9ySldUc2lnbmluZw"; // TODO: exportar a variable de entorno
+    private static final long EXPIRATION = 86400000; // 1 día
 
     private SecretKey getSignKey() {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
@@ -33,6 +33,5 @@ public class JwtService {
                 .parseSignedClaims(token)
                 .getPayload()
                 .getSubject();
-
     }
 }
