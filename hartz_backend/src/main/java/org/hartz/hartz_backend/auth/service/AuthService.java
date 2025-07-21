@@ -7,6 +7,8 @@ import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
 import org.hartz.hartz_backend.common.enums.PlanType;
 import org.hartz.hartz_backend.user.entity.User;
 import org.hartz.hartz_backend.user.repository.UserRepository;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,10 +37,10 @@ public class AuthService {
     }
 
     public AuthResponseDTO login(LoginRequestDTO requestDTO) {
-        User user = userRepository.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+        User user = userRepository.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         if (!passwordEncoder.matches(requestDTO.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Wrong credentials");
+            throw new BadCredentialsException("Invalid credentials");
         }
 
         return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
