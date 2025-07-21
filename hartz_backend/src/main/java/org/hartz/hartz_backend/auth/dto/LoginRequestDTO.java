@@ -1,6 +1,8 @@
 package org.hartz.hartz_backend.auth.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
