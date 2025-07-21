@@ -1,7 +1,7 @@
 package org.hartz.hartz_backend.user;
 
 import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
-import org.hartz.hartz_backend.plan.PlanType;
+import org.hartz.hartz_backend.common.enums.PlanType;
 import org.hartz.hartz_backend.user.dto.UserDTO;
 import org.hartz.hartz_backend.user.entity.UserEntity;
 import org.hartz.hartz_backend.user.model.User;

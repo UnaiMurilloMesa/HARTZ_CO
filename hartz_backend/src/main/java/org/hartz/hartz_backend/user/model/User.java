@@ -1,6 +1,6 @@
 package org.hartz.hartz_backend.user.model;
 
-import org.hartz.hartz_backend.plan.PlanType;
+import org.hartz.hartz_backend.common.enums.PlanType;
 
 import java.time.LocalDateTime;
 
