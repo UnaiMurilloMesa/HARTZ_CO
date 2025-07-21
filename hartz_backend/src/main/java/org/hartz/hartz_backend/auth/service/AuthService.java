@@ -4,9 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.hartz.hartz_backend.auth.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.auth.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
-import org.hartz.hartz_backend.user.UserMapper;
-import org.hartz.hartz_backend.user.model.User;
-import org.hartz.hartz_backend.user.persistence.JpaUserRepositoryAdapter;
+import org.hartz.hartz_backend.user.entity.User;
+import org.hartz.hartz_backend.user.persistence.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,22 +15,27 @@ public class AuthService {
 
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
-    private final JpaUserRepositoryAdapter jpaUserRepositoryAdapter;
+    private final UserRepository userRepository;
 
     public AuthResponseDTO register(RegisterRequestDTO requestDTO) {
-        User domainUser = UserMapper.toDomainUser(requestDTO, passwordEncoder);
-        User savedUser = jpaUserRepositoryAdapter.save(domainUser)
-                .orElseThrow(() -> new RuntimeException("Failed to save user"));
-        return new AuthResponseDTO(jwtService.generateToken(savedUser.email()));
+        User domainUser = User.builder()
+                .email(requestDTO.getEmail())
+                .username(requestDTO.getUsername())
+                .password(requestDTO.getPassword())
+                .mascot(requestDTO.getMascot())
+                .build();
+
+        User savedUser = userRepository.save(domainUser);
+        return new AuthResponseDTO(jwtService.generateToken(savedUser.getEmail()));
     }
 
     public AuthResponseDTO login(LoginRequestDTO requestDTO) {
-        User user = jpaUserRepositoryAdapter.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+        User user = userRepository.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
 
-        if (!passwordEncoder.matches(requestDTO.getPassword(), user.password())) {
+        if (!passwordEncoder.matches(requestDTO.getPassword(), user.getPassword())) {
             throw new RuntimeException("Wrong credentials");
         }
 
-        return new AuthResponseDTO(jwtService.generateToken(user.email()));
+        return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
     }
 }
