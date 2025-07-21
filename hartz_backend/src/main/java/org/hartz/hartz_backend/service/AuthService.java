@@ -1,20 +1,18 @@
 package org.hartz.hartz_backend.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.common.exception.EmailTakenException;
-import org.hartz.hartz_backend.common.exception.NotCorrectEmailFormatException;
-import org.hartz.hartz_backend.common.exception.PasswordTooShortException;
+import org.hartz.hartz_backend.common.exception.*;
 import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
 import org.hartz.hartz_backend.common.enums.PlanType;
-import org.hartz.hartz_backend.common.exception.UsernameTakenException;
 import org.hartz.hartz_backend.model.User;
 import org.hartz.hartz_backend.persistence.postgres.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -53,14 +51,18 @@ public class AuthService {
         return email != null && email.matches(regex);
     }
 
-    // TODO: Controlar errores para que no devuelva forbidden siempre
     public AuthResponseDTO login(LoginRequestDTO requestDTO) {
-        User user = userRepository.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
 
-        if (!passwordEncoder.matches(requestDTO.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Wrong credentials");
+        if (!userRepository.existsByEmail(requestDTO.getEmail())) {
+            throw new EmailNotFoundException();
         }
 
-        return new AuthResponseDTO(jwtService.generateToken(user.getUsername()));
+        Optional<User> user = userRepository.findByEmail(requestDTO.getEmail());
+
+        if (!passwordEncoder.matches(requestDTO.getPassword(), user.get().getPassword())) {
+            throw new PasswordDoesNotMatchEmailException();
+        }
+
+        return new AuthResponseDTO(jwtService.generateToken(user.get().getUsername()));
     }
 }

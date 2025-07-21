@@ -1,14 +1,11 @@
 package org.hartz.hartz_backend.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.common.exception.EmailTakenException;
-import org.hartz.hartz_backend.common.exception.NotCorrectEmailFormatException;
-import org.hartz.hartz_backend.common.exception.PasswordTooShortException;
+import org.hartz.hartz_backend.common.exception.*;
 import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
 import org.hartz.hartz_backend.service.AuthService;
-import org.hartz.hartz_backend.common.exception.UsernameTakenException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,7 +38,16 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponseDTO> login (@RequestBody LoginRequestDTO requestDTO) {
-        return ResponseEntity.ok(authService.login(requestDTO));
+    public ResponseEntity<Object> login (@RequestBody LoginRequestDTO requestDTO) {
+        try {
+            AuthResponseDTO responseDTO = authService.login(requestDTO);
+            return ResponseEntity.ok(responseDTO);
+        } catch (EmailNotFoundException e) {
+            return ResponseEntity.badRequest().body("Email not registered");
+        } catch (PasswordDoesNotMatchEmailException e) {
+            return ResponseEntity.badRequest().body("Password does not match with email");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }
