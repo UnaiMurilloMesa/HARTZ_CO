@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.hartz.hartz_backend.auth.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.auth.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
+import org.hartz.hartz_backend.common.enums.PlanType;
 import org.hartz.hartz_backend.user.entity.User;
 import org.hartz.hartz_backend.user.persistence.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +24,7 @@ public class AuthService {
                 .username(requestDTO.getUsername())
                 .password(requestDTO.getPassword())
                 .mascot(requestDTO.getMascot())
+                .planType(PlanType.BASIC)
                 .build();
 
         User savedUser = userRepository.save(domainUser);
