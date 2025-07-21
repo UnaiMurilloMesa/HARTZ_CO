@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.plan;
+package org.hartz.hartz_backend.common.enums;
 
 public enum PlanType {
     BASIC,

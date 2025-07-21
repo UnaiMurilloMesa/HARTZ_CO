@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.hartz.hartz_backend.auth.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.auth.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
-import org.hartz.hartz_backend.auth.jwt.JwtService;
 import org.hartz.hartz_backend.user.UserMapper;
 import org.hartz.hartz_backend.user.model.User;
 import org.hartz.hartz_backend.user.persistence.JpaUserRepositoryAdapter;

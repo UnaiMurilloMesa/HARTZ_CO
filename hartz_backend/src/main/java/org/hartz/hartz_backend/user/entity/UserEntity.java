@@ -2,7 +2,7 @@ package org.hartz.hartz_backend.user.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hartz.hartz_backend.plan.PlanType;
+import org.hartz.hartz_backend.common.enums.PlanType;
 
 import java.time.LocalDateTime;
 

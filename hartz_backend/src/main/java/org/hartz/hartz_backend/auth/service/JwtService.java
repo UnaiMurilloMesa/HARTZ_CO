@@ -1,12 +1,10 @@
-package org.hartz.hartz_backend.auth.jwt;
+package org.hartz.hartz_backend.auth.service;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import java.security.Key;
 import java.util.Date;
 
 @Service
