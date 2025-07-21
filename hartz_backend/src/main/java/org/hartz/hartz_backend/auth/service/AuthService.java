@@ -38,9 +38,10 @@ public class AuthService {
 
         userRepository.save(user);
 
-        return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
+        return new AuthResponseDTO(jwtService.generateToken(user.getUsername()));
     }
 
+    // TODO: Controlar errores para que no devuelva forbidden siempre
     public AuthResponseDTO login(LoginRequestDTO requestDTO) {
         User user = userRepository.findByEmail(requestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -48,6 +49,6 @@ public class AuthService {
             throw new RuntimeException("Wrong credentials");
         }
 
-        return new AuthResponseDTO(jwtService.generateToken(user.getEmail()));
+        return new AuthResponseDTO(jwtService.generateToken(user.getUsername()));
     }
 }
