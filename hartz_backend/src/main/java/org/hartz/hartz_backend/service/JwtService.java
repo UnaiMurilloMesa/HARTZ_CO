@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.auth.service;
+package org.hartz.hartz_backend.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

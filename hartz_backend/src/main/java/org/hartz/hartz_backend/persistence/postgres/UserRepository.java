@@ -1,6 +1,6 @@
-package org.hartz.hartz_backend.user.persistence;
+package org.hartz.hartz_backend.persistence.postgres;
 
-import org.hartz.hartz_backend.user.entity.User;
+import org.hartz.hartz_backend.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,11 +1,11 @@
-package org.hartz.hartz_backend.auth.security;
+package org.hartz.hartz_backend.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.hartz.hartz_backend.auth.service.CustomUserDetailsService;
-import org.hartz.hartz_backend.auth.service.JwtService;
+import org.hartz.hartz_backend.service.CustomUserDetailsService;
+import org.hartz.hartz_backend.service.JwtService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

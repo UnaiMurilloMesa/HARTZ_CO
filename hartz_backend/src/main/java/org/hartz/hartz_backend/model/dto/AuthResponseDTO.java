@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.auth.dto;
+package org.hartz.hartz_backend.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

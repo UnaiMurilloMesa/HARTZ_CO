@@ -1,14 +1,13 @@
-package org.hartz.hartz_backend.auth.service;
+package org.hartz.hartz_backend.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.auth.dto.AuthResponseDTO;
-import org.hartz.hartz_backend.auth.dto.LoginRequestDTO;
-import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
+import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
+import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
+import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
 import org.hartz.hartz_backend.common.enums.PlanType;
 import org.hartz.hartz_backend.common.exception.UsernameTakenException;
-import org.hartz.hartz_backend.user.entity.User;
-import org.hartz.hartz_backend.user.persistence.UserRepository;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.hartz.hartz_backend.model.User;
+import org.hartz.hartz_backend.persistence.postgres.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

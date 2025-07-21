@@ -1,14 +1,11 @@
-package org.hartz.hartz_backend.auth.controller;
+package org.hartz.hartz_backend.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
-import org.hartz.hartz_backend.auth.dto.AuthResponseDTO;
-import org.hartz.hartz_backend.auth.dto.LoginRequestDTO;
-import org.hartz.hartz_backend.auth.dto.RegisterRequestDTO;
-import org.hartz.hartz_backend.auth.service.AuthService;
+import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
+import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
+import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
+import org.hartz.hartz_backend.service.AuthService;
 import org.hartz.hartz_backend.common.exception.UsernameTakenException;
-import org.hartz.hartz_backend.user.entity.User;
-import org.hibernate.Internal;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,6 +1,6 @@
 package org.hartz.hartz_backend.config;
 
-import org.hartz.hartz_backend.auth.security.JwtFilter;
+import org.hartz.hartz_backend.security.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
