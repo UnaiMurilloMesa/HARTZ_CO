@@ -1,7 +1,7 @@
 package org.hartz.hartz_backend;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.hartz.hartz_backend.common.enums.PlanType;
+import org.hartz.hartz_backend.model.User.PlanType;
 import org.hartz.hartz_backend.model.User;
 import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;

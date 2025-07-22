@@ -1,12 +1,17 @@
 package org.hartz.hartz_backend.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.common.exception.*;
+import org.hartz.hartz_backend.common.exception.EmailNotFoundException;
+import org.hartz.hartz_backend.common.exception.EmailTakenException;
+import org.hartz.hartz_backend.common.exception.NotCorrectEmailFormatException;
+import org.hartz.hartz_backend.common.exception.PasswordDoesNotMatchEmailException;
+import org.hartz.hartz_backend.common.exception.PasswordTooShortException;
+import org.hartz.hartz_backend.common.exception.UsernameTakenException;
+import org.hartz.hartz_backend.model.User;
+import org.hartz.hartz_backend.model.User.PlanType;
 import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
-import org.hartz.hartz_backend.common.enums.PlanType;
-import org.hartz.hartz_backend.model.User;
 import org.hartz.hartz_backend.persistence.postgres.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

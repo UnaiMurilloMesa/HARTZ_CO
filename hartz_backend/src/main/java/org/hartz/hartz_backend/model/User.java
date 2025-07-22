@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hartz.hartz_backend.common.enums.PlanType;
 
 import java.time.LocalDateTime;
 
@@ -21,6 +20,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
+    public enum PlanType { BASIC, PREMIUM }
 
     @Id
     @Column(nullable = false, unique = true)
