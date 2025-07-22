@@ -15,7 +15,7 @@ import org.hartz.hartz_backend.common.enums.PlanType;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 @Data
 @Builder
 @NoArgsConstructor
