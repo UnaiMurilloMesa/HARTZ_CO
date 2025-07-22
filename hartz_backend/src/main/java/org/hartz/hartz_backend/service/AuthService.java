@@ -1,18 +1,19 @@
 package org.hartz.hartz_backend.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.common.exception.EmailNotFoundException;
-import org.hartz.hartz_backend.common.exception.EmailTakenException;
-import org.hartz.hartz_backend.common.exception.NotCorrectEmailFormatException;
-import org.hartz.hartz_backend.common.exception.PasswordDoesNotMatchEmailException;
-import org.hartz.hartz_backend.common.exception.PasswordTooShortException;
-import org.hartz.hartz_backend.common.exception.UsernameTakenException;
+import org.hartz.hartz_backend.exception.EmailNotFoundException;
+import org.hartz.hartz_backend.exception.EmailTakenException;
+import org.hartz.hartz_backend.exception.NotCorrectEmailFormatException;
+import org.hartz.hartz_backend.exception.PasswordDoesNotMatchEmailException;
+import org.hartz.hartz_backend.exception.PasswordTooShortException;
+import org.hartz.hartz_backend.exception.UsernameTakenException;
 import org.hartz.hartz_backend.model.User;
 import org.hartz.hartz_backend.model.User.PlanType;
 import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
 import org.hartz.hartz_backend.persistence.postgres.UserRepository;
+import org.hartz.hartz_backend.persistence.postgres.UserRepositoryAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UserRepository userRepository;
+    private final UserRepositoryAdapter userRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
 

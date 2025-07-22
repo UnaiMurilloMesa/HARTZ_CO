@@ -2,6 +2,7 @@ package org.hartz.hartz_backend.service;
 
 import org.hartz.hartz_backend.model.User;
 import org.hartz.hartz_backend.persistence.postgres.UserRepository;
+import org.hartz.hartz_backend.persistence.postgres.UserRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,10 +14,10 @@ import java.util.List;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private UserRepositoryAdapter userRepository;
 
     @Autowired
-    public CustomUserDetailsService(UserRepository userRepository) {
+    public CustomUserDetailsService(UserRepositoryAdapter userRepository) {
         this.userRepository = userRepository;
     }
 
