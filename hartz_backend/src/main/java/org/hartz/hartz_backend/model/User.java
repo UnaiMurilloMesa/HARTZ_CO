@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "user")
+@Table(name = "customer") // No se puede llamar user ya que es palabra reservada sql
 @Data
 @Builder
 @NoArgsConstructor
