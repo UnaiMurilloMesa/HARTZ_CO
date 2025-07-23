@@ -6,11 +6,14 @@ import lombok.NoArgsConstructor;
 import org.hartz.hartz_backend.model.User;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserInfoDTO {
     private String username;
     private String mascot;
+
+    private UserInfoDTO(String username, String mascot) {
+        this.username = username;
+        this.mascot = mascot;
+    }
 
     public static UserInfoDTO toDTO(User user) {
         return new UserInfoDTO(user.getUsername(), user.getMascot());

@@ -1,9 +1,9 @@
 package org.hartz.hartz_backend.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.hartz.hartz_backend.model.User;
 import org.hartz.hartz_backend.model.dto.UserInfoDTO;
 import org.hartz.hartz_backend.persistence.postgres.UserRepositoryAdapter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,9 +14,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
-@RequiredArgsConstructor
 public class UserController {
     private final UserRepositoryAdapter userRepository;
+
+    @Autowired
+    public UserController(UserRepositoryAdapter userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/email/{email}")
     public ResponseEntity<UserInfoDTO> getUserByEmail(@PathVariable String email) {
