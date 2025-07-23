@@ -21,7 +21,7 @@ public class UserRepositoryAdapter {
     }
 
     public Optional<User> findByUsername(String username) {
-        return userRepository.findByUsername(username);
+        return userRepository.findById(username);
     }
 
     public boolean existsByEmail(String email) {
