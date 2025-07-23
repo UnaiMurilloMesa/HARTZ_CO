@@ -25,7 +25,7 @@ public class SecurityConfig {
     @Order(1)
     public SecurityFilterChain openEndpoints(HttpSecurity http) throws Exception {
         return http
-                .securityMatcher("/api/auth/**", "/import/**")
+                .securityMatcher("/api/auth/**", "/import/**") // Temporal hasta haber pasado el ETL de exercise, eliminar /import despues
                 .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
                 .csrf(csrf -> csrf.disable())
                 .build();
