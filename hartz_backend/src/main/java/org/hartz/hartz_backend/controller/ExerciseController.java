@@ -2,7 +2,7 @@ package org.hartz.hartz_backend.controller;
 
 import org.hartz.hartz_backend.model.Exercise;
 import org.hartz.hartz_backend.model.dto.ExerciseDTO;
-import org.hartz.hartz_backend.persistence.postgres.ExerciseRepositoryAdapter;
+import org.hartz.hartz_backend.persistence.postgre.ExerciseRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,12 +1,12 @@
 package org.hartz.hartz_backend.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.exception.EmailNotFoundException;
-import org.hartz.hartz_backend.exception.EmailTakenException;
-import org.hartz.hartz_backend.exception.NotCorrectEmailFormatException;
-import org.hartz.hartz_backend.exception.PasswordDoesNotMatchEmailException;
-import org.hartz.hartz_backend.exception.PasswordTooShortException;
-import org.hartz.hartz_backend.exception.UsernameTakenException;
+import org.hartz.hartz_backend.exception.userExceptions.EmailNotFoundException;
+import org.hartz.hartz_backend.exception.userExceptions.EmailTakenException;
+import org.hartz.hartz_backend.exception.userExceptions.NotCorrectEmailFormatException;
+import org.hartz.hartz_backend.exception.userExceptions.PasswordDoesNotMatchEmailException;
+import org.hartz.hartz_backend.exception.userExceptions.PasswordTooShortException;
+import org.hartz.hartz_backend.exception.userExceptions.UsernameTakenException;
 import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
 import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
 import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;

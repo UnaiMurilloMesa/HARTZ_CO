@@ -3,6 +3,7 @@ package org.hartz.hartz_backend.service;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,8 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    private static final String SECRET = "dGhpc2lzYXZlcnlzZWN1cmVzZWNyZXRrZXl0aGF0aXNtb3JldGhhbjI1NmJpdHNsb25nZm9ySldUc2lnbmluZw"; // TODO: exportar a variable de entorno
+    @Value("${jwt.secret}")
+    private static String SECRET;
     private static final long EXPIRATION = 86400000; // 1 día
 
     private SecretKey getSignKey() {
