@@ -10,10 +10,9 @@ import org.hartz.hartz_backend.model.User;
 @AllArgsConstructor
 public class UserInfoDTO {
     private String username;
-    private String email;
     private String mascot;
 
     public static UserInfoDTO toDTO(User user) {
-        return new UserInfoDTO(user.getUsername(), user.getEmail(), user.getMascot());
+        return new UserInfoDTO(user.getUsername(), user.getMascot());
     }
 }
