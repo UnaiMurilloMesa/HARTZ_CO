@@ -15,7 +15,7 @@ import java.util.Date;
 public class JwtService {
 
     @Value("${jwt.secret}")
-    private static String SECRET;
+    private String SECRET;
     private static final long EXPIRATION = 86400000; // 1 día
 
     private SecretKey getSignKey() {
