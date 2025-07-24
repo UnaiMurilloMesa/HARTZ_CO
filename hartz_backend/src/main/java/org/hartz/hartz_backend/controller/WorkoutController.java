@@ -3,7 +3,7 @@ package org.hartz.hartz_backend.controller;
 import lombok.RequiredArgsConstructor;
 import org.hartz.hartz_backend.model.Workout;
 import org.hartz.hartz_backend.model.dto.WorkoutDTO;
-import org.hartz.hartz_backend.persistence.postgre.WorkoutRepositoryAdapter;
+import org.hartz.hartz_backend.persistence.mongo.WorkoutRepositoryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
