@@ -3,6 +3,7 @@ package org.hartz.hartz_backend.model.dto;
 import lombok.Data;
 import org.hartz.hartz_backend.model.Workout;
 
+import java.time.ZoneId;
 import java.util.List;
 
 @Data
@@ -29,9 +30,9 @@ public class WorkoutDTO {
         return new WorkoutDTO(
                 workout.getName(),
                 workout.getDescription(),
-                workout.getUsername(),
+                workout.getUser().getUsername(),
                 exerciseDTOs,
-                workout.getDate()
+                workout.getDate().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli()/1000
         );
     }
 
