@@ -1,6 +1,6 @@
 [
     {
-        "exercise_name": "Barbell Back Squat",
+        "exercise_name": "Barbell back squat",
         "difficulty_level": "Intermediate",
         "muscle_group": [
             "Quadriceps",
@@ -13,7 +13,7 @@
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Conventional Deadlift",
+        "exercise_name": "Conventional deadlift",
         "difficulty_level": "Advanced",
         "muscle_group": [
             "Glutes",
@@ -27,7 +27,7 @@
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Barbell Bench Press",
+        "exercise_name": "Barbell bench press",
         "difficulty_level": "Intermediate",
         "muscle_group": [
             "Pectoralis major",
@@ -41,7 +41,7 @@
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Barbell Row",
+        "exercise_name": "Barbell row",
         "difficulty_level": "Intermediate",
         "muscle_group": [
             "Lats",
@@ -55,7 +55,7 @@
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Machine Row (Neutral Grip)",
+        "exercise_name": "Machine row (Neutral grip)",
         "difficulty_level": "Beginner",
         "muscle_group": [
             "Lats",
@@ -69,7 +69,7 @@
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Cardio Rowing Machine",
+        "exercise_name": "Rowing machine",
         "difficulty_level": "Beginner",
         "muscle_group": [
             "Lats",
@@ -84,21 +84,21 @@
         "exercise_type": "cardio"
     },
     {
-        "exercise_name": "Dumbbell Shoulder Press",
+        "exercise_name": "Dumbbell shoulder press",
         "difficulty_level": "Beginner",
         "muscle_group": [
             "Anterior deltoid",
             "Lateral deltoid",
             "Triceps"
         ],
-        "equipment": "Dumbbells",
+        "equipment": "Dumbbell",
         "unilateral": false,
         "grip_type": "Neutral",
         "body_region": "Upper",
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Smith Machine Shoulder Press",
+        "exercise_name": "Smith machine shoulder press",
         "difficulty_level": "Intermediate",
         "muscle_group": [
             "Anterior deltoid",
@@ -111,7 +111,7 @@
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Thrusters with Barbell",
+        "exercise_name": "Thrusters with barbell",
         "difficulty_level": "Intermediate",
         "muscle_group": [
             "Quadriceps",
@@ -126,8 +126,8 @@
         "exercise_type": "gym_time"
     },
     {
-        "exercise_name": "Pull-Ups (Pronated)",
-        "difficulty_level": "Advanced",
+        "exercise_name": "Pull-Ups",
+        "difficulty_level": "Intermediate",
         "muscle_group": [
             "Lats",
             "Biceps",
@@ -140,7 +140,7 @@
         "exercise_type": "body_reps"
     },
     {
-        "exercise_name": "Clean and Jerk",
+        "exercise_name": "Clean and jerk",
         "difficulty_level": "Advanced",
         "muscle_group": [
             "Trapezius",
@@ -155,7 +155,7 @@
         "exercise_type": "gym_reps"
     },
     {
-        "exercise_name": "Box Jump",
+        "exercise_name": "Box jump",
         "difficulty_level": "Intermediate",
         "muscle_group": [
             "Quadriceps",
@@ -181,6 +181,2540 @@
         "unilateral": false,
         "grip_type": "Pronated",
         "body_region": "Fullbody",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Russian twist (Weighted)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Plate",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline bench crunches (Weighted)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline bench crunches",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell side bends",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Scissor abs",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Abdominal wheel",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Abdominal wheel",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bicycle crunches",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bicycle crunches with raised legs",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable core palloff press",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Machine",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable crunches",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Cable",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable twist (Up to down)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Cable",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable twist (Down to up)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Cable",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated crunches",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated crunches (Weighted)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated crunches (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dead bug",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dragon flag",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Knees to elbows",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Leg flapping",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Knee raises",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Bar",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Leg raises",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Bar",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Heel touch",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Hollow rock",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Jack knife",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Box",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "V-ups",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Knees to chest",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Parallel bars",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Sustained L-sit",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Parallel bars",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "L-sit",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Parallel bars",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Landmine 180",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Barbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Oblique abdominal",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Plank",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Weighted plank",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abs"
+        ],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Hip abduction",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Abductors"
+        ],
+        "equipment": "Machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Hip adduction",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Adductors"
+        ],
+        "equipment": "Machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Behind the back bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Forearm"
+        ],
+        "equipment": "Bar",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Palms-up wrist curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Forearm"
+        ],
+        "equipment": "Bar",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Palms-down wrist curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Forearm"
+        ],
+        "equipment": "Bar",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Forearm roller",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Forearm"
+        ],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bar bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Bar",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Cable",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Machine bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Machine",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable hammer bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Cable",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell hammer bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Machine hammer bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Z-bar hammer bicep curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Z-bar",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Preacher curl (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Preacher curl (Dumbbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Preacher curl (Machine)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Machine",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Spider curl (Dumbbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Spider curl (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline bench bicep curl",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Overhead curl",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Cable",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Plate curl",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Cable",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Inverted curl",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Inverted curl (Dumbbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Concentration curl",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Biceps",
+            "Forearm"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Air bike",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Fullbody"
+        ],
+        "equipment": "Air bike",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Fullbody",
+        "exercise_type": "cardio"
+    },
+    {
+        "exercise_name": "Stairs machine",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Fullbody"
+        ],
+        "equipment": "Stairs machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Fullbody",
+        "exercise_type": "cardio"
+    },
+    {
+        "exercise_name": "Running",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Fullbody"
+        ],
+        "equipment": "Treadmill",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Fullbody",
+        "exercise_type": "cardio"
+    },
+    {
+        "exercise_name": "Stationary bike",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Fullbody"
+        ],
+        "equipment": "Stationary bike",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Fullbody",
+        "exercise_type": "cardio"
+    },
+    {
+        "exercise_name": "Assisted pistol squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Pistol squat",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Weighted pistol squat",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes"
+        ],
+        "equipment": "Plate",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bulgarian split squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell lunge",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell step",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell front squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell front squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Goblet squat",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Hack squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "Hack squat",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Jump squat",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lateral lunge",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings",
+            "Abductors"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lunges",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Pendulum squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "Pendulum squat",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Leg extension",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Quadriceps"
+        ],
+        "equipment": "Leg extension machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Leg press",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Leg press",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated leg press",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Leg press machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Paused barbell back squat",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell inverted lunges",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Barbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Inverted lunges",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Quadriceps",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Unilateral leg extension",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Quadriceps"
+        ],
+        "equipment": "Leg extension machine",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Sissy squat",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Quadriceps"
+        ],
+        "equipment": "Bench",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Back squat (Smith machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Quadriceps",
+            "Hamstrings",
+            "Glutes"
+        ],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Front squat (Smith machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Quadriceps"
+        ],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Step up",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Box",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Sumo squat",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell sumo squat",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell sumo squat",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Wall sit",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Zercher squat",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Glutes",
+            "Quadriceps",
+            "Hamstrings"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lying neck curls",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Neck"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lying neck extensions",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Neck"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lying neck curls (Weighted)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Neck"
+        ],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lying neck extensions (Weighted)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Neck"
+        ],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lat pulldowns (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats"
+        ],
+        "equipment": "Lat pulldown machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Chin ups (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lower back"
+        ],
+        "equipment": "Lat pulldown machine",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Neutral pulldowns (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats"
+        ],
+        "equipment": "Lat pulldown machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Wide lat pulldowns (Machine)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats"
+        ],
+        "equipment": "Lat pulldown machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Chin ups",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats"
+        ],
+        "equipment": "Pull-up bar",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell row (Unilateral)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Biceps"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Assisted pull-ups",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Biceps"
+        ],
+        "equipment": "Assisted pull-up machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Assisted chin-ups",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Biceps"
+        ],
+        "equipment": "Assisted pull-up machine",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "High row (Iso-lateral)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Trapezius",
+            "Rhomboids"
+        ],
+        "equipment": "Iso-lateral high row machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Negative pull-ups",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Biceps"
+        ],
+        "equipment": "Pull-up bar",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Band-assisted pull-ups",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Biceps"
+        ],
+        "equipment": "Pull-up bar",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Weighted pull-ups",
+        "difficulty_level": "Advanced",
+        "muscle_group": [
+            "Lats",
+            "Biceps"
+        ],
+        "equipment": "Pull-up bar",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable pullover",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats"
+        ],
+        "equipment": "Cable",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Machine pullover",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats"
+        ],
+        "equipment": "Pullover machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable pullover (Unilateral)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Lats"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Back extension (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lower back",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Back extension machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Back extension (Weighted)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lower back",
+            "Glutes",
+            "Hamstrings"
+        ],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Superman holds",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lower back",
+            "Glutes"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Superman",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lower back",
+            "Glutes"
+        ],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated row (Machine, wide grip)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Seated row machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated cable row",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bent-over barbell row",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Lower back"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bent-over dumbbell row",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Lower back"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Chest-supported dumbbell row",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Trapezius"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dead hang",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Forearms",
+            "Shoulders",
+            "Lats"
+        ],
+        "equipment": "Pull-up bar",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_time"
+    },
+    {
+        "exercise_name": "Gorilla row (Dumbbells)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Inverted row",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Supinated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Low row (Iso-lateral)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Iso-lateral low row machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Landmine row (T-bar row)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Lower back"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Rack pull",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lower back",
+            "Glutes",
+            "Hamstrings",
+            "Trapezius"
+        ],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Scapular pull-ups",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Trapezius",
+            "Lats",
+            "Rhomboids"
+        ],
+        "equipment": "Pull-up bar",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated cable row (Wide grip)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated cable row (V-grip)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Biceps"
+        ],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "T-bar row",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Lats",
+            "Rhomboids",
+            "Lower back"
+        ],
+        "equipment": "T-bar",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Calf extension (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Calves"
+        ],
+        "equipment": "Calf raise machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Calf press (Leg press machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Calves"
+        ],
+        "equipment": "Leg press machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated calf raise",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Calves"
+        ],
+        "equipment": "Seated calf raise machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Single-leg calf raise",
+        "difficulty_level": "Beginner",
+        "muscle_group": [
+            "Calves"
+        ],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Single-leg calf raise (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": [
+            "Calves"
+        ],
+        "equipment": "Barbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Single-leg calf raise (Dumbbell)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Calves"],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Standing calf raise (Smith machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Calves"],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Standing calf raise (Dumbbells)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Calves"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Single-leg calf raise (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Calves"],
+        "equipment": "Calf raise machine",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Sumo deadlift",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Glutes", "Hamstrings", "Quadriceps", "Lower back"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Mixed",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable glute kickback",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Glutes", "Hamstrings"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Glute kickback (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Glutes", "Hamstrings"],
+        "equipment": "Glute kickback machine",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Single-leg hip thrust (Dumbbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Glutes", "Hamstrings"],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Reverse hyperextension (Glute focus)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Glutes", "Lower back", "Hamstrings"],
+        "equipment": "Reverse hyperextension machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable lateral leg raise",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Gluteus medius", "Hip abductors"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lateral band walk",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Gluteus medius", "Hip abductors"],
+        "equipment": "Resistance band",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell hip thrust",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Glutes", "Hamstrings"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bodyweight hip thrust",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Glutes", "Hamstrings"],
+        "equipment": "Bench",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Donkey kick (Bodyweight)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Glutes"],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Frog pumps (Dumbbell)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Glutes"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Trap bar deadlift",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Glutes", "Hamstrings", "Quadriceps", "Lower back"],
+        "equipment": "Trap bar",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Smith machine deadlift",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Glutes", "Hamstrings", "Lower back"],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell deadlift",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Glutes", "Hamstrings", "Lower back"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable pull-through",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Glutes", "Hamstrings"],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell shoulder press",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Deltoids", "Triceps"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell shoulder press",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Deltoids", "Triceps"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Machine shoulder press",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Deltoids", "Triceps"],
+        "equipment": "Shoulder press machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Arnold press (Dumbbells)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Deltoids", "Triceps"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Supinated to Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Rear delt fly (Dumbbells)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Rear deltoids", "Trapezius"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Rear delt fly (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Rear deltoids", "Trapezius"],
+        "equipment": "Rear delt machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Face pull",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Rear deltoids", "Trapezius", "Rotator cuff"],
+        "equipment": "Cable",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Front raise (Cable)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Front deltoids"],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Front raise (Dumbbells)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Front deltoids"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lateral raise (Cable)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Lateral deltoids"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lateral raise (Dumbbells)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Lateral deltoids"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lateral raise (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Lateral deltoids"],
+        "equipment": "Lateral raise machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Pike push-up",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Deltoids", "Triceps", "Upper chest"],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Military press (Smith machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Deltoids", "Triceps"],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Romanian deadlift (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Hamstrings", "Glutes", "Lower back"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Overhand or Mixed",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Romanian deadlift (Dumbbells)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Hamstrings", "Glutes", "Lower back"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Lying leg curl (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Hamstrings"],
+        "equipment": "Leg curl machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Nordic hamstring curl",
+        "difficulty_level": "Advanced",
+        "muscle_group": ["Hamstrings"],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Single-leg Romanian deadlift (Dumbbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Hamstrings", "Glutes", "Core"],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Seated leg curl (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Hamstrings"],
+        "equipment": "Seated leg curl machine",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Lower",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline bench press (Dumbbells)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline bench press (Barbell)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Flat bench press (Dumbbells)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Chest fly (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest"],
+        "equipment": "Pec deck",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Chest fly (Dumbbells)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline bench press (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Incline chest press machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Flat bench press (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Chest press machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Push-ups (Bodyweight)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Core"],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Flat bench press (Wide grip, Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Wide pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Flat bench press (Smith machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline bench press (Smith machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable chest fly (Crossover)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Chest"],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Parallel bar dips (Bodyweight)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Parallel bars",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Weighted dips (Parallel bars)",
+        "difficulty_level": "Advanced",
+        "muscle_group": ["Chest", "Triceps", "Front deltoids"],
+        "equipment": "Parallel bars",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Decline bench press (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Chest", "Triceps"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Decline bench press (Dumbbells)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Chest", "Triceps"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Hex press (Single Dumbbell)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Incline push-ups (Box or Bench)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Chest", "Triceps", "Shoulders"],
+        "equipment": "Box",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "One-arm push-up",
+        "difficulty_level": "Advanced",
+        "muscle_group": ["Chest", "Triceps", "Core"],
+        "equipment": "N/A",
+        "unilateral": true,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Unilateral cable chest fly",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Chest"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Weighted push-ups (Floor)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Chest", "Triceps", "Core"],
+        "equipment": "Plate",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Barbell shrugs",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Trapezius"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Dumbbell shrugs",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Trapezius"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Cable shrugs",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Trapezius"],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Machine shrugs",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Trapezius"],
+        "equipment": "Shrug machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Smith machine shrugs",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Trapezius"],
+        "equipment": "Smith machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Bench dips (Bodyweight)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps", "Chest", "Shoulders"],
+        "equipment": "Bench",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Close-grip bench press (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Triceps", "Chest", "Front deltoids"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Close pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Diamond push-ups",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps", "Chest", "Core"],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "N/A",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Triceps floor dips",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps", "Chest"],
+        "equipment": "N/A",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "JM press (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Triceps", "Chest", "Front deltoids"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Machine dips",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps", "Chest", "Shoulders"],
+        "equipment": "Dip machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "One-arm dumbbell triceps extension",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps"],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "One-arm cable triceps extension",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "French press (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Triceps"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "French press (Dumbbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Triceps"],
+        "equipment": "Dumbbell",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Assisted machine dips (Triceps)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps", "Chest", "Shoulders"],
+        "equipment": "Assisted dip machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Overhead triceps extension (Barbell)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Triceps"],
+        "equipment": "Barbell",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "One-arm overhead triceps extension (Cable)",
+        "difficulty_level": "Intermediate",
+        "muscle_group": ["Triceps"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Triceps extension (Machine)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps"],
+        "equipment": "Triceps extension machine",
+        "unilateral": false,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Triceps kickback (Cable)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps"],
+        "equipment": "Cable machine",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Triceps kickback (Dumbbell)",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps"],
+        "equipment": "Dumbbell",
+        "unilateral": true,
+        "grip_type": "Neutral",
+        "body_region": "Upper",
+        "exercise_type": "gym_reps"
+    },
+    {
+        "exercise_name": "Two-hand cable triceps pushdown",
+        "difficulty_level": "Beginner",
+        "muscle_group": ["Triceps"],
+        "equipment": "Cable machine",
+        "unilateral": false,
+        "grip_type": "Pronated",
+        "body_region": "Upper",
         "exercise_type": "gym_reps"
     }
 ]
