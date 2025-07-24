@@ -22,6 +22,8 @@ public class Workout {
 
     private Long date;
 
+    private boolean isRoutine;
+
     private List<Exercise> exercises;
 
 }
