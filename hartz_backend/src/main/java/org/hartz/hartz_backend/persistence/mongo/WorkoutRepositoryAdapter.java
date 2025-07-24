@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Component
 public class WorkoutRepositoryAdapter {
-    WorkoutRepository workoutRepository;
+    private WorkoutRepository workoutRepository;
 
     @Autowired
     public WorkoutRepositoryAdapter(WorkoutRepository workoutRepository) {

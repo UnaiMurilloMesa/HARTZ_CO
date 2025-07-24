@@ -38,12 +38,10 @@ public class User {
     private PlanType planType;
 
     private String mascot;
-
     private Double height;
     private Double weight;
     private Integer age;
     private String profilePicture;
-
     private LocalDateTime createdAt;
 
 }

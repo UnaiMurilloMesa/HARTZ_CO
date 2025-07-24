@@ -9,10 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * IMPORTANT! Queremos guardar, por cada SetExercise, tanto el objeto Exercise como su nombre.
- * En ese momento habrá que crear converters para serializar y deserializar desde mongo.
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,11 +17,11 @@ public class Workout {
 
     @Id
     private Long id;
-    private User user;
+    private String username;
     private String name;
     private String description;
     private LocalDateTime date;
     private boolean isRoutine;
-    private List<Exercise> exercises;
+    private List<String> exerciseNames;
 
 }
