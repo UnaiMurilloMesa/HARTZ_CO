@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.persistence.postgres;
+package org.hartz.hartz_backend.persistence.postgre;
 
 import org.hartz.hartz_backend.model.Workout;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +27,8 @@ public class WorkoutRepositoryAdapter {
         return workoutRepository.findByUserID(userId);
     }
 
-    public boolean existsByName(String name) {
+    public boolean existsByName(String name) { // Si son únicos
         return workoutRepository.existsByName(name);
-    }
-
-    public boolean existsByUser(String userId) {
-        return workoutRepository.existsByUserID(userId);
     }
 
 

@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.persistence.postgres;
+package org.hartz.hartz_backend.persistence.postgre;
 
 import org.hartz.hartz_backend.model.Workout;
 import org.springframework.data.mongodb.repository.MongoRepository;
