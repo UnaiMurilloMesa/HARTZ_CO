@@ -1,9 +1,10 @@
-package org.hartz.hartz_backend.persistence.postgres;
+package org.hartz.hartz_backend.persistence.mongo;
 
 import org.hartz.hartz_backend.model.Workout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -19,22 +20,7 @@ public class WorkoutRepositoryAdapter {
         return workoutRepository.findById(id);
     }
 
-    public Optional<Workout> findByName(String name) {
-        return workoutRepository.findByName(name);
+    public List<Workout> findByUsername(String username) {
+        return workoutRepository.findByUsername(username);
     }
-
-    public Optional<Workout> findByUser(String userId) {
-        return workoutRepository.findByUserID(userId);
-    }
-
-    public boolean existsByName(String name) {
-        return workoutRepository.existsByName(name);
-    }
-
-    public boolean existsByUser(String userId) {
-        return workoutRepository.existsByUserID(userId);
-    }
-
-
-
 }
