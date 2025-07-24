@@ -4,6 +4,7 @@ import org.hartz.hartz_backend.model.Workout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -19,18 +20,7 @@ public class WorkoutRepositoryAdapter {
         return workoutRepository.findById(id);
     }
 
-    public Optional<Workout> findByName(String name) {
-        return workoutRepository.findByName(name);
+    public List<Workout> findByUserName(String userName) {
+        return workoutRepository.findByUsername(userName);
     }
-
-    public Optional<Workout> findByUser(String userId) {
-        return workoutRepository.findByUserID(userId);
-    }
-
-    public boolean existsByName(String name) { // Si son únicos
-        return workoutRepository.existsByName(name);
-    }
-
-
-
 }
