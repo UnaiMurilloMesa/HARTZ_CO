@@ -8,9 +8,6 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.PostLoad;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,12 +23,20 @@ import java.util.List;
 public class Exercise {
 
     public enum DifficultyLevel { INTERMEDIATE, ADVANCED, BEGINNER }
-    public enum GripType { PRONATED, NA, NEUTRAL } // TODO: completar
-    public enum BodyRegion { LOWER, UPPER, FULLBODY } //TODO: completar
-    public enum Equipment { BARBELL, PLYO_BOX, PULLUP_BAR, SMITH_MACHINE, DUMBBELLS, ROWING_MACHINE, MACHINE } // TODO: completar
+    public enum GripType { PRONATED, NEUTRAL, SUPINATED, MIXED, SUPINATED_TO_PRONATED, WIDE_PRONATED, CLOSE_PRONATED }
+    public enum BodyRegion { LOWER, UPPER, FULLBODY }
+    public enum Equipment { BARBELL, PLYO_BOX, PULLUP_BAR, SMITH_MACHINE, DUMBBELL, ROWING_MACHINE, MACHINE, PLATE,
+        ABDOMINAL_WHEEL, CABLE, BAR, BOX, PARALLEL_BARS, Z_BAR, AIR_BIKE, STAIRS_MACHINE, TREADMILL, STATIONARY_BIKE,
+        HACK_SQUAT, PENDULUM_SQUAT, LEG_EXTENSION_MACHINE, LEG_PRESS, LEG_PRESS_MACHINE, BENCH, LAT_PULLDOWN_MACHINE,
+        ASSISTED_PULLUP_MACHINE, ISO_LATERAL_ROW_MACHINE, PULLOVER_MACHINE, BACK_EXTENSION_MACHINE,
+        SEATED_ROW_MACHINE, T_BAR, CALF_RAISE_MACHINE, SEATED_CALF_RAISE_MACHINE, GLUTE_KICKBACK_MACHINE,
+        REVERSE_HYPEREXTENSION_MACHINE, RESISTANCE_BAND, TRAP_BAR, SHOULDER_PRESS_MACHINE, REAR_DELT_MACHINE,
+        LATERAL_RAISE_MACHINE, LEG_CURL_MACHINE, SEATED_LEG_CURL_MACHINE, PEC_DECK, INCLINE_CHEST_PRESS_MACHINE,
+        CHEST_PRESS_MACHINE, SHRUG_MACHINE, DIP_MACHINE, ASSISTED_DIP_MACHINE, TRICEPS_EXTENSION_MACHINE }
     public enum MuscleGroup { QUADRICEPS, GLUTES, HAMSTIRNGS, LOWER_BACK, PECTORALIS_MAJOR, TRICPES, ANTERIOR_DELTOID,
         LATS, MIDDLE_TRAPEZIUS, BICEPS, RHOMBOIDS, POSTERIOR_DELTOID, LATERAL_DELTOID, LOWER_TRAPEZIUS, CALVES,
-        TRAPEZIUS, DELTOIDS } // TODO: completar
+        TRAPEZIUS, DELTOIDS, ABS, ABDUCTORS, ADDUCTORS, FOREARM, FULLBODY, NECK, SHOULDERS, GLUTEUS_MEDIUS,
+        HIP_ABDUCTORS, REAR_DELTOIDS, ROTATOR_CUFF, FRONT_DELTOIDS, UPPER_CHEST, CORE, CHEST }
 
     @Id
     @Column(name = "exercise_name")
@@ -48,7 +53,7 @@ public class Exercise {
     private List<MuscleGroup> muscleGroup;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "equipment", nullable = false)
+    @Column(name = "equipment", nullable = true)
     private Equipment equipment;
 
     @Column(name = "unilateral", nullable = false)
@@ -61,19 +66,4 @@ public class Exercise {
     @Enumerated(EnumType.STRING)
     @Column(name = "body_region", nullable = false)
     private BodyRegion bodyRegion;
-
-    @PrePersist
-    @PreUpdate
-    public void preSave() {
-        if (gripType == GripType.NA) {
-            gripType = null;
-        }
-    }
-
-    @PostLoad
-    public void postLoad() {
-        if (gripType == null) {
-            gripType = GripType.NA;
-        }
-    }
 }

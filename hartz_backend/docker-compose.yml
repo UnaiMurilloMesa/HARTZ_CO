@@ -12,7 +12,8 @@ services:
     ports:
       - "5432:5432"
     # NO QUEREMOS VOLUMENES DE MOMENTO, EN DEVELOPMENT QUEREMOS QUE AL HACER DOCKER-COMPOSE DOWN SE BORREN LOS DATOS
-    #volumes:
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
       #- postgres_data:/var/lib/postgresql/data
 
   mongo:
