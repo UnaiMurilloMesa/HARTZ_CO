@@ -6,25 +6,30 @@ import org.hartz.hartz_backend.model.dto.WorkoutDTO;
 import org.hartz.hartz_backend.persistence.postgre.WorkoutRepositoryAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/workout")
 @RequiredArgsConstructor
 public class WorkoutController {
 
     private final WorkoutRepositoryAdapter workoutRepository;
 
-    @GetMapping("/{userName}/workout")
-    public ResponseEntity<Object> getWorkoutsByUserID(@RequestBody String username) {
-        Optional<Workout> workoutOptional = workoutRepository.findByUser(username);
-        if (workoutOptional.isEmpty()) {
+    @GetMapping("/{username}")
+    public ResponseEntity<List<WorkoutDTO>> getWorkoutsByUserName(@PathVariable String username) {
+        List<Workout> workoutList = workoutRepository.findByUserName(username);
+        if (workoutList.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(WorkoutDTO.toDTO(workoutOptional.get()));
+        return ResponseEntity.ok(
+                workoutList
+                        .stream()
+                        .map(WorkoutDTO::toDTO)
+                        .toList()
+        );
     }
 }

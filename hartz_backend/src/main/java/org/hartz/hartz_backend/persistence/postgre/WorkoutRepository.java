@@ -4,17 +4,11 @@ import org.hartz.hartz_backend.model.Workout;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface WorkoutRepository extends MongoRepository<Workout, Long> {
 
-    Optional<Workout> findByName(String name);
-
-    Optional<Workout> findByUserID(String user_id);
-
-    boolean existsByName(String name); // Si son únicos
-
-    boolean existsByUserID(String user_id);
+    List<Workout> findByUsername(String username);
 
 }

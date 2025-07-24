@@ -1,31 +1,38 @@
 package org.hartz.hartz_backend.model.dto;
 
-import org.hartz.hartz_backend.model.User;
+import lombok.Data;
+import org.hartz.hartz_backend.model.Workout;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
+@Data
 public class WorkoutDTO {
 
     private String workoutName;
     private String description;
-    private User user;
+    private String username;
     private List<ExerciseDTO> exercises;
-    private LocalDateTime date;
+    private Long dateSeconds;
 
-    public WorkoutDTO(String workoutName, String description, User user, List<ExerciseDTO> exercises, LocalDateTime date) {
+    private WorkoutDTO(String workoutName, String description, String username, List<ExerciseDTO> exercises, Long dateSeconds) {
         this.workoutName = workoutName;
         this.description = description;
-        this.user = user;
+        this.username = username;
         this.exercises = exercises;
-        this.date = date;
+        this.dateSeconds = dateSeconds;
     }
 
-    public static WorkoutDTO toDTO(org.hartz.hartz_backend.model.Workout workout) {
+    public static WorkoutDTO toDTO(Workout workout) {
         List<ExerciseDTO> exerciseDTOs = workout.getExercises().stream()
                 .map(ExerciseDTO::toDTO)
                 .toList();
-        return new WorkoutDTO(workout.getName(), workout.getDescription(), workout.getUser(), exerciseDTOs, workout.getDate());
+        return new WorkoutDTO(
+                workout.getName(),
+                workout.getDescription(),
+                workout.getUsername(),
+                exerciseDTOs,
+                workout.getDate()
+        );
     }
 
 }
