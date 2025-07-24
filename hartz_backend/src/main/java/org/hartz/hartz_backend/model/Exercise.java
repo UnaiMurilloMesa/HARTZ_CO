@@ -8,6 +8,9 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.PostLoad;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,7 +44,7 @@ public class Exercise {
     @ElementCollection(targetClass = MuscleGroup.class)
     @CollectionTable(name = "exercise_muscle_group", joinColumns = @JoinColumn(name = "exercise_id"))
     @Enumerated(EnumType.STRING)
-    @Column(name = "muscle_group")
+    @Column(name = "muscle_group", nullable = false)
     private List<MuscleGroup> muscleGroup;
 
     @Enumerated(EnumType.STRING)
@@ -52,10 +55,25 @@ public class Exercise {
     private boolean unilateral;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "grip_type")
+    @Column(name = "grip_type", nullable = true)
     private GripType gripType;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "body_region")
+    @Column(name = "body_region", nullable = false)
     private BodyRegion bodyRegion;
+
+    @PrePersist
+    @PreUpdate
+    public void preSave() {
+        if (gripType == GripType.NA) {
+            gripType = null;
+        }
+    }
+
+    @PostLoad
+    public void postLoad() {
+        if (gripType == null) {
+            gripType = GripType.NA;
+        }
+    }
 }
