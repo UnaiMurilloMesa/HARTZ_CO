@@ -20,7 +20,7 @@ public class WorkoutRepositoryAdapter {
         return workoutRepository.findById(id);
     }
 
-    public List<Workout> findByUserName(String userName) {
-        return workoutRepository.findByUsername(userName);
+    public List<Workout> findByUsername(String username) {
+        return workoutRepository.findByUsername(username);
     }
 }
