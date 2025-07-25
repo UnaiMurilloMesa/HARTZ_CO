@@ -5,7 +5,6 @@ import org.hartz.hartz_backend.model.Workout;
 import org.hartz.hartz_backend.model.dto.InputPostExerciseSetDTO;
 import org.hartz.hartz_backend.model.dto.InputPostWorkoutDTO;
 import org.hartz.hartz_backend.model.dto.WorkoutDTO;
-import org.hartz.hartz_backend.persistence.mongo.WorkoutRepositoryAdapter;
 import org.hartz.hartz_backend.service.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +25,10 @@ import java.util.List;
 @RequestMapping("/api/workout")
 public class WorkoutController {
 
-    private final WorkoutRepositoryAdapter workoutRepository;
     private final WorkoutService workoutService;
 
     @Autowired
-    public WorkoutController(WorkoutRepositoryAdapter workoutRepository, WorkoutService workoutService) {
-        this.workoutRepository = workoutRepository;
+    public WorkoutController(WorkoutService workoutService) {
         this.workoutService = workoutService;
     }
 
@@ -39,11 +36,7 @@ public class WorkoutController {
     public ResponseEntity<List<WorkoutDTO>> getWorkoutsByUsername(
             @PathVariable String username,
             @RequestParam boolean isRoutine) {
-        List<Workout> workoutList = workoutRepository
-                .findByUsername(username)
-                .stream()
-                .filter(w -> w.isRoutine() == isRoutine)
-                .toList();
+        List<Workout> workoutList = workoutService.getWorkoutsByUserAndRoutine(username, isRoutine);
         if (workoutList.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
@@ -116,7 +109,7 @@ public class WorkoutController {
                 workout.getExerciseSets().stream().map(InputPostExerciseSetDTO::toExerciseSet).toList()
         );
 
-        Workout savedWorkout = workoutRepository.save(creatingWorkout);
+        Workout savedWorkout = workoutService.save(creatingWorkout);
 
         return ResponseEntity.ok(
                 workoutService.toDTO(savedWorkout)

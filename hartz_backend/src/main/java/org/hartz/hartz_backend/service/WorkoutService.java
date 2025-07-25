@@ -7,6 +7,7 @@ import org.hartz.hartz_backend.model.Workout;
 import org.hartz.hartz_backend.model.dto.ExerciseSetDTO;
 import org.hartz.hartz_backend.model.dto.GymSetDTO;
 import org.hartz.hartz_backend.model.dto.WorkoutDTO;
+import org.hartz.hartz_backend.persistence.mongo.WorkoutRepositoryAdapter;
 import org.hartz.hartz_backend.persistence.postgre.ExerciseRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,20 +18,32 @@ import java.util.Optional;
 
 @Service
 public class WorkoutService {
-    private final ExerciseRepositoryAdapter exerciseRepository;
+    private final WorkoutRepositoryAdapter workoutRepository;
     private final ExerciseService exerciseService;
 
     @Autowired
-    public WorkoutService(ExerciseRepositoryAdapter exerciseRepository, ExerciseService exerciseService) {
-        this.exerciseRepository = exerciseRepository;
+    public WorkoutService(WorkoutRepositoryAdapter workoutRepository, ExerciseService exerciseService) {
+        this.workoutRepository = workoutRepository;
         this.exerciseService = exerciseService;
+    }
+
+    public List<Workout> getWorkoutsByUserAndRoutine(String username, boolean isRoutine) {
+        return workoutRepository
+                .findByUsername(username)
+                .stream()
+                .filter(w -> w.isRoutine() == isRoutine)
+                .toList();
+    }
+
+    public Workout save(Workout workout) {
+        return workoutRepository.save(workout);
     }
 
     public WorkoutDTO toDTO(Workout workout) {
 
         List<ExerciseSet> exerciseSets = workout.getExerciseSets();
         List<ExerciseSetDTO> exerciseSetDTOs = exerciseSets.stream()
-                .map(this::toDTO)
+                .map(exerciseService::toDTO)
                 .toList();
 
         return new WorkoutDTO(
@@ -39,24 +52,6 @@ public class WorkoutService {
                 workout.getUsername(),
                 exerciseSetDTOs,
                 workout.getDate().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli() / 1000
-        );
-    }
-
-    private ExerciseSetDTO toDTO(ExerciseSet exerciseSet) {
-        Optional<Exercise> exerciseOptional = exerciseRepository.findByExerciseName(exerciseSet.getExerciseName());
-        return new ExerciseSetDTO(
-                exerciseService.toDTO(exerciseOptional.get()),
-                exerciseSet.getSets().stream().map(this::toDTO).toList(),
-                exerciseSet.getNotes()
-        );
-    }
-
-    private GymSetDTO toDTO(GymSet gymSet) {
-        return new GymSetDTO(
-                gymSet.getReps(),
-                gymSet.getTimeInSeconds(),
-                gymSet.getWeight(),
-                gymSet.getRestSeconds()
         );
     }
 }
