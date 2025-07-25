@@ -15,8 +15,13 @@ import java.util.List;
 @Document(collection = "workouts")
 public class Workout {
 
+    public static final int MAX_NAME_LENGTH = 70;
+    public static final int MAX_DESCRIPTION_LENGTH = 200;
+    public static final int MAX_EXERCISES = 30;
+    public static final int MAX_SETS_PER_EXERCISE = 20;
+
     @Id
-    private Long id;
+    private String id;
     private String username;
     private String name;
     private String description;
@@ -24,4 +29,12 @@ public class Workout {
     private boolean isRoutine;
     private List<ExerciseSet> exerciseSets;
 
+    public Workout(String username, String name, String description, LocalDateTime date, boolean isRoutine, List<ExerciseSet> exerciseSets) {
+        this.username = username;
+        this.name = name;
+        this.description = description;
+        this.date = date;
+        this.isRoutine = isRoutine;
+        this.exerciseSets = exerciseSets;
+    }
 }

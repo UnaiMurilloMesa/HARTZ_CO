@@ -23,4 +23,8 @@ public class WorkoutRepositoryAdapter {
     public List<Workout> findByUsername(String username) {
         return workoutRepository.findByUsername(username);
     }
+
+    public Workout save(Workout workout) {
+        return workoutRepository.save(workout);
+    }
 }
