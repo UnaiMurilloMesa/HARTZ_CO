@@ -1,6 +1,7 @@
 package org.hartz.hartz_backend.service;
 
 import org.hartz.hartz_backend.model.User;
+import org.hartz.hartz_backend.model.dto.PersonalPrivateInfoDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -23,12 +25,19 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
                 List.of() // TODO: Aplicar roles en función del plan del usuario.
         );
+    }
+
+    public PersonalPrivateInfoDTO getPersonalPrivateInfoByUsername(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        return PersonalPrivateInfoDTO.toDto(user);
     }
 }
