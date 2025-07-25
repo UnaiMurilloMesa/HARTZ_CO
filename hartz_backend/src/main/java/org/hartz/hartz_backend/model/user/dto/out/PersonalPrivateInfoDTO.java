@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 public class PersonalPrivateInfoDTO {
     private String username;
     private String mascot;
-    private String biography;
     private Double height;
     private Double weight;
     private LocalDateTime createdAt;
