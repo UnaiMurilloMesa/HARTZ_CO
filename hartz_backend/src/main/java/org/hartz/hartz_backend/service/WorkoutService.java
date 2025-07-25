@@ -1,8 +1,10 @@
 package org.hartz.hartz_backend.service;
 
 import org.hartz.hartz_backend.model.ExerciseSet;
+import org.hartz.hartz_backend.model.GymSet;
 import org.hartz.hartz_backend.model.Workout;
 import org.hartz.hartz_backend.model.dto.ExerciseSetDTO;
+import org.hartz.hartz_backend.model.dto.GymSetDTO;
 import org.hartz.hartz_backend.model.dto.WorkoutDTO;
 import org.hartz.hartz_backend.persistence.postgre.ExerciseRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,11 +43,17 @@ public class WorkoutService {
     private ExerciseSetDTO toDTO(ExerciseSet exerciseSet) {
         return new ExerciseSetDTO(
                 exerciseService.toDTO(exerciseRepository.findByExerciseName(exerciseSet.getExerciseName()).get()),
-                exerciseSet.getReps(),
-                exerciseSet.getTimeInSeconds(),
-                exerciseSet.getWeight(),
-                exerciseSet.getRestSeconds(),
+                exerciseSet.getSets().stream().map(this::toDTO).toList(),
                 exerciseSet.getNotes()
+        );
+    }
+
+    private GymSetDTO toDTO(GymSet gymSet) {
+        return new GymSetDTO(
+                gymSet.getReps(),
+                gymSet.getTimeInSeconds(),
+                gymSet.getWeight(),
+                gymSet.getRestSeconds()
         );
     }
 }
