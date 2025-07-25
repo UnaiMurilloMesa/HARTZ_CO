@@ -51,10 +51,12 @@ CREATE TABLE public.exercise (
     difficulty_level character varying(255) NOT NULL,
     equipment character varying(255),
     exercise_name character varying(255) NOT NULL,
+    exercise_type character varying(255) NOT NULL,
     grip_type character varying(255),
     CONSTRAINT exercise_body_region_check CHECK (((body_region)::text = ANY ((ARRAY['LOWER'::character varying, 'UPPER'::character varying, 'FULLBODY'::character varying])::text[]))),
     CONSTRAINT exercise_difficulty_level_check CHECK (((difficulty_level)::text = ANY ((ARRAY['INTERMEDIATE'::character varying, 'ADVANCED'::character varying, 'BEGINNER'::character varying])::text[]))),
-    CONSTRAINT exercise_equipment_check CHECK (((equipment)::text = ANY ((ARRAY['BARBELL'::character varying, 'PLYO_BOX'::character varying, 'PULLUP_BAR'::character varying, 'SMITH_MACHINE'::character varying, 'DUMBBELL'::character varying, 'ROWING_MACHINE'::character varying, 'MACHINE'::character varying, 'PLATE'::character varying, 'ABDOMINAL_WHEEL'::character varying, 'CABLE'::character varying, 'BAR'::character varying, 'BOX'::character varying, 'PARALLEL_BARS'::character varying, 'Z_BAR'::character varying, 'AIR_BIKE'::character varying, 'STAIRS_MACHINE'::character varying, 'TREADMILL'::character varying, 'STATIONARY_BIKE'::character varying, 'HACK_SQUAT'::character varying, 'PENDULUM_SQUAT'::character varying, 'LEG_EXTENSION_MACHINE'::character varying, 'LEG_PRESS'::character varying, 'LEG_PRESS_MACHINE'::character varying, 'BENCH'::character varying, 'LAT_PULLDOWN_MACHINE'::character varying, 'ASSISTED_PULLUP_MACHINE'::character varying, 'ISO_LATERAL_ROW_MACHINE'::character varying, 'PULLOVER_MACHINE'::character varying, 'BACK_EXTENSION_MACHINE'::character varying, 'SEATED_ROW_MACHINE'::character varying, 'T_BAR'::character varying, 'CALF_RAISE_MACHINE'::character varying, 'SEATED_CALF_RAISE_MACHINE'::character varying, 'GLUTE_KICKBACK_MACHINE'::character varying, 'REVERSE_HYPEREXTENSION_MACHINE'::character varying, 'RESISTANCE_BAND'::character varying, 'TRAP_BAR'::character varying, 'SHOULDER_PRESS_MACHINE'::character varying, 'REAR_DELT_MACHINE'::character varying, 'LATERAL_RAISE_MACHINE'::character varying, 'LEG_CURL_MACHINE'::character varying, 'SEATED_LEG_CURL_MACHINE'::character varying, 'PEC_DECK'::character varying, 'INCLINE_CHEST_PRESS_MACHINE'::character varying, 'CHEST_PRESS_MACHINE'::character varying, 'SHRUG_MACHINE'::character varying, 'DIP_MACHINE'::character varying, 'ASSISTED_DIP_MACHINE'::character varying, 'TRICEPS_EXTENSION_MACHINE'::character varying])::text[]))),
+    CONSTRAINT exercise_equipment_check CHECK (((equipment)::text = ANY ((ARRAY['BARBELL'::character varying, 'PLYO_BOX'::character varying, 'PULLUP_BAR'::character varying, 'SMITH'::character varying, 'DUMBBELL'::character varying, 'MACHINE'::character varying, 'PLATE'::character varying, 'ABDOMINAL_WHEEL'::character varying, 'CABLE'::character varying, 'BAR'::character varying, 'BOX'::character varying, 'PARALLEL_BARS'::character varying, 'Z_BAR'::character varying, 'AIR_BIKE'::character varying, 'TREADMILL'::character varying, 'STATIONARY_BIKE'::character varying, 'HACK_SQUAT'::character varying, 'PENDULUM_SQUAT'::character varying, 'LEG_PRESS'::character varying, 'BENCH'::character varying, 'T_BAR'::character varying, 'RESISTANCE_BAND'::character varying, 'TRAP_BAR'::character varying, 'PEC_DECK'::character varying])::text[]))),
+    CONSTRAINT exercise_exercise_type_check CHECK (((exercise_type)::text = ANY ((ARRAY['CARDIO'::character varying, 'WEIGHT_REPS'::character varying, 'TIME'::character varying, 'BODY_REPS'::character varying])::text[]))),
     CONSTRAINT exercise_grip_type_check CHECK (((grip_type)::text = ANY ((ARRAY['PRONATED'::character varying, 'NEUTRAL'::character varying, 'SUPINATED'::character varying, 'MIXED'::character varying, 'SUPINATED_TO_PRONATED'::character varying, 'WIDE_PRONATED'::character varying, 'CLOSE_PRONATED'::character varying])::text[])))
 );
 
@@ -79,6 +81,7 @@ ALTER TABLE public.exercise_muscle_group OWNER TO hartz_user;
 --
 
 COPY public.customer (age, height, weight, created_at, email, mascot, password, plan_type, profile_picture, username) FROM stdin;
+\N	\N	\N	2025-07-25 16:30:36.517255	test1@example.com	bear	$2a$10$efFXHbeIm5eD6rN0dz7/O.kyRTONgcM1qDBO95HJbBwJ5kKQ6Ka0u	BASIC	\N	testuser1
 \.
 
 
@@ -86,235 +89,235 @@ COPY public.customer (age, height, weight, created_at, email, mascot, password, 
 -- Data for Name: exercise; Type: TABLE DATA; Schema: public; Owner: hartz_user
 --
 
-COPY public.exercise (unilateral, body_region, difficulty_level, equipment, exercise_name, grip_type) FROM stdin;
-f	LOWER	INTERMEDIATE	BARBELL	Barbell back squat	PRONATED
-f	LOWER	ADVANCED	BARBELL	Conventional deadlift	PRONATED
-f	UPPER	INTERMEDIATE	BARBELL	Barbell bench press	PRONATED
-f	UPPER	INTERMEDIATE	BARBELL	Barbell row	PRONATED
-f	UPPER	BEGINNER	MACHINE	Machine row (Neutral grip)	NEUTRAL
-f	FULLBODY	BEGINNER	ROWING_MACHINE	Rowing machine	PRONATED
-f	UPPER	BEGINNER	DUMBBELL	Dumbbell shoulder press	NEUTRAL
-f	UPPER	INTERMEDIATE	SMITH_MACHINE	Smith machine shoulder press	PRONATED
-f	FULLBODY	INTERMEDIATE	BARBELL	Thrusters with barbell	PRONATED
-f	UPPER	INTERMEDIATE	PULLUP_BAR	Pull-Ups	PRONATED
-f	FULLBODY	ADVANCED	BARBELL	Clean and jerk	PRONATED
-f	LOWER	INTERMEDIATE	PLYO_BOX	Box jump	\N
-f	FULLBODY	ADVANCED	BARBELL	Snatch	PRONATED
-t	UPPER	BEGINNER	PLATE	Russian twist (Weighted)	\N
-f	UPPER	INTERMEDIATE	PLATE	Incline bench crunches (Weighted)	\N
-f	UPPER	BEGINNER	\N	Incline bench crunches	\N
-t	UPPER	BEGINNER	DUMBBELL	Dumbbell side bends	\N
-t	UPPER	BEGINNER	\N	Scissor abs	\N
-f	UPPER	INTERMEDIATE	ABDOMINAL_WHEEL	Abdominal wheel	\N
-t	UPPER	BEGINNER	\N	Bicycle crunches	\N
-t	UPPER	BEGINNER	\N	Bicycle crunches with raised legs	\N
-t	UPPER	INTERMEDIATE	MACHINE	Cable core palloff press	\N
-f	UPPER	BEGINNER	CABLE	Cable crunches	\N
-t	UPPER	BEGINNER	CABLE	Cable twist (Up to down)	\N
-t	UPPER	BEGINNER	CABLE	Cable twist (Down to up)	\N
-f	UPPER	BEGINNER	\N	Seated crunches	\N
-f	UPPER	INTERMEDIATE	PLATE	Seated crunches (Weighted)	\N
-f	UPPER	BEGINNER	MACHINE	Seated crunches (Machine)	\N
-t	UPPER	BEGINNER	\N	Dead bug	\N
-t	UPPER	ADVANCED	\N	Dragon flag	\N
-t	UPPER	BEGINNER	\N	Knees to elbows	\N
-t	UPPER	INTERMEDIATE	\N	Leg flapping	\N
-f	UPPER	INTERMEDIATE	BAR	Knee raises	\N
-f	UPPER	ADVANCED	BAR	Leg raises	\N
-t	UPPER	BEGINNER	\N	Heel touch	\N
-f	UPPER	INTERMEDIATE	\N	Hollow rock	\N
-f	UPPER	INTERMEDIATE	BOX	Jack knife	\N
-f	UPPER	INTERMEDIATE	\N	V-ups	\N
-f	UPPER	INTERMEDIATE	PARALLEL_BARS	Knees to chest	\N
-f	UPPER	ADVANCED	PARALLEL_BARS	Sustained L-sit	\N
-f	UPPER	INTERMEDIATE	PARALLEL_BARS	L-sit	\N
-t	UPPER	INTERMEDIATE	BARBELL	Landmine 180	\N
-t	UPPER	BEGINNER	\N	Oblique abdominal	\N
-f	UPPER	BEGINNER	\N	Plank	\N
-f	UPPER	BEGINNER	PLATE	Weighted plank	\N
-f	LOWER	BEGINNER	MACHINE	Hip abduction	\N
-f	LOWER	BEGINNER	MACHINE	Hip adduction	\N
-f	UPPER	BEGINNER	BAR	Behind the back bicep curl	\N
-f	UPPER	BEGINNER	BAR	Palms-up wrist curl	SUPINATED
-f	UPPER	BEGINNER	BAR	Palms-down wrist curl	PRONATED
-f	UPPER	INTERMEDIATE	PLATE	Forearm roller	PRONATED
-f	UPPER	BEGINNER	BAR	Bar bicep curl	SUPINATED
-t	UPPER	BEGINNER	CABLE	Cable bicep curl	SUPINATED
-t	UPPER	BEGINNER	DUMBBELL	Dumbbell bicep curl	SUPINATED
-f	UPPER	BEGINNER	MACHINE	Machine bicep curl	SUPINATED
-t	UPPER	BEGINNER	CABLE	Cable hammer bicep curl	NEUTRAL
-t	UPPER	BEGINNER	DUMBBELL	Dumbbell hammer bicep curl	NEUTRAL
-f	UPPER	BEGINNER	MACHINE	Machine hammer bicep curl	NEUTRAL
-f	UPPER	BEGINNER	Z_BAR	Z-bar hammer bicep curl	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	Preacher curl (Barbell)	SUPINATED
-t	UPPER	INTERMEDIATE	DUMBBELL	Preacher curl (Dumbbell)	SUPINATED
-f	UPPER	INTERMEDIATE	MACHINE	Preacher curl (Machine)	SUPINATED
-t	UPPER	INTERMEDIATE	DUMBBELL	Spider curl (Dumbbell)	SUPINATED
-f	UPPER	INTERMEDIATE	BARBELL	Spider curl (Barbell)	SUPINATED
-t	UPPER	INTERMEDIATE	DUMBBELL	Incline bench bicep curl	SUPINATED
-t	UPPER	INTERMEDIATE	CABLE	Overhead curl	SUPINATED
-t	UPPER	BEGINNER	CABLE	Plate curl	SUPINATED
-f	UPPER	INTERMEDIATE	BARBELL	Inverted curl	SUPINATED
-t	UPPER	INTERMEDIATE	DUMBBELL	Inverted curl (Dumbbell)	SUPINATED
-t	UPPER	INTERMEDIATE	DUMBBELL	Concentration curl	SUPINATED
-f	FULLBODY	INTERMEDIATE	AIR_BIKE	Air bike	\N
-f	FULLBODY	INTERMEDIATE	STAIRS_MACHINE	Stairs machine	\N
-f	FULLBODY	BEGINNER	TREADMILL	Running	\N
-f	FULLBODY	BEGINNER	STATIONARY_BIKE	Stationary bike	\N
-t	LOWER	INTERMEDIATE	\N	Assisted pistol squat	\N
-t	LOWER	ADVANCED	\N	Pistol squat	\N
-t	LOWER	ADVANCED	PLATE	Weighted pistol squat	\N
-t	LOWER	INTERMEDIATE	DUMBBELL	Bulgarian split squat	\N
-t	LOWER	INTERMEDIATE	DUMBBELL	Dumbbell lunge	\N
-t	LOWER	INTERMEDIATE	DUMBBELL	Dumbbell step	\N
-f	LOWER	INTERMEDIATE	BARBELL	Barbell front squat	\N
-f	LOWER	INTERMEDIATE	DUMBBELL	Dumbbell front squat	\N
-f	LOWER	BEGINNER	DUMBBELL	Goblet squat	\N
-f	LOWER	INTERMEDIATE	HACK_SQUAT	Hack squat	\N
-f	LOWER	BEGINNER	\N	Jump squat	\N
-t	LOWER	BEGINNER	\N	Lateral lunge	\N
-t	LOWER	BEGINNER	\N	Lunges	\N
-f	LOWER	INTERMEDIATE	PENDULUM_SQUAT	Pendulum squat	\N
-f	LOWER	BEGINNER	LEG_EXTENSION_MACHINE	Leg extension	\N
-f	LOWER	BEGINNER	LEG_PRESS	Leg press	\N
-f	LOWER	BEGINNER	LEG_PRESS_MACHINE	Seated leg press	\N
-f	LOWER	BEGINNER	BARBELL	Paused barbell back squat	\N
-t	LOWER	INTERMEDIATE	BARBELL	Barbell inverted lunges	\N
-t	LOWER	INTERMEDIATE	\N	Inverted lunges	\N
-t	LOWER	BEGINNER	LEG_EXTENSION_MACHINE	Unilateral leg extension	\N
-f	LOWER	ADVANCED	BENCH	Sissy squat	\N
-f	LOWER	BEGINNER	SMITH_MACHINE	Back squat (Smith machine)	\N
-f	LOWER	BEGINNER	SMITH_MACHINE	Front squat (Smith machine)	\N
-t	LOWER	BEGINNER	BOX	Step up	\N
-f	LOWER	BEGINNER	\N	Sumo squat	\N
-f	LOWER	BEGINNER	BARBELL	Barbell sumo squat	\N
-f	LOWER	BEGINNER	DUMBBELL	Dumbbell sumo squat	\N
-f	LOWER	BEGINNER	\N	Wall sit	\N
-f	LOWER	INTERMEDIATE	BARBELL	Zercher squat	\N
-f	UPPER	BEGINNER	\N	Lying neck curls	\N
-f	UPPER	BEGINNER	\N	Lying neck extensions	\N
-f	UPPER	BEGINNER	PLATE	Lying neck curls (Weighted)	\N
-f	UPPER	BEGINNER	PLATE	Lying neck extensions (Weighted)	\N
-f	UPPER	BEGINNER	LAT_PULLDOWN_MACHINE	Lat pulldowns (Machine)	PRONATED
-f	UPPER	BEGINNER	LAT_PULLDOWN_MACHINE	Chin ups (Machine)	SUPINATED
-f	UPPER	BEGINNER	LAT_PULLDOWN_MACHINE	Neutral pulldowns (Machine)	NEUTRAL
-f	UPPER	INTERMEDIATE	LAT_PULLDOWN_MACHINE	Wide lat pulldowns (Machine)	PRONATED
-f	UPPER	BEGINNER	PULLUP_BAR	Chin ups	SUPINATED
-t	UPPER	BEGINNER	DUMBBELL	Dumbbell row (Unilateral)	NEUTRAL
-f	UPPER	BEGINNER	ASSISTED_PULLUP_MACHINE	Assisted pull-ups	PRONATED
-f	UPPER	BEGINNER	ASSISTED_PULLUP_MACHINE	Assisted chin-ups	SUPINATED
-t	UPPER	INTERMEDIATE	ISO_LATERAL_ROW_MACHINE	High row (Iso-lateral)	NEUTRAL
-f	UPPER	INTERMEDIATE	PULLUP_BAR	Negative pull-ups	PRONATED
-f	UPPER	BEGINNER	PULLUP_BAR	Band-assisted pull-ups	PRONATED
-f	UPPER	ADVANCED	PULLUP_BAR	Weighted pull-ups	PRONATED
-f	UPPER	INTERMEDIATE	CABLE	Cable pullover	NEUTRAL
-f	UPPER	BEGINNER	PULLOVER_MACHINE	Machine pullover	NEUTRAL
-t	UPPER	INTERMEDIATE	CABLE	Cable pullover (Unilateral)	NEUTRAL
-f	LOWER	BEGINNER	BACK_EXTENSION_MACHINE	Back extension (Machine)	\N
-f	LOWER	INTERMEDIATE	PLATE	Back extension (Weighted)	\N
-f	LOWER	BEGINNER	\N	Superman holds	\N
-f	LOWER	BEGINNER	\N	Superman	\N
-f	UPPER	BEGINNER	SEATED_ROW_MACHINE	Seated row (Machine, wide grip)	PRONATED
-f	UPPER	BEGINNER	CABLE	Seated cable row	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	Bent-over barbell row	PRONATED
-f	UPPER	INTERMEDIATE	DUMBBELL	Bent-over dumbbell row	NEUTRAL
-f	UPPER	INTERMEDIATE	DUMBBELL	Chest-supported dumbbell row	NEUTRAL
-f	UPPER	BEGINNER	PULLUP_BAR	Dead hang	PRONATED
-t	UPPER	INTERMEDIATE	DUMBBELL	Gorilla row (Dumbbells)	NEUTRAL
-f	UPPER	BEGINNER	BARBELL	Inverted row	SUPINATED
-t	UPPER	INTERMEDIATE	ISO_LATERAL_ROW_MACHINE	Low row (Iso-lateral)	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	Landmine row (T-bar row)	NEUTRAL
-f	LOWER	INTERMEDIATE	BARBELL	Rack pull	NEUTRAL
-f	UPPER	BEGINNER	PULLUP_BAR	Scapular pull-ups	PRONATED
-f	UPPER	BEGINNER	CABLE	Seated cable row (Wide grip)	PRONATED
-f	UPPER	BEGINNER	CABLE	Seated cable row (V-grip)	NEUTRAL
-f	UPPER	INTERMEDIATE	T_BAR	T-bar row	NEUTRAL
-f	LOWER	BEGINNER	CALF_RAISE_MACHINE	Calf extension (Machine)	\N
-f	LOWER	BEGINNER	LEG_PRESS_MACHINE	Calf press (Leg press machine)	\N
-f	LOWER	BEGINNER	SEATED_CALF_RAISE_MACHINE	Seated calf raise	\N
-t	LOWER	BEGINNER	\N	Single-leg calf raise	\N
-t	LOWER	INTERMEDIATE	BARBELL	Single-leg calf raise (Barbell)	\N
-t	LOWER	BEGINNER	DUMBBELL	Single-leg calf raise (Dumbbell)	\N
-f	LOWER	BEGINNER	SMITH_MACHINE	Standing calf raise (Smith machine)	\N
-f	LOWER	BEGINNER	DUMBBELL	Standing calf raise (Dumbbells)	\N
-t	LOWER	BEGINNER	CALF_RAISE_MACHINE	Single-leg calf raise (Machine)	\N
-f	LOWER	INTERMEDIATE	BARBELL	Sumo deadlift	MIXED
-t	LOWER	BEGINNER	CABLE	Cable glute kickback	\N
-t	LOWER	BEGINNER	GLUTE_KICKBACK_MACHINE	Glute kickback (Machine)	\N
-t	LOWER	INTERMEDIATE	DUMBBELL	Single-leg hip thrust (Dumbbell)	\N
-f	LOWER	INTERMEDIATE	REVERSE_HYPEREXTENSION_MACHINE	Reverse hyperextension (Glute focus)	\N
-t	LOWER	BEGINNER	CABLE	Cable lateral leg raise	\N
-f	LOWER	BEGINNER	RESISTANCE_BAND	Lateral band walk	\N
-f	LOWER	INTERMEDIATE	BARBELL	Barbell hip thrust	\N
-f	LOWER	BEGINNER	BENCH	Bodyweight hip thrust	\N
-t	LOWER	BEGINNER	\N	Donkey kick (Bodyweight)	\N
-f	LOWER	BEGINNER	DUMBBELL	Frog pumps (Dumbbell)	\N
-f	LOWER	INTERMEDIATE	TRAP_BAR	Trap bar deadlift	NEUTRAL
-f	LOWER	BEGINNER	SMITH_MACHINE	Smith machine deadlift	PRONATED
-f	LOWER	BEGINNER	DUMBBELL	Dumbbell deadlift	NEUTRAL
-f	LOWER	INTERMEDIATE	CABLE	Cable pull-through	NEUTRAL
-f	UPPER	BEGINNER	BARBELL	Barbell shoulder press	PRONATED
-f	UPPER	BEGINNER	SHOULDER_PRESS_MACHINE	Machine shoulder press	NEUTRAL
-f	UPPER	INTERMEDIATE	DUMBBELL	Arnold press (Dumbbells)	SUPINATED_TO_PRONATED
-f	UPPER	BEGINNER	DUMBBELL	Rear delt fly (Dumbbells)	NEUTRAL
-f	UPPER	BEGINNER	REAR_DELT_MACHINE	Rear delt fly (Machine)	NEUTRAL
-f	UPPER	BEGINNER	CABLE	Face pull	NEUTRAL
-f	UPPER	BEGINNER	CABLE	Front raise (Cable)	PRONATED
-f	UPPER	BEGINNER	DUMBBELL	Front raise (Dumbbells)	PRONATED
-t	UPPER	BEGINNER	CABLE	Lateral raise (Cable)	NEUTRAL
-f	UPPER	BEGINNER	DUMBBELL	Lateral raise (Dumbbells)	NEUTRAL
-f	UPPER	BEGINNER	LATERAL_RAISE_MACHINE	Lateral raise (Machine)	\N
-f	UPPER	INTERMEDIATE	\N	Pike push-up	\N
-f	UPPER	BEGINNER	SMITH_MACHINE	Military press (Smith machine)	PRONATED
-f	LOWER	INTERMEDIATE	BARBELL	Romanian deadlift (Barbell)	MIXED
-f	LOWER	INTERMEDIATE	DUMBBELL	Romanian deadlift (Dumbbells)	NEUTRAL
-f	LOWER	BEGINNER	LEG_CURL_MACHINE	Lying leg curl (Machine)	\N
-f	LOWER	ADVANCED	\N	Nordic hamstring curl	\N
-t	LOWER	INTERMEDIATE	DUMBBELL	Single-leg Romanian deadlift (Dumbbell)	NEUTRAL
-f	LOWER	BEGINNER	SEATED_LEG_CURL_MACHINE	Seated leg curl (Machine)	\N
-f	UPPER	BEGINNER	DUMBBELL	Incline bench press (Dumbbells)	NEUTRAL
-f	UPPER	BEGINNER	BARBELL	Incline bench press (Barbell)	PRONATED
-f	UPPER	BEGINNER	DUMBBELL	Flat bench press (Dumbbells)	NEUTRAL
-f	UPPER	BEGINNER	PEC_DECK	Chest fly (Machine)	NEUTRAL
-f	UPPER	BEGINNER	DUMBBELL	Chest fly (Dumbbells)	NEUTRAL
-f	UPPER	BEGINNER	INCLINE_CHEST_PRESS_MACHINE	Incline bench press (Machine)	NEUTRAL
-f	UPPER	BEGINNER	CHEST_PRESS_MACHINE	Flat bench press (Machine)	NEUTRAL
-f	UPPER	BEGINNER	\N	Push-ups (Bodyweight)	\N
-f	UPPER	INTERMEDIATE	BARBELL	Flat bench press (Wide grip, Barbell)	WIDE_PRONATED
-f	UPPER	BEGINNER	SMITH_MACHINE	Flat bench press (Smith machine)	PRONATED
-f	UPPER	BEGINNER	SMITH_MACHINE	Incline bench press (Smith machine)	PRONATED
-f	UPPER	INTERMEDIATE	CABLE	Cable chest fly (Crossover)	NEUTRAL
-f	UPPER	INTERMEDIATE	PARALLEL_BARS	Parallel bar dips (Bodyweight)	NEUTRAL
-f	UPPER	ADVANCED	PARALLEL_BARS	Weighted dips (Parallel bars)	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	Decline bench press (Barbell)	PRONATED
-f	UPPER	INTERMEDIATE	DUMBBELL	Decline bench press (Dumbbells)	NEUTRAL
-f	UPPER	BEGINNER	DUMBBELL	Hex press (Single Dumbbell)	NEUTRAL
-f	UPPER	BEGINNER	BOX	Incline push-ups (Box or Bench)	\N
-t	UPPER	ADVANCED	\N	One-arm push-up	\N
-t	UPPER	INTERMEDIATE	CABLE	Unilateral cable chest fly	NEUTRAL
-f	UPPER	INTERMEDIATE	PLATE	Weighted push-ups (Floor)	\N
-f	UPPER	BEGINNER	BARBELL	Barbell shrugs	PRONATED
-f	UPPER	BEGINNER	DUMBBELL	Dumbbell shrugs	NEUTRAL
-f	UPPER	INTERMEDIATE	CABLE	Cable shrugs	NEUTRAL
-f	UPPER	BEGINNER	SHRUG_MACHINE	Machine shrugs	NEUTRAL
-f	UPPER	INTERMEDIATE	SMITH_MACHINE	Smith machine shrugs	PRONATED
-f	UPPER	BEGINNER	BENCH	Bench dips (Bodyweight)	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	Close-grip bench press (Barbell)	CLOSE_PRONATED
-f	UPPER	BEGINNER	\N	Diamond push-ups	\N
-f	UPPER	BEGINNER	\N	Triceps floor dips	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	JM press (Barbell)	PRONATED
-f	UPPER	BEGINNER	DIP_MACHINE	Machine dips	NEUTRAL
-t	UPPER	BEGINNER	DUMBBELL	One-arm dumbbell triceps extension	NEUTRAL
-t	UPPER	BEGINNER	CABLE	One-arm cable triceps extension	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	French press (Barbell)	PRONATED
-f	UPPER	INTERMEDIATE	DUMBBELL	French press (Dumbbell)	NEUTRAL
-f	UPPER	BEGINNER	ASSISTED_DIP_MACHINE	Assisted machine dips (Triceps)	NEUTRAL
-f	UPPER	INTERMEDIATE	BARBELL	Overhead triceps extension (Barbell)	PRONATED
-t	UPPER	INTERMEDIATE	CABLE	One-arm overhead triceps extension (Cable)	NEUTRAL
-f	UPPER	BEGINNER	TRICEPS_EXTENSION_MACHINE	Triceps extension (Machine)	NEUTRAL
-t	UPPER	BEGINNER	CABLE	Triceps kickback (Cable)	NEUTRAL
-t	UPPER	BEGINNER	DUMBBELL	Triceps kickback (Dumbbell)	NEUTRAL
-f	UPPER	BEGINNER	CABLE	Two-hand cable triceps pushdown	PRONATED
+COPY public.exercise (unilateral, body_region, difficulty_level, equipment, exercise_name, exercise_type, grip_type) FROM stdin;
+f	LOWER	INTERMEDIATE	BARBELL	Barbell back squat	WEIGHT_REPS	PRONATED
+f	LOWER	ADVANCED	BARBELL	Conventional deadlift	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	BARBELL	Barbell bench press	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	BARBELL	Barbell row	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	MACHINE	Machine row (Neutral grip)	WEIGHT_REPS	NEUTRAL
+f	FULLBODY	BEGINNER	MACHINE	Rowing machine	CARDIO	PRONATED
+f	UPPER	BEGINNER	DUMBBELL	Dumbbell shoulder press	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	SMITH	Smith machine shoulder press	WEIGHT_REPS	PRONATED
+f	FULLBODY	INTERMEDIATE	BARBELL	Thrusters with barbell	TIME	PRONATED
+f	UPPER	INTERMEDIATE	PULLUP_BAR	Pull-Ups	BODY_REPS	PRONATED
+f	FULLBODY	ADVANCED	BARBELL	Clean and jerk	WEIGHT_REPS	PRONATED
+f	LOWER	INTERMEDIATE	PLYO_BOX	Box jump	TIME	\N
+f	FULLBODY	ADVANCED	BARBELL	Snatch	WEIGHT_REPS	PRONATED
+t	UPPER	BEGINNER	PLATE	Russian twist (Weighted)	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	PLATE	Incline bench crunches (Weighted)	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	\N	Incline bench crunches	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	DUMBBELL	Dumbbell side bends	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	\N	Scissor abs	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	ABDOMINAL_WHEEL	Abdominal wheel	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	\N	Bicycle crunches	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	\N	Bicycle crunches with raised legs	WEIGHT_REPS	\N
+t	UPPER	INTERMEDIATE	MACHINE	Cable core palloff press	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	CABLE	Cable crunches	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	CABLE	Cable twist (Up to down)	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	CABLE	Cable twist (Down to up)	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	\N	Seated crunches	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	PLATE	Seated crunches (Weighted)	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	MACHINE	Seated crunches (Machine)	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	\N	Dead bug	WEIGHT_REPS	\N
+t	UPPER	ADVANCED	\N	Dragon flag	TIME	\N
+t	UPPER	BEGINNER	\N	Knees to elbows	WEIGHT_REPS	\N
+t	UPPER	INTERMEDIATE	\N	Leg flapping	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	BAR	Knee raises	WEIGHT_REPS	\N
+f	UPPER	ADVANCED	BAR	Leg raises	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	\N	Heel touch	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	\N	Hollow rock	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	BOX	Jack knife	TIME	\N
+f	UPPER	INTERMEDIATE	\N	V-ups	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	PARALLEL_BARS	Knees to chest	WEIGHT_REPS	\N
+f	UPPER	ADVANCED	PARALLEL_BARS	Sustained L-sit	TIME	\N
+f	UPPER	INTERMEDIATE	PARALLEL_BARS	L-sit	WEIGHT_REPS	\N
+t	UPPER	INTERMEDIATE	BARBELL	Landmine 180	WEIGHT_REPS	\N
+t	UPPER	BEGINNER	\N	Oblique abdominal	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	\N	Plank	TIME	\N
+f	UPPER	BEGINNER	PLATE	Weighted plank	TIME	\N
+f	LOWER	BEGINNER	MACHINE	Hip abduction	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	MACHINE	Hip adduction	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	BAR	Behind the back bicep curl	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	BAR	Palms-up wrist curl	WEIGHT_REPS	SUPINATED
+f	UPPER	BEGINNER	BAR	Palms-down wrist curl	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	PLATE	Forearm roller	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	BAR	Bar bicep curl	WEIGHT_REPS	SUPINATED
+t	UPPER	BEGINNER	CABLE	Cable bicep curl	WEIGHT_REPS	SUPINATED
+t	UPPER	BEGINNER	DUMBBELL	Dumbbell bicep curl	WEIGHT_REPS	SUPINATED
+f	UPPER	BEGINNER	MACHINE	Machine bicep curl	WEIGHT_REPS	SUPINATED
+t	UPPER	BEGINNER	CABLE	Cable hammer bicep curl	WEIGHT_REPS	NEUTRAL
+t	UPPER	BEGINNER	DUMBBELL	Dumbbell hammer bicep curl	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Machine hammer bicep curl	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	Z_BAR	Z-bar hammer bicep curl	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	Preacher curl (Barbell)	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	DUMBBELL	Preacher curl (Dumbbell)	WEIGHT_REPS	SUPINATED
+f	UPPER	INTERMEDIATE	MACHINE	Preacher curl (Machine)	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	DUMBBELL	Spider curl (Dumbbell)	WEIGHT_REPS	SUPINATED
+f	UPPER	INTERMEDIATE	BARBELL	Spider curl (Barbell)	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	DUMBBELL	Incline bench bicep curl	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	CABLE	Overhead curl	WEIGHT_REPS	SUPINATED
+t	UPPER	BEGINNER	CABLE	Plate curl	WEIGHT_REPS	SUPINATED
+f	UPPER	INTERMEDIATE	BARBELL	Inverted curl	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	DUMBBELL	Inverted curl (Dumbbell)	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	DUMBBELL	Concentration curl	WEIGHT_REPS	SUPINATED
+f	FULLBODY	INTERMEDIATE	AIR_BIKE	Air bike	CARDIO	\N
+f	FULLBODY	INTERMEDIATE	MACHINE	Stairs machine	CARDIO	\N
+f	FULLBODY	BEGINNER	TREADMILL	Running	CARDIO	\N
+f	FULLBODY	BEGINNER	STATIONARY_BIKE	Stationary bike	CARDIO	\N
+t	LOWER	INTERMEDIATE	\N	Assisted pistol squat	WEIGHT_REPS	\N
+t	LOWER	ADVANCED	\N	Pistol squat	WEIGHT_REPS	\N
+t	LOWER	ADVANCED	PLATE	Weighted pistol squat	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	DUMBBELL	Bulgarian split squat	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	DUMBBELL	Dumbbell lunge	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	DUMBBELL	Dumbbell step	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	BARBELL	Barbell front squat	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	DUMBBELL	Dumbbell front squat	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	DUMBBELL	Goblet squat	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	HACK_SQUAT	Hack squat	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	\N	Jump squat	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	\N	Lateral lunge	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	\N	Lunges	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	PENDULUM_SQUAT	Pendulum squat	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	MACHINE	Leg extension	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	LEG_PRESS	Leg press	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	MACHINE	Seated leg press	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	BARBELL	Paused barbell back squat	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	BARBELL	Barbell inverted lunges	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	\N	Inverted lunges	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	MACHINE	Unilateral leg extension	WEIGHT_REPS	\N
+f	LOWER	ADVANCED	BENCH	Sissy squat	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	SMITH	Back squat (Smith machine)	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	SMITH	Front squat (Smith machine)	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	BOX	Step up	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	\N	Sumo squat	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	BARBELL	Barbell sumo squat	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	DUMBBELL	Dumbbell sumo squat	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	\N	Wall sit	TIME	\N
+f	LOWER	INTERMEDIATE	BARBELL	Zercher squat	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	\N	Lying neck curls	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	\N	Lying neck extensions	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	PLATE	Lying neck curls (Weighted)	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	PLATE	Lying neck extensions (Weighted)	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	MACHINE	Lat pulldowns (Machine)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	MACHINE	Chin ups (Machine)	WEIGHT_REPS	SUPINATED
+f	UPPER	BEGINNER	MACHINE	Neutral pulldowns (Machine)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	MACHINE	Wide lat pulldowns (Machine)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	PULLUP_BAR	Chin ups	WEIGHT_REPS	SUPINATED
+t	UPPER	BEGINNER	DUMBBELL	Dumbbell row (Unilateral)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Assisted pull-ups	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	MACHINE	Assisted chin-ups	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	MACHINE	High row (Iso-lateral)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	PULLUP_BAR	Negative pull-ups	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	PULLUP_BAR	Band-assisted pull-ups	WEIGHT_REPS	PRONATED
+f	UPPER	ADVANCED	PULLUP_BAR	Weighted pull-ups	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	CABLE	Cable pullover	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Machine pullover	WEIGHT_REPS	NEUTRAL
+t	UPPER	INTERMEDIATE	CABLE	Cable pullover (Unilateral)	WEIGHT_REPS	NEUTRAL
+f	LOWER	BEGINNER	MACHINE	Back extension (Machine)	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	PLATE	Back extension (Weighted)	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	\N	Superman holds	TIME	\N
+f	LOWER	BEGINNER	\N	Superman	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	MACHINE	Seated row (Machine, wide grip)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	CABLE	Seated cable row	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	Bent-over barbell row	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	DUMBBELL	Bent-over dumbbell row	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	DUMBBELL	Chest-supported dumbbell row	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	PULLUP_BAR	Dead hang	TIME	PRONATED
+t	UPPER	INTERMEDIATE	DUMBBELL	Gorilla row (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	BARBELL	Inverted row	WEIGHT_REPS	SUPINATED
+t	UPPER	INTERMEDIATE	MACHINE	Low row (Iso-lateral)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	Landmine row (T-bar row)	WEIGHT_REPS	NEUTRAL
+f	LOWER	INTERMEDIATE	BARBELL	Rack pull	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	PULLUP_BAR	Scapular pull-ups	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	CABLE	Seated cable row (Wide grip)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	CABLE	Seated cable row (V-grip)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	T_BAR	T-bar row	WEIGHT_REPS	NEUTRAL
+f	LOWER	BEGINNER	MACHINE	Calf extension (Machine)	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	MACHINE	Calf press (Leg press machine)	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	MACHINE	Seated calf raise	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	\N	Single-leg calf raise	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	BARBELL	Single-leg calf raise (Barbell)	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	DUMBBELL	Single-leg calf raise (Dumbbell)	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	SMITH	Standing calf raise (Smith machine)	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	DUMBBELL	Standing calf raise (Dumbbells)	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	MACHINE	Single-leg calf raise (Machine)	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	BARBELL	Sumo deadlift	WEIGHT_REPS	MIXED
+t	LOWER	BEGINNER	CABLE	Cable glute kickback	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	MACHINE	Glute kickback (Machine)	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	DUMBBELL	Single-leg hip thrust (Dumbbell)	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	MACHINE	Reverse hyperextension (Glute focus)	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	CABLE	Cable lateral leg raise	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	RESISTANCE_BAND	Lateral band walk	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	BARBELL	Barbell hip thrust	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	BENCH	Bodyweight hip thrust	WEIGHT_REPS	\N
+t	LOWER	BEGINNER	\N	Donkey kick (Bodyweight)	WEIGHT_REPS	\N
+f	LOWER	BEGINNER	DUMBBELL	Frog pumps (Dumbbell)	WEIGHT_REPS	\N
+f	LOWER	INTERMEDIATE	TRAP_BAR	Trap bar deadlift	WEIGHT_REPS	NEUTRAL
+f	LOWER	BEGINNER	SMITH	Smith machine deadlift	WEIGHT_REPS	PRONATED
+f	LOWER	BEGINNER	DUMBBELL	Dumbbell deadlift	WEIGHT_REPS	NEUTRAL
+f	LOWER	INTERMEDIATE	CABLE	Cable pull-through	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	BARBELL	Barbell shoulder press	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	MACHINE	Machine shoulder press	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	DUMBBELL	Arnold press (Dumbbells)	WEIGHT_REPS	SUPINATED_TO_PRONATED
+f	UPPER	BEGINNER	DUMBBELL	Rear delt fly (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Rear delt fly (Machine)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	CABLE	Face pull	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	CABLE	Front raise (Cable)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	DUMBBELL	Front raise (Dumbbells)	WEIGHT_REPS	PRONATED
+t	UPPER	BEGINNER	CABLE	Lateral raise (Cable)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	DUMBBELL	Lateral raise (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Lateral raise (Machine)	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	\N	Pike push-up	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	SMITH	Military press (Smith machine)	WEIGHT_REPS	PRONATED
+f	LOWER	INTERMEDIATE	BARBELL	Romanian deadlift (Barbell)	WEIGHT_REPS	MIXED
+f	LOWER	INTERMEDIATE	DUMBBELL	Romanian deadlift (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	LOWER	BEGINNER	MACHINE	Lying leg curl (Machine)	WEIGHT_REPS	\N
+f	LOWER	ADVANCED	\N	Nordic hamstring curl	WEIGHT_REPS	\N
+t	LOWER	INTERMEDIATE	DUMBBELL	Single-leg Romanian deadlift (Dumbbell)	WEIGHT_REPS	NEUTRAL
+f	LOWER	BEGINNER	MACHINE	Seated leg curl (Machine)	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	DUMBBELL	Incline bench press (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	BARBELL	Incline bench press (Barbell)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	DUMBBELL	Flat bench press (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	PEC_DECK	Chest fly (Machine)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	DUMBBELL	Chest fly (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Incline bench press (Machine)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Flat bench press (Machine)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	\N	Push-ups (Bodyweight)	WEIGHT_REPS	\N
+f	UPPER	INTERMEDIATE	BARBELL	Flat bench press (Wide grip, Barbell)	WEIGHT_REPS	WIDE_PRONATED
+f	UPPER	BEGINNER	SMITH	Flat bench press (Smith machine)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	SMITH	Incline bench press (Smith machine)	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	CABLE	Cable chest fly (Crossover)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	PARALLEL_BARS	Parallel bar dips (Bodyweight)	WEIGHT_REPS	NEUTRAL
+f	UPPER	ADVANCED	PARALLEL_BARS	Weighted dips (Parallel bars)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	Decline bench press (Barbell)	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	DUMBBELL	Decline bench press (Dumbbells)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	DUMBBELL	Hex press (Single Dumbbell)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	BOX	Incline push-ups (Box or Bench)	WEIGHT_REPS	\N
+t	UPPER	ADVANCED	\N	One-arm push-up	WEIGHT_REPS	\N
+t	UPPER	INTERMEDIATE	CABLE	Unilateral cable chest fly	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	PLATE	Weighted push-ups (Floor)	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	BARBELL	Barbell shrugs	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	DUMBBELL	Dumbbell shrugs	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	CABLE	Cable shrugs	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Machine shrugs	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	SMITH	Smith machine shrugs	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	BENCH	Bench dips (Bodyweight)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	Close-grip bench press (Barbell)	WEIGHT_REPS	CLOSE_PRONATED
+f	UPPER	BEGINNER	\N	Diamond push-ups	WEIGHT_REPS	\N
+f	UPPER	BEGINNER	\N	Triceps floor dips	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	JM press (Barbell)	WEIGHT_REPS	PRONATED
+f	UPPER	BEGINNER	MACHINE	Machine dips	WEIGHT_REPS	NEUTRAL
+t	UPPER	BEGINNER	DUMBBELL	One-arm dumbbell triceps extension	WEIGHT_REPS	NEUTRAL
+t	UPPER	BEGINNER	CABLE	One-arm cable triceps extension	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	French press (Barbell)	WEIGHT_REPS	PRONATED
+f	UPPER	INTERMEDIATE	DUMBBELL	French press (Dumbbell)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Assisted machine dips (Triceps)	WEIGHT_REPS	NEUTRAL
+f	UPPER	INTERMEDIATE	BARBELL	Overhead triceps extension (Barbell)	WEIGHT_REPS	PRONATED
+t	UPPER	INTERMEDIATE	CABLE	One-arm overhead triceps extension (Cable)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	MACHINE	Triceps extension (Machine)	WEIGHT_REPS	NEUTRAL
+t	UPPER	BEGINNER	CABLE	Triceps kickback (Cable)	WEIGHT_REPS	NEUTRAL
+t	UPPER	BEGINNER	DUMBBELL	Triceps kickback (Dumbbell)	WEIGHT_REPS	NEUTRAL
+f	UPPER	BEGINNER	CABLE	Two-hand cable triceps pushdown	WEIGHT_REPS	PRONATED
 \.
 
 
