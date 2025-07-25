@@ -37,10 +37,15 @@ public class Exercise {
         LATS, MIDDLE_TRAPEZIUS, BICEPS, RHOMBOIDS, POSTERIOR_DELTOID, LATERAL_DELTOID, LOWER_TRAPEZIUS, CALVES,
         TRAPEZIUS, DELTOIDS, ABS, ABDUCTORS, ADDUCTORS, FOREARM, FULLBODY, NECK, SHOULDERS, GLUTEUS_MEDIUS,
         HIP_ABDUCTORS, REAR_DELTOIDS, ROTATOR_CUFF, FRONT_DELTOIDS, UPPER_CHEST, CORE, CHEST }
+    public enum ExerciseType { CARDIO } // TODO COMPLETAR
 
     @Id
     @Column(name = "exercise_name")
     private String exerciseName;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "exercise_type", nullable = false)
+    private ExerciseType exerciseType;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "difficulty_level", nullable = false)
