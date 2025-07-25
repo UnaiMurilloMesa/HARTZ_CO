@@ -4,16 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExerciseSet {
-    private String exerciseName;
-    private List<GymSet> sets;
-    private String notes;
+public class GymSet {
+    private int reps;
+    private int timeInSeconds;
+    private double weight;
+    private int restSeconds;
 }
-
-
-
