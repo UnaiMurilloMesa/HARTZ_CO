@@ -22,6 +22,6 @@ public class Workout {
     private String description;
     private LocalDateTime date;
     private boolean isRoutine;
-    private List<String> exerciseNames;
+    private List<ExerciseSet> exerciseSets;
 
 }
