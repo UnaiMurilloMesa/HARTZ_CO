@@ -8,7 +8,7 @@ import org.hartz.hartz_backend.exception.userExceptions.PasswordDoesNotMatchEmai
 import org.hartz.hartz_backend.exception.userExceptions.PasswordTooShortException;
 import org.hartz.hartz_backend.exception.userExceptions.UsernameTakenException;
 import org.hartz.hartz_backend.model.user.User;
-import org.hartz.hartz_backend.model.user.PlanType;
+import org.hartz.hartz_backend.model.user.User.PlanType;
 import org.hartz.hartz_backend.model.user.dto.out.AuthResponseDTO;
 import org.hartz.hartz_backend.model.user.dto.in.LoginRequestDTO;
 import org.hartz.hartz_backend.model.user.dto.in.RegisterRequestDTO;
