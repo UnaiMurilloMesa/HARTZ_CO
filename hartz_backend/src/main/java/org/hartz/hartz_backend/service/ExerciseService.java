@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -24,8 +25,17 @@ public class ExerciseService {
         List<String> muscleGroups = exercise.getMuscleGroup().stream()
                 .map(Exercise.MuscleGroup::name)
                 .toList();
-        return new ExerciseDTO(exercise.getExerciseName(), exercise.getDifficultyLevel().name(), muscleGroups,
-                exercise.getEquipment().name(), exercise.isUnilateral(), exercise.getGripType().name(),
+        return new ExerciseDTO(
+                exercise.getExerciseName(),
+                exercise.getDifficultyLevel().name(),
+                muscleGroups,
+                Optional.ofNullable(exercise.getEquipment())
+                        .map(Enum::name)
+                        .orElse(null),
+                exercise.isUnilateral(),
+                Optional.ofNullable(exercise.getGripType())
+                        .map(Enum::name)
+                        .orElse(null),
                 exercise.getBodyRegion().name());
     }
 }

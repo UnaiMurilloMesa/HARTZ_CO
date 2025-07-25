@@ -1,5 +1,6 @@
 package org.hartz.hartz_backend.service;
 
+import org.hartz.hartz_backend.model.Exercise;
 import org.hartz.hartz_backend.model.ExerciseSet;
 import org.hartz.hartz_backend.model.GymSet;
 import org.hartz.hartz_backend.model.Workout;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WorkoutService {
@@ -41,8 +43,9 @@ public class WorkoutService {
     }
 
     private ExerciseSetDTO toDTO(ExerciseSet exerciseSet) {
+        Optional<Exercise> exerciseOptional = exerciseRepository.findByExerciseName(exerciseSet.getExerciseName());
         return new ExerciseSetDTO(
-                exerciseService.toDTO(exerciseRepository.findByExerciseName(exerciseSet.getExerciseName()).get()),
+                exerciseService.toDTO(exerciseOptional.get()),
                 exerciseSet.getSets().stream().map(this::toDTO).toList(),
                 exerciseSet.getNotes()
         );
