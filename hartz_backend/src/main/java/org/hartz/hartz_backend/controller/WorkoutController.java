@@ -1,10 +1,10 @@
 package org.hartz.hartz_backend.controller;
 
 import jakarta.validation.Valid;
-import org.hartz.hartz_backend.model.Workout;
-import org.hartz.hartz_backend.model.dto.InputPostExerciseSetDTO;
-import org.hartz.hartz_backend.model.dto.InputPostWorkoutDTO;
-import org.hartz.hartz_backend.model.dto.WorkoutDTO;
+import org.hartz.hartz_backend.model.workout.Workout;
+import org.hartz.hartz_backend.model.exercise.dto.in.InputPostExerciseSetDTO;
+import org.hartz.hartz_backend.model.workout.dto.in.InputPostWorkoutDTO;
+import org.hartz.hartz_backend.model.workout.dto.out.WorkoutDTO;
 import org.hartz.hartz_backend.service.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

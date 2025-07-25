@@ -1,6 +1,6 @@
 package org.hartz.hartz_backend.persistence.mongo;
 
-import org.hartz.hartz_backend.model.Workout;
+import org.hartz.hartz_backend.model.workout.Workout;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

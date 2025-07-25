@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.model;
+package org.hartz.hartz_backend.model.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

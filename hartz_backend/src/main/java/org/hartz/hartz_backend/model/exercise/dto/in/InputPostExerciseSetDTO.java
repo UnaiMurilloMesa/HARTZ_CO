@@ -1,8 +1,8 @@
-package org.hartz.hartz_backend.model.dto;
+package org.hartz.hartz_backend.model.exercise.dto.in;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.hartz.hartz_backend.model.ExerciseSet;
+import org.hartz.hartz_backend.model.exercise.ExerciseSet;
 
 import java.util.List;
 

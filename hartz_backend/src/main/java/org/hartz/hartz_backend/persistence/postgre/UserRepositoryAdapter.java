@@ -1,6 +1,6 @@
 package org.hartz.hartz_backend.persistence.postgre;
 
-import org.hartz.hartz_backend.model.User;
+import org.hartz.hartz_backend.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

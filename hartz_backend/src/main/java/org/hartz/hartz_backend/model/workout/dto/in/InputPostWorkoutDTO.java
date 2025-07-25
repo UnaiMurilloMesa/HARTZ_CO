@@ -1,8 +1,9 @@
-package org.hartz.hartz_backend.model.dto;
+package org.hartz.hartz_backend.model.workout.dto.in;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.hartz.hartz_backend.model.exercise.dto.in.InputPostExerciseSetDTO;
 
 import java.util.List;
 

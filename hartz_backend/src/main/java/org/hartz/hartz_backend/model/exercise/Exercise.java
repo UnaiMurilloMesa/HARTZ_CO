@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.model;
+package org.hartz.hartz_backend.model.exercise;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;

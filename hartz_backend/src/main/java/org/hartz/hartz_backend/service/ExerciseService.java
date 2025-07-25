@@ -1,12 +1,12 @@
 package org.hartz.hartz_backend.service;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.hartz.hartz_backend.model.Exercise;
-import org.hartz.hartz_backend.model.ExerciseSet;
-import org.hartz.hartz_backend.model.GymSet;
-import org.hartz.hartz_backend.model.dto.ExerciseDTO;
-import org.hartz.hartz_backend.model.dto.ExerciseSetDTO;
-import org.hartz.hartz_backend.model.dto.GymSetDTO;
+import org.hartz.hartz_backend.model.exercise.Exercise;
+import org.hartz.hartz_backend.model.exercise.ExerciseSet;
+import org.hartz.hartz_backend.model.exercise.GymSet;
+import org.hartz.hartz_backend.model.exercise.dto.out.ExerciseDTO;
+import org.hartz.hartz_backend.model.exercise.dto.out.ExerciseSetDTO;
+import org.hartz.hartz_backend.model.exercise.dto.out.GymSetDTO;
 import org.hartz.hartz_backend.persistence.postgre.ExerciseRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

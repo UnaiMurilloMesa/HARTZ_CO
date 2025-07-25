@@ -1,9 +1,9 @@
-package org.hartz.hartz_backend.model.dto;
+package org.hartz.hartz_backend.model.exercise.dto.in;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hartz.hartz_backend.model.GymSet;
+import org.hartz.hartz_backend.model.exercise.GymSet;
 
 @Data
 @AllArgsConstructor

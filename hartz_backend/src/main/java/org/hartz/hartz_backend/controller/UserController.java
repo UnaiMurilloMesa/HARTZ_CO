@@ -1,8 +1,8 @@
 package org.hartz.hartz_backend.controller;
 
-import org.hartz.hartz_backend.model.User;
-import org.hartz.hartz_backend.model.dto.PersonalPrivateInfoDTO;
-import org.hartz.hartz_backend.model.dto.UserInfoDTO;
+import org.hartz.hartz_backend.model.user.User;
+import org.hartz.hartz_backend.model.user.dto.out.PersonalPrivateInfoDTO;
+import org.hartz.hartz_backend.model.user.dto.out.UserInfoDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
 import org.hartz.hartz_backend.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;

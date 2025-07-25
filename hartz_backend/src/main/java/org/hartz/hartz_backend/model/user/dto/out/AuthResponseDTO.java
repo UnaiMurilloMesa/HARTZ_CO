@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.model.dto;
+package org.hartz.hartz_backend.model.user.dto.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

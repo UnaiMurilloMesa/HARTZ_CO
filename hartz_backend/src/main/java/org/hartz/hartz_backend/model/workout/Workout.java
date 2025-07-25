@@ -1,8 +1,9 @@
-package org.hartz.hartz_backend.model;
+package org.hartz.hartz_backend.model.workout;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hartz.hartz_backend.model.exercise.ExerciseSet;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

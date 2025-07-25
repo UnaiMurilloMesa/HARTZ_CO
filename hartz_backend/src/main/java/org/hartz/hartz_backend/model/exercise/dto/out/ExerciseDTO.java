@@ -1,4 +1,4 @@
-package org.hartz.hartz_backend.model.dto;
+package org.hartz.hartz_backend.model.exercise.dto.out;
 
 import lombok.Data;
 import java.util.List;

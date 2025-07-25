@@ -1,7 +1,7 @@
 package org.hartz.hartz_backend.service;
 
-import org.hartz.hartz_backend.model.User;
-import org.hartz.hartz_backend.model.dto.PersonalPrivateInfoDTO;
+import org.hartz.hartz_backend.model.user.User;
+import org.hartz.hartz_backend.model.user.dto.out.PersonalPrivateInfoDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

@@ -1,7 +1,7 @@
 package org.hartz.hartz_backend.controller;
 
-import org.hartz.hartz_backend.model.Exercise;
-import org.hartz.hartz_backend.model.dto.ExerciseDTO;
+import org.hartz.hartz_backend.model.exercise.Exercise;
+import org.hartz.hartz_backend.model.exercise.dto.out.ExerciseDTO;
 import org.hartz.hartz_backend.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

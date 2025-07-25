@@ -1,9 +1,7 @@
-package org.hartz.hartz_backend.model.dto;
+package org.hartz.hartz_backend.model.user.dto.out;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hartz.hartz_backend.model.User;
+import org.hartz.hartz_backend.model.user.User;
 
 @Data
 public class UserInfoDTO {

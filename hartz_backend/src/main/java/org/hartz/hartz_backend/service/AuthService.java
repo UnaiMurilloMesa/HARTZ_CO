@@ -7,11 +7,11 @@ import org.hartz.hartz_backend.exception.userExceptions.NotCorrectEmailFormatExc
 import org.hartz.hartz_backend.exception.userExceptions.PasswordDoesNotMatchEmailException;
 import org.hartz.hartz_backend.exception.userExceptions.PasswordTooShortException;
 import org.hartz.hartz_backend.exception.userExceptions.UsernameTakenException;
-import org.hartz.hartz_backend.model.User;
-import org.hartz.hartz_backend.model.User.PlanType;
-import org.hartz.hartz_backend.model.dto.AuthResponseDTO;
-import org.hartz.hartz_backend.model.dto.LoginRequestDTO;
-import org.hartz.hartz_backend.model.dto.RegisterRequestDTO;
+import org.hartz.hartz_backend.model.user.User;
+import org.hartz.hartz_backend.model.user.PlanType;
+import org.hartz.hartz_backend.model.user.dto.out.AuthResponseDTO;
+import org.hartz.hartz_backend.model.user.dto.in.LoginRequestDTO;
+import org.hartz.hartz_backend.model.user.dto.in.RegisterRequestDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
