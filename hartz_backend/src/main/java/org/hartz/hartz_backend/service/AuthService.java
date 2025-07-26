@@ -1,18 +1,14 @@
 package org.hartz.hartz_backend.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.exception.userExceptions.EmailNotFoundException;
-import org.hartz.hartz_backend.exception.userExceptions.EmailTakenException;
-import org.hartz.hartz_backend.exception.userExceptions.NotCorrectEmailFormatException;
-import org.hartz.hartz_backend.exception.userExceptions.PasswordDoesNotMatchEmailException;
-import org.hartz.hartz_backend.exception.userExceptions.PasswordTooShortException;
-import org.hartz.hartz_backend.exception.userExceptions.UsernameTakenException;
+import org.hartz.hartz_backend.exception.userExceptions.*;
 import org.hartz.hartz_backend.model.user.User;
-import org.hartz.hartz_backend.model.user.User.PlanType;
+import org.hartz.hartz_backend.model.user.dto.in.UpdateUserHeightInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.out.AuthResponseDTO;
 import org.hartz.hartz_backend.model.user.dto.in.LoginRequestDTO;
 import org.hartz.hartz_backend.model.user.dto.in.RegisterRequestDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +38,7 @@ public class AuthService {
                     .email(requestDTO.getEmail())
                     .username(requestDTO.getUsername())
                     .password(passwordEncoder.encode(requestDTO.getPassword()))
-                    .planType(PlanType.BASIC)
+                    .planType(User.PlanType.BASIC)
                     .mascot(requestDTO.getMascot())
                     .createdAt(LocalDateTime.now())
                     .build();
@@ -71,4 +67,5 @@ public class AuthService {
 
         return new AuthResponseDTO(jwtService.generateToken(user.get().getUsername()));
     }
+
 }

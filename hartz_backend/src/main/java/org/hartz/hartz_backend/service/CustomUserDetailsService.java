@@ -1,6 +1,12 @@
 package org.hartz.hartz_backend.service;
 
+import org.hartz.hartz_backend.exception.userExceptions.InvalidHeightException;
+import org.hartz.hartz_backend.exception.userExceptions.InvalidMascotInputException;
+import org.hartz.hartz_backend.exception.userExceptions.InvalidWeightException;
 import org.hartz.hartz_backend.model.user.User;
+import org.hartz.hartz_backend.model.user.dto.in.UpdateUserHeightInfoDTO;
+import org.hartz.hartz_backend.model.user.dto.in.UpdateUserMascotInfoDTO;
+import org.hartz.hartz_backend.model.user.dto.in.UpdateUserWeightInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.out.PersonalPrivateInfoDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +44,41 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         return PersonalPrivateInfoDTO.toDto(user);
+    }
+
+    public void updateUserHeight(String username, UpdateUserHeightInfoDTO updateUserHeightInfoDTO) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if (updateUserHeightInfoDTO.getHeight() == null || updateUserHeightInfoDTO.getHeight() <= 0) {
+            throw new InvalidHeightException();
+        }
+
+        user.setHeight(updateUserHeightInfoDTO.getHeight());
+        userRepository.save(user);
+    }
+
+    public void updateUserWeight(String username, UpdateUserWeightInfoDTO updateUserWeightInfoDTO) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if (updateUserWeightInfoDTO.getWeight() == null || updateUserWeightInfoDTO.getWeight() <= 0) {
+            throw new InvalidWeightException();
+        }
+
+        user.setWeight(updateUserWeightInfoDTO.getWeight());
+        userRepository.save(user);
+    }
+
+    public void updateUserMascot(String username, UpdateUserMascotInfoDTO updateMascotInfoDTO) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if (updateMascotInfoDTO.getMascot() == null) {
+            throw new InvalidMascotInputException();
+        }
+
+        user.setMascot(updateMascotInfoDTO.getMascot());
+        userRepository.save(user);
     }
 }
