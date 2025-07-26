@@ -23,19 +23,6 @@ input {
   font-size: 1rem;
 }
 
-.primary-btn {
-  background-color: black;
-  color: white;
-  padding: 0.75rem;
-  width: 100%;
-  max-width: 300px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 1rem 0;
-}
-
 .link-btn {
   background: none;
   color: #000;
@@ -43,18 +30,6 @@ input {
   cursor: pointer;
   text-decoration: underline;
   margin-top: 0.5rem;
-}
-
-.oauth-btn {
-  background-color: white;
-  color: black;
-  padding: 0.75rem;
-  width: 100%;
-  max-width: 300px;
-  border: 1px solid #000;
-  border-radius: 8px;
-  margin-top: 0.5rem;
-  cursor: pointer;
 }
 
 .separator {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MobileFrame from '../components/MobileFrame';
+import { registerUser } from '../api';
 
 const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -20,12 +20,10 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = async () => {
     if (formData.password !== formData.confirmPassword) return alert('Passwords do not match');
     try {
-      const res = await axios.post('http://localhost:8080/api/auth/register', {
-        email: formData.email,
-        password: formData.password,
-        username: formData.username,
-        mascot: formData.mascot,
-      });
+      const res = await registerUser(formData);
+      if (res.status !== 200) { // TODO: handle specific error cases
+        throw new Error('Registration failed');
+      }
       localStorage.setItem('token', res.data.token);
       navigate('/home');
     } catch (err) {
