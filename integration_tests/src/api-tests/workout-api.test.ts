@@ -30,7 +30,7 @@ afterAll(async () => {
 });
 
 beforeEach(async () => {
-    await cleanMongo();
+  await cleanMongo();
 });
 
 describe('WorkoutController Integration Tests', () => {
@@ -82,7 +82,7 @@ describe('WorkoutController Integration Tests', () => {
     expect(res.status).toBe(200);
     expect(res.body.workoutName).toBe(validWorkout.name);
     expect(res.body.username).toBe(testUser.username);
-    
+
     const dateSeconds = new Date(res.body.dateSeconds * 1000);
     expect(dateSeconds.toString()).not.toBe('Invalid Date');
     const diffSeconds = Math.abs((dateSeconds.getTime() - date.getTime()) / 1000);
@@ -211,5 +211,118 @@ describe('WorkoutController Integration Tests', () => {
       .send(rest);
 
     expect(res.status).toBe(400);
+  });
+
+  it('should fail if cardio exercise set is missing timeInSeconds', async () => {
+    const invalidWorkout = {
+      ...validWorkout,
+      exerciseSets: validWorkout.exerciseSets.map(es => {
+        if (es.exerciseName === 'Air bike') {
+          return {
+            ...es,
+            sets: es.sets.map(set => {
+              if ('timeInSeconds' in set) {
+                const { timeInSeconds, ...rest } = set;
+                return { ...rest, reps: 10 };
+              }
+              return set;
+            }),
+          };
+        }
+        return es;
+      }),
+    };
+
+    const res = await api()
+      .post('/api/workout')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(invalidWorkout);
+
+    expect(res.status).toBe(400);
+    expect(res.text).toContain('timeInSeconds is required for cardio exercises');
+  });
+
+  it('should fail if strength exercise set is missing reps', async () => {
+    const invalidWorkout = {
+      ...validWorkout,
+      exerciseSets: validWorkout.exerciseSets.map(es => {
+        if (es.exerciseName === 'Face pull') {
+          return {
+            ...es,
+            sets: es.sets.map(set => {
+              if ('reps' in set) {
+                const { reps, ...rest } = set;
+                return { ...rest };
+              }
+            }),
+          };
+        }
+        return es;
+      }),
+    };
+
+    const res = await api()
+      .post('/api/workout')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(invalidWorkout);
+
+    expect(res.status).toBe(400);
+    expect(res.text).toContain('reps is required for strength exercises');
+  });
+
+  it('should fail if strength exercise set is missing weight', async () => {
+    const invalidWorkout = {
+      ...validWorkout,
+      exerciseSets: validWorkout.exerciseSets.map(es => {
+        if (es.exerciseName === 'Face pull') {
+          return {
+            ...es,
+            sets: es.sets.map(set => {
+              if ('weight' in set) {
+                const { weight, ...rest } = set; // eliminar weight
+                return { ...rest }; // weight falta, debería fallar
+              }
+            }),
+          };
+        }
+        return es;
+      }),
+    };
+
+    const res = await api()
+      .post('/api/workout')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(invalidWorkout);
+
+    expect(res.status).toBe(400);
+    expect(res.text).toContain('weight is required for strength exercises');
+  });
+
+  it('should fail if bodyweight exercise set is missing reps', async () => {
+    const invalidWorkout = {
+      ...validWorkout,
+      exerciseSets: validWorkout.exerciseSets.map(es => {
+        if (es.exerciseName === 'Pull-Ups') {
+          return {
+            ...es,
+            sets: es.sets.map(set => {
+              if ('reps' in set) {
+                const { reps, ...rest } = set;
+                return { ...rest };
+              }
+            }),
+          };
+        }
+        return es;
+      }),
+    };
+
+    const res = await api()
+      .post('/api/workout')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(invalidWorkout);
+
+    expect(res.status).toBe(400);
+    expect(res.text).toContain('reps is required for bodyweight exercises');
   });
 });
