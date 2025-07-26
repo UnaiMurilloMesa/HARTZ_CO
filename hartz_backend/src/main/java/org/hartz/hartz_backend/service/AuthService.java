@@ -26,13 +26,14 @@ public class AuthService {
     private final UserRepositoryAdapter userRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
+    private final int MIN_PASSWORD_LENGHT = 6;
 
     public AuthResponseDTO register(RegisterRequestDTO requestDTO) {
         if (userRepository.existsByUsername(requestDTO.getUsername())) {
             throw new UsernameTakenException();
         } else if (userRepository.existsByEmail(requestDTO.getEmail())) {
             throw new EmailTakenException();
-        } else if (requestDTO.getPassword().length() < 6) {
+        } else if (requestDTO.getPassword().length() < MIN_PASSWORD_LENGHT) {
             throw new PasswordTooShortException();
         } else if (!isEmailValid(requestDTO.getEmail())) {
             throw new NotCorrectEmailFormatException();
