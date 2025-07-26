@@ -90,9 +90,9 @@ describe('UserController Integration Tests', () => {
       expect(res.body).toHaveProperty('username', testUser.username);
       expect(res.body).toHaveProperty('mascot', testUser.mascot);
       expect(res.body).toHaveProperty('height');
-      expect(typeof res.body.height).toBe('number');
+      expect(res.body.height).toBe(180);
       expect(res.body).toHaveProperty('weight');
-      expect(typeof res.body.weight).toBe('number');
+      expect(res.body.weight).toBe(70);
       expect(res.body).toHaveProperty('createdAt');
       const createdAtDate = new Date(res.body.createdAt);
       expect(createdAtDate.toString()).not.toBe('Invalid Date');
