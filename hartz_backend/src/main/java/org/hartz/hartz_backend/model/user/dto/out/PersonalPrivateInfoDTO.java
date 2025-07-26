@@ -8,17 +8,20 @@ import java.time.LocalDateTime;
 @Data
 public class PersonalPrivateInfoDTO {
     private String username;
+    private String email;
     private String mascot;
     private Double height;
     private Double weight;
     private LocalDateTime createdAt;
 
     private PersonalPrivateInfoDTO(String username,
+                                  String email,
                                   String mascot,
                                   Double height,
                                   Double weight,
                                   LocalDateTime createdAt) {
         this.username = username;
+        this.email = email;
         this.mascot = mascot;
         this.height = height;
         this.weight = weight;
@@ -26,7 +29,9 @@ public class PersonalPrivateInfoDTO {
     }
 
     public static PersonalPrivateInfoDTO toDto(User user) {
-        return new PersonalPrivateInfoDTO(user.getUsername(),
+        return new PersonalPrivateInfoDTO(
+                user.getUsername(),
+                user.getEmail(),
                 user.getMascot(),
                 user.getHeight(),
                 user.getWeight(),

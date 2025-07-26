@@ -31,4 +31,4 @@ export async function registerUser(
     .send(payload);
 
   return response;
-}
+};
