@@ -14,7 +14,14 @@ import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
 import org.hartz.hartz_backend.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
@@ -30,16 +37,6 @@ public class UserController {
         this.userService = userService;
     }
 
-
-    @GetMapping("/email/{email}")
-    public ResponseEntity<UserInfoDTO> getUserByEmail(@PathVariable String email) {
-        Optional<User> userOptional = userRepository.findByEmail(email);
-        if (userOptional.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(UserInfoDTO.toDTO(userOptional.get()));
-    }
-
     @GetMapping("/username/{username}")
     public ResponseEntity<UserInfoDTO> getUserByUsername(@PathVariable String username) {
         Optional<User> userOptional = userRepository.findByUsername(username);
@@ -49,8 +46,9 @@ public class UserController {
         return ResponseEntity.ok(UserInfoDTO.toDTO(userOptional.get()));
     }
 
-    @GetMapping("/{username}")
-    public ResponseEntity<PersonalPrivateInfoDTO> getUserPersonalInfo(@PathVariable String username) {
+    @GetMapping("/profile")
+    public ResponseEntity<PersonalPrivateInfoDTO> getUserPersonalInfo(@AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
         Optional<User> userOptional = userRepository.findByUsername(username);
 
         if (userOptional.isEmpty()) {
@@ -60,9 +58,10 @@ public class UserController {
         return ResponseEntity.ok(userService.getPersonalPrivateInfoByUsername(username));
     }
 
-    @PostMapping("/{username}/update-height")
-    public ResponseEntity<Object> updateUserHeight(@PathVariable String username,
+    @PutMapping("/height")
+    public ResponseEntity<Object> updateUserHeight(@AuthenticationPrincipal UserDetails userDetails,
                                                    @RequestBody UpdateUserHeightInfoDTO updateUserHeightInfoDTO) {
+        String username = userDetails.getUsername();
         try {
             userService.updateUserHeight(username, updateUserHeightInfoDTO);
             return ResponseEntity.ok().build();
@@ -75,9 +74,10 @@ public class UserController {
         }
     }
 
-    @PostMapping("/{username}/update-weight")
-    public ResponseEntity<Object> updateUserWeight(@PathVariable String username,
+    @PutMapping("/weight")
+    public ResponseEntity<Object> updateUserWeight(@AuthenticationPrincipal UserDetails userDetails,
                                                    @RequestBody UpdateUserWeightInfoDTO updateUserWeightInfoDTO) {
+        String username = userDetails.getUsername();
         try {
             userService.updateUserWeight(username, updateUserWeightInfoDTO);
             return ResponseEntity.ok().build();
@@ -90,9 +90,10 @@ public class UserController {
         }
     }
 
-    @PostMapping("/{username}/update-mascot")
-    public ResponseEntity<Object> updateUserMascot(@PathVariable String username,
+    @PutMapping("/mascot")
+    public ResponseEntity<Object> updateUserMascot(@AuthenticationPrincipal UserDetails userDetails,
                                                    @RequestBody UpdateUserMascotInfoDTO updateUserMascotInfoDTO) {
+        String username = userDetails.getUsername();
         try {
             userService.updateUserMascot(username, updateUserMascotInfoDTO);
             return ResponseEntity.ok().build();
