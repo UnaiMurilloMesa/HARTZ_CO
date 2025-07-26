@@ -53,7 +53,7 @@ public class WorkoutController {
         String username = userDetails.getUsername();
 
         // Si es una rutina debe tener un nombre
-        if (workout.isRoutine() && (workout.getName() == null || workout.getName().trim().isEmpty())) {
+        if (workout.getIsRoutine() && (workout.getName() == null || workout.getName().trim().isEmpty())) {
             return ResponseEntity
                     .badRequest()
                     .body("Workout name can't be null");
@@ -105,7 +105,7 @@ public class WorkoutController {
                 workout.getName(),
                 workout.getDescription(),
                 Instant.now(),
-                workout.isRoutine(),
+                workout.getIsRoutine(),
                 workout.getExerciseSets().stream().map(InputPostExerciseSetDTO::toExerciseSet).toList()
         );
 

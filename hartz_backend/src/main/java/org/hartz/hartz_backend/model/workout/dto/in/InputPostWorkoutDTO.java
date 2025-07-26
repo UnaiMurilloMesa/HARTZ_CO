@@ -13,7 +13,7 @@ public class InputPostWorkoutDTO {
     private String name;
     private String description;
     @NotNull
-    private boolean isRoutine;
+    private Boolean isRoutine;
     @NotNull
     private List<InputPostExerciseSetDTO> exerciseSets;
 }
