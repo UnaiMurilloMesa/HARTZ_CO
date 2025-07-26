@@ -1,5 +1,6 @@
 package org.hartz.hartz_backend.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -16,7 +17,7 @@ public class SecurityConfig {
 
     private final JwtFilter jwtFilter;
 
-    // Inyección vía constructor (Spring inyecta el bean JwtFilter automáticamente)
+    @Autowired
     public SecurityConfig(JwtFilter jwtFilter) {
         this.jwtFilter = jwtFilter;
     }

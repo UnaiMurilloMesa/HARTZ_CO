@@ -7,7 +7,7 @@ import org.hartz.hartz_backend.model.exercise.ExerciseSet;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.List;
 
 @Data
@@ -26,11 +26,11 @@ public class Workout {
     private String username;
     private String name;
     private String description;
-    private LocalDateTime date;
+    private Instant date;
     private boolean isRoutine;
     private List<ExerciseSet> exerciseSets;
 
-    public Workout(String username, String name, String description, LocalDateTime date, boolean isRoutine, List<ExerciseSet> exerciseSets) {
+    public Workout(String username, String name, String description, Instant date, boolean isRoutine, List<ExerciseSet> exerciseSets) {
         this.username = username;
         this.name = name;
         this.description = description;

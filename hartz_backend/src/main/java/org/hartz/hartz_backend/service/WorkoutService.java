@@ -1,14 +1,13 @@
 package org.hartz.hartz_backend.service;
 
 import org.hartz.hartz_backend.model.exercise.ExerciseSet;
-import org.hartz.hartz_backend.model.workout.Workout;
 import org.hartz.hartz_backend.model.exercise.dto.out.ExerciseSetDTO;
+import org.hartz.hartz_backend.model.workout.Workout;
 import org.hartz.hartz_backend.model.workout.dto.out.WorkoutDTO;
 import org.hartz.hartz_backend.persistence.mongo.WorkoutRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -46,7 +45,7 @@ public class WorkoutService {
                 workout.getDescription(),
                 workout.getUsername(),
                 exerciseSetDTOs,
-                workout.getDate().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli() / 1000
+                workout.getDate().getEpochSecond()
         );
     }
 }
