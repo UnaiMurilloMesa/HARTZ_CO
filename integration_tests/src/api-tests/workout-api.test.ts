@@ -145,7 +145,7 @@ describe('WorkoutController Integration Tests', () => {
       .send({ ...validWorkout, exerciseSets: exercises });
 
     expect(res.status).toBe(400);
-    expect(res.text).toContain('You can\'t create more than');
+    expect(res.text).toContain(`You can\'t create more than ${WorkoutLimits.MAX_EXERCISES}`);
   });
 
   it('should fail if any exercise has no sets', async () => {
@@ -190,7 +190,7 @@ describe('WorkoutController Integration Tests', () => {
       });
 
     expect(res.status).toBe(400);
-    expect(res.text).toContain("An exercise can't hace more than");
+    expect(res.text).toContain(`An exercise can't have more than ${WorkoutLimits.MAX_SETS_PER_EXERCISE} sets`);
   });
 
   it('should fail if isRoutine is missing (violates @NotNull)', async () => {
@@ -239,7 +239,7 @@ describe('WorkoutController Integration Tests', () => {
       .send(invalidWorkout);
 
     expect(res.status).toBe(400);
-    expect(res.text).toContain('timeInSeconds is required for cardio exercises');
+    expect(res.text).toContain('Mandatory attribute: TimeInSeconds');
   });
 
   it('should fail if strength exercise set is missing reps', async () => {
@@ -267,7 +267,7 @@ describe('WorkoutController Integration Tests', () => {
       .send(invalidWorkout);
 
     expect(res.status).toBe(400);
-    expect(res.text).toContain('reps is required for strength exercises');
+    expect(res.text).toContain('Mandatory attribute: Reps');
   });
 
   it('should fail if strength exercise set is missing weight', async () => {
@@ -295,10 +295,10 @@ describe('WorkoutController Integration Tests', () => {
       .send(invalidWorkout);
 
     expect(res.status).toBe(400);
-    expect(res.text).toContain('weight is required for strength exercises');
+    expect(res.text).toContain('Mandatory attribute: Weight');
   });
 
-  it('should fail if bodyweight exercise set is missing reps', async () => {
+  it('should fail if body-weight exercise set is missing reps', async () => {
     const invalidWorkout = {
       ...validWorkout,
       exerciseSets: validWorkout.exerciseSets.map(es => {
@@ -323,6 +323,6 @@ describe('WorkoutController Integration Tests', () => {
       .send(invalidWorkout);
 
     expect(res.status).toBe(400);
-    expect(res.text).toContain('reps is required for bodyweight exercises');
+    expect(res.text).toContain('Mandatory attribute: Reps');
   });
 });
