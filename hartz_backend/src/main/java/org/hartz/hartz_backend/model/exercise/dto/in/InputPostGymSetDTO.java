@@ -9,17 +9,17 @@ import org.hartz.hartz_backend.model.exercise.GymSet;
 @AllArgsConstructor
 @NoArgsConstructor
 public class InputPostGymSetDTO {
-    private int reps;
-    private int timeInSeconds;
-    private double weight;
-    private int restSeconds;
+    private Integer reps;
+    private Integer timeInSeconds;
+    private Double weight;
+    private Integer restSeconds;
 
     public GymSet toGymSet() {
         return new GymSet(
-                reps,
-                timeInSeconds,
-                weight,
-                restSeconds
+                reps == null ? -1 : reps,
+                timeInSeconds == null ? -1 : timeInSeconds,
+                weight == null ? -1 : weight,
+                restSeconds == null ? -1 : restSeconds
         );
     }
 }

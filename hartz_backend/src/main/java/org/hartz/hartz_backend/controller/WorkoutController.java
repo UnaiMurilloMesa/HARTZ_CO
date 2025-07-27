@@ -1,10 +1,15 @@
 package org.hartz.hartz_backend.controller;
 
 import jakarta.validation.Valid;
+import org.hartz.hartz_backend.model.exercise.Exercise;
+import org.hartz.hartz_backend.model.exercise.ExerciseSet;
 import org.hartz.hartz_backend.model.exercise.dto.in.InputPostExerciseSetDTO;
+import org.hartz.hartz_backend.model.exercise.dto.in.InputPostGymSetDTO;
+import org.hartz.hartz_backend.model.exercise.dto.out.GymSetDTO;
 import org.hartz.hartz_backend.model.workout.Workout;
 import org.hartz.hartz_backend.model.workout.dto.in.InputPostWorkoutDTO;
 import org.hartz.hartz_backend.model.workout.dto.out.WorkoutDTO;
+import org.hartz.hartz_backend.service.ExerciseService;
 import org.hartz.hartz_backend.service.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +25,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/workout")
 public class WorkoutController {
 
     private final WorkoutService workoutService;
+    private final ExerciseService exerciseService;
 
     @Autowired
-    public WorkoutController(WorkoutService workoutService) {
+    public WorkoutController(WorkoutService workoutService, ExerciseService exerciseService) {
         this.workoutService = workoutService;
+        this.exerciseService = exerciseService;
     }
 
     @GetMapping("/{username}")
@@ -68,7 +76,7 @@ public class WorkoutController {
         if (workout.getDescription() != null && workout.getDescription().length() > Workout.MAX_DESCRIPTION_LENGTH) {
             return ResponseEntity
                     .badRequest()
-                    .body("Workout description can't be over" + Workout.MAX_DESCRIPTION_LENGTH + " characters");
+                    .body("Workout description can't be over " + Workout.MAX_DESCRIPTION_LENGTH + " characters");
         }
 
         // Exercises
@@ -78,7 +86,7 @@ public class WorkoutController {
                     .body("You can't create more than " + Workout.MAX_EXERCISES + " exercises");
         }
 
-        if (workout.getExerciseSets() != null && workout.getExerciseSets().isEmpty()){
+        if (workout.getExerciseSets() != null && workout.getExerciseSets().isEmpty()) {
             return ResponseEntity
                     .badRequest()
                     .body("A workout must have at least one exercise");
@@ -89,7 +97,7 @@ public class WorkoutController {
                 .anyMatch(es -> es.getSets().size() > Workout.MAX_SETS_PER_EXERCISE)) {
             return ResponseEntity
                     .badRequest()
-                    .body("An exercise can't hace more than " + Workout.MAX_SETS_PER_EXERCISE + " sets");
+                    .body("An exercise can't have more than " + Workout.MAX_SETS_PER_EXERCISE + " sets");
         }
 
         if (workout.getExerciseSets() != null && workout.getExerciseSets().stream()
@@ -97,6 +105,48 @@ public class WorkoutController {
             return ResponseEntity
                     .badRequest()
                     .body("An exercise must have at least one set");
+        }
+
+        if (workout.getExerciseSets() != null) {
+            for (InputPostExerciseSetDTO exerciseSet : workout.getExerciseSets()) {
+                String exerciseName = exerciseSet.getExerciseName();
+                Optional<Exercise> exerciseOptional = exerciseService.findByExerciseName(exerciseName);
+
+                if (exerciseOptional.isEmpty()) {
+                    return ResponseEntity
+                            .badRequest()
+                            .body(exerciseName + " not found");
+                }
+
+                for (InputPostGymSetDTO gymSet : exerciseSet.getSets()) {
+                    List<String> attributes = exerciseService.getAttributes(exerciseOptional.get().getExerciseType());
+
+                    if (attributes.contains("reps")) {
+                        if (gymSet.getReps() == null) {
+                            return ResponseEntity
+                                    .badRequest()
+                                    .body("Mandatory attribute: Reps for exercise: " + exerciseName);
+                        }
+                    }
+
+                    if (attributes.contains("weight")) {
+                        if (gymSet.getWeight() == null) {
+                            return ResponseEntity
+                                    .badRequest()
+                                    .body("Mandatory attribute: Weight for exercise: " + exerciseName);
+                        }
+                    }
+
+                    if (attributes.contains("timeInSeconds")) {
+                        if (gymSet.getTimeInSeconds() == null) {
+                            return ResponseEntity
+                                    .badRequest()
+                                    .body("Mandatory attribute: TimeInSeconds for exercise: " + exerciseName);
+                        }
+                    }
+
+                }
+            }
         }
 
 

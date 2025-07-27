@@ -2,6 +2,7 @@ package org.hartz.hartz_backend.service;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hartz.hartz_backend.model.exercise.Exercise;
+import org.hartz.hartz_backend.model.exercise.Exercise.ExerciseType;
 import org.hartz.hartz_backend.model.exercise.ExerciseSet;
 import org.hartz.hartz_backend.model.exercise.GymSet;
 import org.hartz.hartz_backend.model.exercise.dto.out.ExerciseDTO;
@@ -11,7 +12,9 @@ import org.hartz.hartz_backend.persistence.postgre.ExerciseRepositoryAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -20,9 +23,26 @@ public class ExerciseService {
 
     private ExerciseRepositoryAdapter exerciseRepository;
 
+    private final Map<ExerciseType, List<String>> exercisesAttributes;
+
+
     @Autowired
     public ExerciseService(ExerciseRepositoryAdapter exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
+
+        exercisesAttributes = new HashMap<>();
+        exercisesAttributes.put(
+                ExerciseType.BODY_REPS, List.of("reps")
+        );
+        exercisesAttributes.put(
+                ExerciseType.WEIGHT_REPS, List.of("reps", "weight")
+        );
+        exercisesAttributes.put(
+                ExerciseType.CARDIO, List.of("timeInSeconds")
+        );
+        exercisesAttributes.put(
+                ExerciseType.TIME, List.of("timeInSeconds")
+        );
     }
 
     public Optional<Exercise> findByExerciseName(String exerciseName) {
@@ -63,5 +83,9 @@ public class ExerciseService {
                 gymSet.getWeight(),
                 gymSet.getRestSeconds()
         );
+    }
+
+    public List<String> getAttributes(ExerciseType exerciseType) {
+        return exercisesAttributes.get(exerciseType);
     }
 }
