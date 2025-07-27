@@ -9,3 +9,9 @@ npm install
 npx jest --runInBand
 ```
 
+### Ejecutar frontend
+```
+cd hartz_frontend_native
+npx expo start
+```
+
