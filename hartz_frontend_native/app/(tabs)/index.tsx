@@ -1,28 +1,40 @@
-import { StyleSheet } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { Text, View, Button } from '@/components/utils/Themed';
+import Input from '@/components/HartzInput';
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Button
-        variant='primary'
-        title="Primary"
-        onPress={() => console.log('Pressed')}
-      />
-      <Button
-        variant='secondary'
-        title="Secondary"
-        onPress={() => console.log('Pressed')}
-      />
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      style={{ flex: 1 }}
+    >
+      {/* Para ocultar el tecldo cuando al pulsar en el fondo */}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Tab One</Text>
+          <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+          <Button
+            variant='primary'
+            title="Primary"
+            onPress={() => console.log('Pressed')}
+          />
+          <Button
+            variant='secondary'
+            title="Secondary"
+            onPress={() => console.log('Pressed')}
+          />
+          <Input placeholder="Escribe algo..." />
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 16,
+    gap: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
