@@ -28,7 +28,6 @@ const getButtonStyles = ({
   isPressed: boolean;
 }) => {
   const baseStyle = {
-    borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 20,
   };
@@ -40,17 +39,23 @@ const getButtonStyles = ({
         backgroundColor: isPressed ? activeBackgroundColor : backgroundColor,
         ...baseStyle,
       },
+      containerStyle: {
+        borderRadius: 8,
+        boxShadow: '0px 2px 5px rgba(0, 8, 46, 0.4)'
+      },
     };
   }
 
   return {
     type: 'outline' as const,
     buttonStyle: {
+      borderRadius: 8,
       borderColor: isPressed ? activeBackgroundColor : backgroundColor,
       borderWidth: 2,
       backgroundColor: 'transparent',
       ...baseStyle,
     },
+    containerStyle: {}
   };
 };
 
@@ -82,7 +87,7 @@ const getTitleStyle = ({
 };
 
 const HartzButton: React.FC<HartzButtonProps> = ({
-  variant = 'primary',
+  variant = 'secondary',
   backgroundColor = DEFAULT_COLORS.background,
   activeBackgroundColor = DEFAULT_COLORS.activeBackground,
   textColor = DEFAULT_COLORS.text,
@@ -91,7 +96,7 @@ const HartzButton: React.FC<HartzButtonProps> = ({
 }) => {
   const [isPressed, setIsPressed] = useState(false);
 
-  const { type, buttonStyle } = getButtonStyles({
+  const { type, buttonStyle, containerStyle } = getButtonStyles({
     variant,
     backgroundColor,
     activeBackgroundColor,
@@ -111,6 +116,7 @@ const HartzButton: React.FC<HartzButtonProps> = ({
       title={title}
       type={type}
       buttonStyle={buttonStyle}
+      containerStyle={containerStyle}
       titleStyle={titleStyle}
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
