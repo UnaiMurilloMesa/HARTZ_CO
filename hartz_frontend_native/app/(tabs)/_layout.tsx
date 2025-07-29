@@ -1,6 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
+import { useThemeColor } from '@/components/utils/Themed';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -16,6 +17,11 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarActiveTintColor: useThemeColor({}, 'secondary'), // color icono + texto seleccionado
+        tabBarInactiveTintColor: 'gray', // color icono + texto no seleccionado
+        tabBarStyle: {
+          backgroundColor: useThemeColor({}, 'background'), // fondo de la barra de tabs
+        },
       }}>
       <Tabs.Screen
         name="index"
