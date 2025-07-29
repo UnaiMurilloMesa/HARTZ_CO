@@ -7,7 +7,7 @@ export default {
   light: {
     primary: tone1,
     primaryLight: "#6A8CA1", // (Para hovers sobre primary) Para cumplir con estandar de accesibilidad WCAG AA
-    secondary: tone1,
+    secondary: tone2,
     text: tone1,
     negativeText: tone4,
     background: tone4
