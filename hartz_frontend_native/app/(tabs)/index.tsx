@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Text, View, Button} from '@/components/utils/Themed';
+import { Text, View, Button } from '@/components/utils/Themed';
 
 export default function TabOneScreen() {
   return (
@@ -7,9 +7,15 @@ export default function TabOneScreen() {
       <Text style={styles.title}>Tab One</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Button
-          title="Primary"
-          onPress={() => console.log('Pressed')}
-        />
+        variant='primary'
+        title="Primary"
+        onPress={() => console.log('Pressed')}
+      />
+      <Button
+        variant='secondary'
+        title="Secondary"
+        onPress={() => console.log('Pressed')}
+      />
     </View>
   );
 }
