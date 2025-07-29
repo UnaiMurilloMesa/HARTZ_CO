@@ -1,9 +1,11 @@
 package org.hartz.hartz_backend.service;
 
+import org.hartz.hartz_backend.exception.userExceptions.InvalidBiographyInputException;
 import org.hartz.hartz_backend.exception.userExceptions.InvalidHeightException;
 import org.hartz.hartz_backend.exception.userExceptions.InvalidMascotInputException;
 import org.hartz.hartz_backend.exception.userExceptions.InvalidWeightException;
 import org.hartz.hartz_backend.model.user.User;
+import org.hartz.hartz_backend.model.user.dto.in.UpdateUserBiographyInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserHeightInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserMascotInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserWeightInfoDTO;
@@ -79,6 +81,18 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
 
         user.setMascot(updateMascotInfoDTO.getMascot());
+        userRepository.save(user);
+    }
+
+    public void updateUserBiography(String username, UpdateUserBiographyInfoDTO updateUserBiographyInfoDTO) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        if (updateUserBiographyInfoDTO.getBiography() == null) {
+            throw new InvalidBiographyInputException();
+        }
+
+        user.setBiography(updateUserBiographyInfoDTO.getBiography());
         userRepository.save(user);
     }
 }

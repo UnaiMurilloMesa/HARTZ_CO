@@ -1,10 +1,9 @@
 package org.hartz.hartz_backend.controller;
 
-import org.hartz.hartz_backend.exception.userExceptions.InvalidHeightException;
-import org.hartz.hartz_backend.exception.userExceptions.InvalidMascotInputException;
-import org.hartz.hartz_backend.exception.userExceptions.InvalidWeightException;
-import org.hartz.hartz_backend.exception.userExceptions.UserNotFoundException;
+import jakarta.validation.Valid;
+import org.hartz.hartz_backend.exception.userExceptions.*;
 import org.hartz.hartz_backend.model.user.User;
+import org.hartz.hartz_backend.model.user.dto.in.UpdateUserBiographyInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserHeightInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserMascotInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserWeightInfoDTO;
@@ -60,7 +59,7 @@ public class UserController {
 
     @PutMapping("/height")
     public ResponseEntity<Object> updateUserHeight(@AuthenticationPrincipal UserDetails userDetails,
-                                                   @RequestBody UpdateUserHeightInfoDTO updateUserHeightInfoDTO) {
+                                                   @Valid @RequestBody UpdateUserHeightInfoDTO updateUserHeightInfoDTO) {
         String username = userDetails.getUsername();
         try {
             userService.updateUserHeight(username, updateUserHeightInfoDTO);
@@ -76,7 +75,7 @@ public class UserController {
 
     @PutMapping("/weight")
     public ResponseEntity<Object> updateUserWeight(@AuthenticationPrincipal UserDetails userDetails,
-                                                   @RequestBody UpdateUserWeightInfoDTO updateUserWeightInfoDTO) {
+                                                   @Valid @RequestBody UpdateUserWeightInfoDTO updateUserWeightInfoDTO) {
         String username = userDetails.getUsername();
         try {
             userService.updateUserWeight(username, updateUserWeightInfoDTO);
@@ -92,7 +91,7 @@ public class UserController {
 
     @PutMapping("/mascot")
     public ResponseEntity<Object> updateUserMascot(@AuthenticationPrincipal UserDetails userDetails,
-                                                   @RequestBody UpdateUserMascotInfoDTO updateUserMascotInfoDTO) {
+                                                   @Valid @RequestBody UpdateUserMascotInfoDTO updateUserMascotInfoDTO) {
         String username = userDetails.getUsername();
         try {
             userService.updateUserMascot(username, updateUserMascotInfoDTO);
@@ -101,6 +100,22 @@ public class UserController {
             return ResponseEntity.badRequest().body("User not found");
         } catch (InvalidMascotInputException e) {
             return ResponseEntity.badRequest().body("Invalid mascot input");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PutMapping("/biography")
+    public ResponseEntity<Object> updateUserBiography(@AuthenticationPrincipal UserDetails userDetails,
+                                                      @Valid @RequestBody UpdateUserBiographyInfoDTO updateUserBiographyInfoDTO) {
+        String username = userDetails.getUsername();
+        try {
+            userService.updateUserBiography(username, updateUserBiographyInfoDTO);
+            return ResponseEntity.ok().build();
+        } catch (UserNotFoundException e) {
+            return ResponseEntity.badRequest().body("User not found");
+        } catch (InvalidBiographyInputException e) {
+            return ResponseEntity.badRequest().body("Invalid biography data");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }

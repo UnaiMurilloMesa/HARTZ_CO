@@ -10,6 +10,7 @@ public class PersonalPrivateInfoDTO {
     private String username;
     private String email;
     private String mascot;
+    private String biography;
     private Double height;
     private Double weight;
     private LocalDateTime createdAt;
@@ -19,11 +20,13 @@ public class PersonalPrivateInfoDTO {
                                   String mascot,
                                   Double height,
                                   Double weight,
+                                  String biography,
                                   LocalDateTime createdAt) {
         this.username = username;
         this.email = email;
         this.mascot = mascot;
         this.height = height;
+        this.biography = biography;
         this.weight = weight;
         this.createdAt = createdAt;
     }
@@ -35,6 +38,7 @@ public class PersonalPrivateInfoDTO {
                 user.getMascot(),
                 user.getHeight(),
                 user.getWeight(),
+                user.getBiography(),
                 user.getCreatedAt());
     }
 }

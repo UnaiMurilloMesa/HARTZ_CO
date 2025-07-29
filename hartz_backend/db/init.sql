@@ -29,6 +29,7 @@ CREATE TABLE public.customer (
     height double precision,
     weight double precision,
     created_at timestamp(6) without time zone,
+    biography character varying(255),
     email character varying(255) NOT NULL,
     mascot character varying(255),
     password character varying(255) NOT NULL,

@@ -1,5 +1,6 @@
 package org.hartz.hartz_backend.model.user.dto.in;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateUserMascotInfoDTO {
+    @NotNull
     private String mascot;
 }

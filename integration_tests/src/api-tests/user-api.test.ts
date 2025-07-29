@@ -189,7 +189,42 @@ describe('UserController Integration Tests', () => {
         .send({ mascot: null });
 
       expect(res.status).toBe(400);
-      expect(res.text).toContain('Invalid mascot input');
+    });
+  });
+
+  describe('PUT /api/user/biography', () => {
+    it('should be authenticated to update bio', async () => {
+      const res = await api()
+        .put('/api/user/biography')
+        .send({ biography: "asdfasdfasdf" });
+
+      expect(res.status).toBe(403);
+    });
+
+    it('should update bio successfully', async () => {
+      const res = await api()
+        .put('/api/user/biography')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ biography: "asdfasdfasdf" });
+
+      expect(res.status).toBe(200);
+    });
+
+    it('should return 400 for invalid bio', async () => {
+      const res = await api()
+        .put('/api/user/biography')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ biography: null });
+
+      expect(res.status).toBe(400);
+    });
+
+    it('should return 400 for bio not found', async () => {
+      const res = await api()
+        .put('/api/user/biography')
+        .set('Authorization', `Bearer ${authToken}`)
+
+      expect(res.status).toBe(400);
     });
   });
 });

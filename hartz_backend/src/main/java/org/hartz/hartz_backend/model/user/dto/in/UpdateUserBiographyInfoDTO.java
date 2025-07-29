@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateUserHeightInfoDTO {
+public class UpdateUserBiographyInfoDTO {
     @NotNull
-    private Double height;
+    private String biography;
 }

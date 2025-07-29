@@ -37,6 +37,8 @@ public class User {
     @Column(name = "plan_type", nullable = false)
     private PlanType planType;
 
+    private String biography;
+
     private String mascot;
     private Double height;
     private Double weight;
