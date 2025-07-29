@@ -3,7 +3,10 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { Text as DefaultText, View as DefaultView } from 'react-native';
+import { Text as DefaultText, TextProps as RNETextProps } from '@rneui/themed';
+import { View as DefaultView } from 'react-native';
+import HartzButton, { HartzButtonProps } from '@/components/HartzButton';
+
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from './useColorScheme';
@@ -13,8 +16,9 @@ type ThemeProps = {
   darkColor?: string;
 };
 
-export type TextProps = ThemeProps & DefaultText['props'];
-export type ViewProps = ThemeProps & DefaultView['props'];
+type TextProps = ThemeProps & RNETextProps;
+type ViewProps = ThemeProps & DefaultView['props'];
+type ButtonProps = ThemeProps & HartzButtonProps;
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -42,4 +46,29 @@ export function View(props: ViewProps) {
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+
+export function Button(props: HartzButtonProps) {
+  const {
+    backgroundColor,
+    activeBackgroundColor,
+    textColor,
+    ...otherProps
+  } = props;
+
+  const resolvedBackgroundColor =
+    backgroundColor ?? useThemeColor({}, 'primary');
+  const resolvedActiveBackgroundColor =
+    activeBackgroundColor ?? useThemeColor({}, 'primaryLight');
+  const resolvedTextColor =
+    textColor ?? useThemeColor({}, 'negativeText');
+
+  return (
+    <HartzButton
+      backgroundColor={resolvedBackgroundColor}
+      activeBackgroundColor={resolvedActiveBackgroundColor}
+      textColor={resolvedTextColor}
+      {...otherProps}
+    />
+  );
 }
