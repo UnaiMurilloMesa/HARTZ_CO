@@ -1,19 +1,21 @@
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
+const tone1 = '#27374D';
+const tone2 = '#526D82';
+const tone3 = '#9DB2BF';
+const tone4 = '#DDE6ED';
 
 export default {
   light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
+    primary: tone2,
+    primaryLight: "#6A8CA1", // Para cumplir con estandar de accesibilidad WCAG AA
+    secondary: tone1,
+    text: tone1,
+    background: tone4
   },
   dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
-  },
+    primary: tone3,
+    primaryLight: "#89A6BA", // Para cumplir con estandar de accesibilidad WCAG AA
+    secondary: tone4,
+    text: tone4,
+    background: tone1
+  }
 };
