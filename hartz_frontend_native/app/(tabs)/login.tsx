@@ -14,21 +14,19 @@ export default function InitScreen() {
             source={require('../../assets/images/bears/hartz.png')}
             style={styles.image}
           />
-          <Text style={styles.title}>Create your account</Text>
+          <Text style={styles.title}>Log in to your account</Text>
         </View>
 
         <View style={styles.form}>
-          <HartzInput placeholder='username'></HartzInput>
           <HartzInput placeholder='email@domain.com'></HartzInput>
           <HartzInput placeholder='password'></HartzInput>
-          <HartzInput placeholder='confirm password'></HartzInput>
         </View>
 
         <View style={{ width: '60%' }}>
           <Button
             variant='primary'
-            title='Continue'
-            onPress={() => console.log('Register Pressed')}
+            title='Log in'
+            onPress={() => console.log('Login Pressed')}
           />
         </View>
       </View>
