@@ -45,7 +45,9 @@ public class WorkoutService {
                 workout.getDescription(),
                 workout.getUsername(),
                 exerciseSetDTOs,
-                workout.getDate().getEpochSecond()
+                workout.getCreatedDate(),
+                workout.getStartDate(),
+                workout.getEndDate()
         );
     }
 }

@@ -57,7 +57,8 @@ public class WorkoutController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createWorkout(@Valid @RequestBody InputPostWorkoutDTO workout, @AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<Object> createWorkout(@Valid @RequestBody InputPostWorkoutDTO workout,
+                                                @AuthenticationPrincipal UserDetails userDetails) {
         String username = userDetails.getUsername();
 
         // Si es una rutina debe tener un nombre
@@ -107,6 +108,12 @@ public class WorkoutController {
                     .body("An exercise must have at least one set");
         }
 
+        if (!workout.getIsRoutine() && (workout.getStartDate() == null || workout.getEndDate() == null)) {
+            return ResponseEntity
+                      .badRequest()
+                      .body("Workouts need to provide a start and an end date");
+        }
+
         if (workout.getExerciseSets() != null) {
             for (InputPostExerciseSetDTO exerciseSet : workout.getExerciseSets()) {
                 String exerciseName = exerciseSet.getExerciseName();
@@ -149,15 +156,15 @@ public class WorkoutController {
             }
         }
 
-
-        Workout creatingWorkout = new Workout(
-                username,
-                workout.getName(),
-                workout.getDescription(),
-                Instant.now(),
-                workout.getIsRoutine(),
-                workout.getExerciseSets().stream().map(InputPostExerciseSetDTO::toExerciseSet).toList()
-        );
+        Workout creatingWorkout;
+        if (workout.getIsRoutine()) {
+            creatingWorkout = new Workout(username, workout.getName(), workout.getDescription(), Instant.now(),
+                      workout.getExerciseSets().stream().map(InputPostExerciseSetDTO::toExerciseSet).toList());
+        } else {
+            creatingWorkout = new Workout(username, workout.getName(), workout.getDescription(), workout.getStartDate(),
+                      workout.getEndDate(),
+                      workout.getExerciseSets().stream().map(InputPostExerciseSetDTO::toExerciseSet).toList());
+        }
 
         Workout savedWorkout = workoutService.save(creatingWorkout);
 

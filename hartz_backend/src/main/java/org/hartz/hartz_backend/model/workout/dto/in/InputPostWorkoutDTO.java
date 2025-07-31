@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hartz.hartz_backend.model.exercise.dto.in.InputPostExerciseSetDTO;
 
+import java.time.Instant;
 import java.util.List;
 
 @Data
@@ -16,4 +17,6 @@ public class InputPostWorkoutDTO {
     private Boolean isRoutine;
     @NotNull
     private List<InputPostExerciseSetDTO> exerciseSets;
+    private Instant startDate;
+    private Instant endDate;
 }

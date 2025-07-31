@@ -71,7 +71,7 @@ describe('WorkoutController Integration Tests', () => {
     ],
   };
 
-  it('should create workout successfully', async () => {
+  it('should create routine successfully', async () => {
     const res = await api()
       .post('/api/workout')
       .set('Authorization', `Bearer ${authToken}`)
@@ -83,10 +83,77 @@ describe('WorkoutController Integration Tests', () => {
     expect(res.body.workoutName).toBe(validWorkout.name);
     expect(res.body.username).toBe(testUser.username);
 
-    const dateSeconds = new Date(res.body.dateSeconds * 1000);
-    expect(dateSeconds.toString()).not.toBe('Invalid Date');
-    const diffSeconds = Math.abs((dateSeconds.getTime() - date.getTime()) / 1000);
+    const createdDate = new Date(res.body.createdDate);
+    expect(createdDate.toString()).not.toBe('Invalid Date');
+
+    const diffSeconds = Math.abs((createdDate.getTime() - date.getTime()) / 1000);
     expect(diffSeconds).toBeLessThanOrEqual(60); // Allow 1 minute difference
+  });
+
+  it('should create workout successfully', async () => {
+
+    const now = new Date();
+    const oneHourLater = new Date(now.getTime() + 60 * 60 * 1000);
+    const startDateISO = now.toISOString();
+    const endDateISO = oneHourLater.toISOString();
+
+    const workoutWithDates = {
+      ...validWorkout,
+      isRoutine: false,
+      startDate: startDateISO,
+      endDate: endDateISO,
+    };
+
+    const res = await api()
+      .post('/api/workout')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(workoutWithDates);
+
+
+    expect(res.status).toBe(200);
+    expect(res.body.workoutName).toBe(validWorkout.name);
+    expect(res.body.username).toBe(testUser.username);
+    expect(res.body.startDate).toBe(startDateISO);
+    expect(res.body.endDate).toBe(endDateISO);
+  });
+
+  it('should fail when startDate is missing in workout', async () => {
+    const now = new Date();
+    const oneHourLater = new Date(now.getTime() + 60 * 60 * 1000);
+    const endDateISO = oneHourLater.toISOString();
+
+    const workoutMissingStartDate = {
+      ...validWorkout,
+      isRoutine: false,
+      // startDate omitted intentionally
+      endDate: endDateISO,
+    };
+
+    const res = await api()
+      .post('/api/workout')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(workoutMissingStartDate);
+
+    expect(res.status).toBe(400);
+  });
+
+  it('should fail when startDate is missing in workout', async () => {
+    const now = new Date();
+    const startDateISO = now.toISOString();
+
+    const workoutMissingStartDate = {
+      ...validWorkout,
+      isRoutine: false,
+      startDate: startDateISO,
+      // endDate omitted intentionally
+    };
+
+    const res = await api()
+      .post('/api/workout')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send(workoutMissingStartDate);
+
+    expect(res.status).toBe(400);
   });
 
   it('should fail if isRoutine is true and name is missing', async () => {

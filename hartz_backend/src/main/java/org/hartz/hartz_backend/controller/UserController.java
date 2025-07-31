@@ -1,7 +1,11 @@
 package org.hartz.hartz_backend.controller;
 
 import jakarta.validation.Valid;
-import org.hartz.hartz_backend.exception.userExceptions.*;
+import org.hartz.hartz_backend.exception.userExceptions.InvalidBiographyInputException;
+import org.hartz.hartz_backend.exception.userExceptions.InvalidHeightException;
+import org.hartz.hartz_backend.exception.userExceptions.InvalidMascotInputException;
+import org.hartz.hartz_backend.exception.userExceptions.InvalidWeightException;
+import org.hartz.hartz_backend.exception.userExceptions.UserNotFoundException;
 import org.hartz.hartz_backend.model.user.User;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserBiographyInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.in.UpdateUserHeightInfoDTO;
@@ -10,7 +14,7 @@ import org.hartz.hartz_backend.model.user.dto.in.UpdateUserWeightInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.out.PersonalPrivateInfoDTO;
 import org.hartz.hartz_backend.model.user.dto.out.UserInfoDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
-import org.hartz.hartz_backend.service.CustomUserDetailsService;
+import org.hartz.hartz_backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -28,10 +32,10 @@ import java.util.Optional;
 @RequestMapping("/api/user")
 public class UserController {
     private final UserRepositoryAdapter userRepository;
-    private final CustomUserDetailsService userService;
+    private final UserService userService;
 
     @Autowired
-    public UserController(UserRepositoryAdapter userRepository, CustomUserDetailsService userService) {
+    public UserController(UserRepositoryAdapter userRepository, UserService userService) {
         this.userRepository = userRepository;
         this.userService = userService;
     }

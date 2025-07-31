@@ -12,7 +12,6 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Document(collection = "workouts")
 public class Workout {
 
@@ -26,16 +25,32 @@ public class Workout {
     private String username;
     private String name;
     private String description;
-    private Instant date;
+    private Instant startDate; // For workouts (routine = false)
+    private Instant endDate; // For workouts (routine = false)
+    private Instant createdDate; // For routines (routine = true)
     private boolean isRoutine;
     private List<ExerciseSet> exerciseSets;
 
-    public Workout(String username, String name, String description, Instant date, boolean isRoutine, List<ExerciseSet> exerciseSets) {
+    // For workouts
+    public Workout(String username, String name, String description, Instant startDate, Instant endDate,
+                   List<ExerciseSet> exerciseSets) {
         this.username = username;
         this.name = name;
         this.description = description;
-        this.date = date;
-        this.isRoutine = isRoutine;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.isRoutine = false;
+        this.exerciseSets = exerciseSets;
+    }
+
+    // For routines
+    public Workout(String username, String name, String description, Instant createdDate,
+                   List<ExerciseSet> exerciseSets) {
+        this.username = username;
+        this.name = name;
+        this.description = description;
+        this.createdDate = createdDate;
+        this.isRoutine = true;
         this.exerciseSets = exerciseSets;
     }
 }
