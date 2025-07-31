@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -125,4 +126,13 @@ public class UserController {
         }
     }
 
+    @GetMapping("/workoutHeatMap")
+    public ResponseEntity<List<Double>> getWokoutHeatMap(@AuthenticationPrincipal UserDetails userDetails) {
+        try {
+            String username = userDetails.getUsername();
+            return ResponseEntity.ok(userService.getUserHeatMap(username));
+        } catch (Exception ex) {
+            return ResponseEntity.internalServerError().body(null);
+        }
+    }
 }

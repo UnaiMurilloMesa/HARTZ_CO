@@ -16,7 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserService {
@@ -85,10 +89,16 @@ public class UserService {
         userRepository.save(user);
     }
 
-    /*
-    public X getUserHeatMap(String username) {
+    public List<Double> getUserHeatMap(String username) {
         List<Workout> workouts = workoutService.getWorkoutsByUserAndRoutine(username, false);
-        workouts.get(0).get
+        Instant startOfYear = ZonedDateTime.now(ZoneOffset.UTC)
+                  .withDayOfYear(1)
+                  .toLocalDate()
+                  .atStartOfDay(ZoneOffset.UTC)
+                  .toInstant();
+        List<Workout> filteredWorkouts = workouts.stream().filter(w -> w.getStartDate().isAfter(startOfYear)).toList();
+        Map<Integer, Long> minutesPerWeek = workoutService.getMinutesOfTrainingPerWeek(filteredWorkouts);
+        return workoutService.normalizeHeatMap(minutesPerWeek);
     }
-     */
 }
+
