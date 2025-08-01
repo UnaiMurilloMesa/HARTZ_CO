@@ -25,10 +25,10 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.customer (
-    age integer,
     height double precision,
     weight double precision,
     created_at timestamp(6) without time zone,
+    birth_date timestamp(6) without time zone,
     biography character varying(255),
     email character varying(255) NOT NULL,
     mascot character varying(255),
@@ -76,15 +76,6 @@ CREATE TABLE public.exercise_muscle_group (
 
 
 ALTER TABLE public.exercise_muscle_group OWNER TO hartz_user;
-
---
--- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: hartz_user
---
-
-COPY public.customer (age, height, weight, created_at, email, mascot, password, plan_type, profile_picture, username) FROM stdin;
-\N	\N	\N	2025-07-25 16:30:36.517255	test1@example.com	bear	$2a$10$efFXHbeIm5eD6rN0dz7/O.kyRTONgcM1qDBO95HJbBwJ5kKQ6Ka0u	BASIC	\N	testuser1
-\.
-
 
 --
 -- Data for Name: exercise; Type: TABLE DATA; Schema: public; Owner: hartz_user

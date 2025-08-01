@@ -11,7 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Entity
 @Table(name = "customer")
@@ -42,8 +42,8 @@ public class User {
     private String mascot;
     private Double height;
     private Double weight;
-    private Integer age;
     private String profilePicture;
-    private LocalDateTime createdAt;
+    private Instant birthDate;
+    private Instant createdAt;
 
 }

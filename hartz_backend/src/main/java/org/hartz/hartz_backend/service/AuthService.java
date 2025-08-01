@@ -1,18 +1,21 @@
 package org.hartz.hartz_backend.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hartz.hartz_backend.exception.userExceptions.*;
+import org.hartz.hartz_backend.exception.userExceptions.EmailNotFoundException;
+import org.hartz.hartz_backend.exception.userExceptions.EmailTakenException;
+import org.hartz.hartz_backend.exception.userExceptions.NotCorrectEmailFormatException;
+import org.hartz.hartz_backend.exception.userExceptions.PasswordDoesNotMatchEmailException;
+import org.hartz.hartz_backend.exception.userExceptions.PasswordTooShortException;
+import org.hartz.hartz_backend.exception.userExceptions.UsernameTakenException;
 import org.hartz.hartz_backend.model.user.User;
-import org.hartz.hartz_backend.model.user.dto.in.UpdateUserHeightInfoDTO;
-import org.hartz.hartz_backend.model.user.dto.out.AuthResponseDTO;
 import org.hartz.hartz_backend.model.user.dto.in.LoginRequestDTO;
 import org.hartz.hartz_backend.model.user.dto.in.RegisterRequestDTO;
+import org.hartz.hartz_backend.model.user.dto.out.AuthResponseDTO;
 import org.hartz.hartz_backend.persistence.postgre.UserRepositoryAdapter;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Optional;
 
 @Service
@@ -40,7 +43,7 @@ public class AuthService {
                     .password(passwordEncoder.encode(requestDTO.getPassword()))
                     .planType(User.PlanType.BASIC)
                     .mascot(requestDTO.getMascot())
-                    .createdAt(LocalDateTime.now())
+                    .createdAt(Instant.now())
                     .build();
 
             userRepository.save(user);
