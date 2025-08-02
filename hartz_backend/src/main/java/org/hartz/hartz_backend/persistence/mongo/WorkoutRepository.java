@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface WorkoutRepository extends MongoRepository<Workout, Long> {
+public interface WorkoutRepository extends MongoRepository<Workout, String> {
 
     List<Workout> findByUsername(String username);
 

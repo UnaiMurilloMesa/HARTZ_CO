@@ -16,7 +16,7 @@ public class WorkoutRepositoryAdapter {
         this.workoutRepository = workoutRepository;
     }
 
-    public Optional<Workout> findById(Long id) {
+    public Optional<Workout> findById(String id) {
         return workoutRepository.findById(id);
     }
 

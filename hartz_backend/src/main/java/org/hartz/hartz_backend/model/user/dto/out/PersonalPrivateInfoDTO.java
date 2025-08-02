@@ -3,7 +3,7 @@ package org.hartz.hartz_backend.model.user.dto.out;
 import lombok.Data;
 import org.hartz.hartz_backend.model.user.User;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Data
 public class PersonalPrivateInfoDTO {
@@ -13,15 +13,17 @@ public class PersonalPrivateInfoDTO {
     private String biography;
     private Double height;
     private Double weight;
-    private LocalDateTime createdAt;
+    private Instant createdAt;
+    private Instant birthDate;
 
     private PersonalPrivateInfoDTO(String username,
-                                  String email,
-                                  String mascot,
-                                  Double height,
-                                  Double weight,
-                                  String biography,
-                                  LocalDateTime createdAt) {
+                                   String email,
+                                   String mascot,
+                                   Double height,
+                                   Double weight,
+                                   String biography,
+                                   Instant createdAt,
+                                   Instant birthDate) {
         this.username = username;
         this.email = email;
         this.mascot = mascot;
@@ -29,16 +31,18 @@ public class PersonalPrivateInfoDTO {
         this.biography = biography;
         this.weight = weight;
         this.createdAt = createdAt;
+        this.birthDate = birthDate;
     }
 
     public static PersonalPrivateInfoDTO toDto(User user) {
         return new PersonalPrivateInfoDTO(
-                user.getUsername(),
-                user.getEmail(),
-                user.getMascot(),
-                user.getHeight(),
-                user.getWeight(),
-                user.getBiography(),
-                user.getCreatedAt());
+                  user.getUsername(),
+                  user.getEmail(),
+                  user.getMascot(),
+                  user.getHeight(),
+                  user.getWeight(),
+                  user.getBiography(),
+                  user.getCreatedAt(),
+                  user.getBirthDate());
     }
 }
