@@ -1,4 +1,4 @@
-import { Button, Text, View, HartzTextInput } from '@/components/utils/Themed';
+import { Button, Text, View, Input } from '@/components/utils/Themed';
 import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
 export default function TabOneScreen() {
@@ -21,7 +21,7 @@ export default function TabOneScreen() {
             title="Secondary"
             onPress={() => console.log('Pressed')}
           />
-          <HartzTextInput placeholder="Escribe algo..." />
+          <Input placeholder="Escribe algo..." />
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

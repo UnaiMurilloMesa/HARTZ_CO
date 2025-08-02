@@ -50,7 +50,7 @@ export function View(props: ViewProps) {
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
 
-export function HartzTextInput(props: HartzInputProps){
+export function Input(props: HartzInputProps){
   const {
     placeholderColor,
     placeholderBorderColor,
