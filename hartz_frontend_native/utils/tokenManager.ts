@@ -29,3 +29,8 @@ export async function deleteToken(): Promise<void> {
     throw error;
   }
 }
+
+export function isTokenValid(): boolean {
+  // TODO: token != null && token not expired
+  return false;;
+}

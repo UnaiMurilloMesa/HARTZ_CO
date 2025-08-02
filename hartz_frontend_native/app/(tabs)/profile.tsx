@@ -3,6 +3,7 @@ import { Image, Icon } from '@rneui/themed';
 import { Button, Text, View, Divider, useThemeColor, ScrollView } from '@/components/utils/Themed';
 import { PrivateProfile } from '@/interfaces';
 import HartzHeatMap from '@/components/HartzHeatMap';
+import ProtectedRoute from '@/components/utils/ProtectedRoute';
 
 const profile: PrivateProfile = {
   username: 'Alonso',
@@ -42,67 +43,68 @@ function getAge(birthDate: Date): number {
 
 export default function Profile() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.header_content}>
-          <Button title='' variant='transparent' icon={
-            <Icon
-              name='edit'
-              color={useThemeColor({}, 'primary')}
-            />
-          } />
-          <Text type='title'>Profile</Text>
-          <Button title='' variant='transparent' icon={
-            <Icon
-              name='settings'
-              color={useThemeColor({}, 'primary')}
-            />
-          } />
-        </View>
-        <Divider />
-      </View>
-
-      <View style={styles.info}>
-        <View style={styles.picture}>
-          <Image
-            source={require('../../assets/images/profile_picture_placeholder.jpg')}
-            style={styles.image}
-          />
-        </View>
-        <View style={styles.bacic_info}>
-          <Text type='large' style={styles.username}>{profile.username}</Text>
+    <ProtectedRoute>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.header_content}>
+            <Button title='' variant='transparent' icon={
+              <Icon
+                name='edit'
+                color={useThemeColor({}, 'primary')}
+              />
+            } />
+            <Text type='title'>Profile</Text>
+            <Button title='' variant='transparent' icon={
+              <Icon
+                name='settings'
+                color={useThemeColor({}, 'primary')}
+              />
+            } />
+          </View>
           <Divider />
-          <Image
-            source={images[profile.mascot]}
-            style={styles.image}
-          />
         </View>
-      </View>
 
-      <View style={styles.workload}>
-        <Text type='subtitle' style={styles.subtitle}>Workload</Text>
-        <HartzHeatMap style={styles.heatmap} data={data} columns={13} cellSize={15} color={useThemeColor({}, 'primary')} />
-      </View>
-
-      <View style={styles.personal_data}>
-        <Text type='subtitle' style={styles.subtitle}>Personal data</Text>
-        <View style={styles.data_container}>
-          <View style={styles.data_row}>
-            <Text type='small'>Weight</Text>
-            <Text type='data'>{profile.weight} kg</Text>
+        <View style={styles.info}>
+          <View style={styles.picture}>
+            <Image
+              source={require('../../assets/images/profile_picture_placeholder.jpg')}
+              style={styles.image}
+            />
           </View>
-          <View style={styles.data_row}>
-            <Text type='small'>Height</Text>
-            <Text type='data'>{profile.height} cm</Text>
-          </View>
-          <View style={styles.data_row}>
-            <Text type='small'>Age</Text>
-            <Text type='data'>{getAge(profile.birthDate)} y/o</Text>
+          <View style={styles.bacic_info}>
+            <Text type='large' style={styles.username}>{profile.username}</Text>
+            <Divider />
+            <Image
+              source={images[profile.mascot]}
+              style={styles.image}
+            />
           </View>
         </View>
-      </View>
 
-    </ScrollView>
+        <View style={styles.workload}>
+          <Text type='subtitle' style={styles.subtitle}>Workload</Text>
+          <HartzHeatMap style={styles.heatmap} data={data} columns={13} cellSize={15} color={useThemeColor({}, 'primary')} />
+        </View>
+
+        <View style={styles.personal_data}>
+          <Text type='subtitle' style={styles.subtitle}>Personal data</Text>
+          <View style={styles.data_container}>
+            <View style={styles.data_row}>
+              <Text type='small'>Weight</Text>
+              <Text type='data'>{profile.weight} kg</Text>
+            </View>
+            <View style={styles.data_row}>
+              <Text type='small'>Height</Text>
+              <Text type='data'>{profile.height} cm</Text>
+            </View>
+            <View style={styles.data_row}>
+              <Text type='small'>Age</Text>
+              <Text type='data'>{getAge(profile.birthDate)} y/o</Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </ProtectedRoute>
   );
 }
 

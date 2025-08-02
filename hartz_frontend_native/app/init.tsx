@@ -1,8 +1,12 @@
 import { StyleSheet } from 'react-native';
 import { Image } from '@rneui/themed';
 import { Button, Text, View } from '@/components/utils/Themed';
+import { useRouter } from 'expo-router';
 
 export default function InitScreen() {
+
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <View style={styles.texts}>
@@ -11,7 +15,7 @@ export default function InitScreen() {
       </View>
 
       <Image
-        source={require('../../assets/images/bears/hartz.png')}
+        source={require('../assets/images/bears/hartz.png')}
         style={styles.image}
       />
 
@@ -19,12 +23,12 @@ export default function InitScreen() {
         <Button
           title="Get Started"
           variant='primary'
-          onPress={() => console.log('Get Started Pressed')}
+          onPress={() => router.replace('/register')}
         />
         <Button
           title="I already have an account"
           variant='secondary'
-          onPress={() => console.log('I already have an account Pressed')}
+          onPress={() => router.replace('/login')}
         />
       </View>
     </View>

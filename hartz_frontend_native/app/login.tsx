@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Image } from '@rneui/themed';
-import { Button, Input, Text, View } from '@/components/utils/Themed';
+import { Button, Text, View, Input} from '@/components/utils/Themed';
 import KeyboardHider from '@/components/utils/KeyboardHider';
 
 export default function InitScreen() {
@@ -10,24 +10,22 @@ export default function InitScreen() {
         <View style={styles.header}>
           <Text type='title'>HARTZ</Text>
           <Image
-            source={require('../../assets/images/bears/hartz.png')}
+            source={require('../assets/images/bears/hartz.png')}
             style={styles.image}
           />
-          <Text type='subtitle'>Create your account</Text>
+          <Text type='subtitle'>Log in to your account</Text>
         </View>
 
         <View style={styles.form}>
-          <Input placeholder='username'/>
           <Input placeholder='email@domain.com'/>
           <Input secureTextEntry={true} placeholder='password'/>
-          <Input secureTextEntry={true} placeholder='confirm password'/>
         </View>
 
         <View style={{ width: '60%' }}>
           <Button
             variant='primary'
-            title='Continue'
-            onPress={() => console.log('Register Pressed')}
+            title='Log in'
+            onPress={() => console.log('Login Pressed')}
           />
         </View>
       </View>
