@@ -13,7 +13,6 @@ public class PersonalPrivateInfoDTO {
     private String biography;
     private Double height;
     private Double weight;
-    private Instant createdAt;
     private Instant birthDate;
 
     private PersonalPrivateInfoDTO(String username,
@@ -22,7 +21,6 @@ public class PersonalPrivateInfoDTO {
                                    Double height,
                                    Double weight,
                                    String biography,
-                                   Instant createdAt,
                                    Instant birthDate) {
         this.username = username;
         this.email = email;
@@ -30,7 +28,6 @@ public class PersonalPrivateInfoDTO {
         this.height = height;
         this.biography = biography;
         this.weight = weight;
-        this.createdAt = createdAt;
         this.birthDate = birthDate;
     }
 
@@ -42,7 +39,6 @@ public class PersonalPrivateInfoDTO {
                   user.getHeight(),
                   user.getWeight(),
                   user.getBiography(),
-                  user.getCreatedAt(),
                   user.getBirthDate());
     }
 }

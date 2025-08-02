@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ExerciseSetDTO {
 
-    private ExerciseDTO exerciseDTO;
-    private List<GymSetDTO> gymSetDTO;
+    private ExerciseDTO exercise;
+    private List<GymSetDTO> gymSet;
     private String notes;
 }
