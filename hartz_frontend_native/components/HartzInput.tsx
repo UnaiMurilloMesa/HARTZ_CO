@@ -1,8 +1,6 @@
-// TODO: Crear nuestro input, esto es solo un placeholder para empezar a utilizarlo desde fuera
 import React from 'react';
 import { Input as RNEInput, InputProps } from '@rneui/themed';
 import { TextStyle, ViewStyle } from 'react-native';
-import { color } from '@rneui/base';
 
 export type HartzInputProps = Omit<InputProps, 'placeholderTextColor'> 
 & {
@@ -11,14 +9,6 @@ export type HartzInputProps = Omit<InputProps, 'placeholderTextColor'>
   placeholderBorderActiveColor?: string;
   textColor?: string;
 };
-
-const DEFAULT_INPUT_COLORS = {
-  backgroundColor: '#36802dff',                    // color de fondo en modo claro
-  borderNormal: '#9017b4ff',                        // borde neutro
-  borderFocused: '#04ffffff',                 // borde cuando está enfocado
-  textColor: '#ecff3dff',                          // texto oscuro
-};
-
 
 const getColors = (
   {

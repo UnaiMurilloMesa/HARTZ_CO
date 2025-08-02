@@ -3,11 +3,9 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { Text as DefaultText, TextProps as RNETextProps } from '@rneui/themed';
-import { View as DefaultView } from 'react-native';
+import { Text as DefaultText, TextProps as RNETextProps, Divider as DefaultDivider, DividerProps } from '@rneui/themed';
+import { View as DefaultView, ScrollView as DefaultScrollView } from 'react-native';
 import HartzButton, { HartzButtonProps } from '@/components/HartzButton';
-
-
 import Colors from '@/constants/Colors';
 import { useColorScheme } from './useColorScheme';
 import HartzInput, { HartzInputProps } from '../HartzInput';
@@ -19,7 +17,7 @@ type ThemeProps = {
 
 type TextProps = ThemeProps & RNETextProps;
 type ViewProps = ThemeProps & DefaultView['props'];
-type ButtonProps = ThemeProps & HartzButtonProps;
+type ScrollViewProps = ThemeProps & DefaultScrollView['props']
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -76,6 +74,13 @@ export function HartzTextInput(props: HartzInputProps){
   );
 }
 
+export function ScrollView(props: ScrollViewProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+
+  return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+
 export function Button(props: HartzButtonProps) {
   const {
     backgroundColor,
@@ -98,5 +103,16 @@ export function Button(props: HartzButtonProps) {
       textColor={resolvedTextColor}
       {...otherProps}
     />
+  );
+}
+
+export function Divider(props: DividerProps) {
+  return (
+    <DefaultDivider
+      color={useThemeColor({}, 'primary')}
+      width={1}
+      style={{width: '90%'}}
+      {...props}>
+    </DefaultDivider>
   );
 }
