@@ -45,19 +45,19 @@ export default function Profile() {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <View style={styles.header_content}>
-          <Button title='' variant='secondary' >
+          <Button title='' variant='transparent' icon={
             <Icon
               name='edit'
               color={useThemeColor({}, 'primary')}
             />
-          </Button>
+          } />
           <Text type='title'>Profile</Text>
-          <Button title='settings' variant='secondary'>
+          <Button title='' variant='transparent' icon={
             <Icon
               name='settings'
               color={useThemeColor({}, 'primary')}
             />
-          </Button>
+          } />
         </View>
         <Divider />
       </View>

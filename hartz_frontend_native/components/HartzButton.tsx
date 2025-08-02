@@ -3,18 +3,14 @@ import { Button, ButtonProps } from '@rneui/themed';
 import { TextStyle } from 'react-native';
 
 export type HartzButtonProps = {
-  variant?: 'primary' | 'secondary';
-  backgroundColor?: string;
-  activeBackgroundColor?: string;
-  textColor?: string;
+  variant: ButtonVariant;
+  backgroundColor: string;
+  activeBackgroundColor: string;
+  textColor: string;
   title: string;
 } & Partial<Omit<ButtonProps, 'title'>>;
 
-const DEFAULT_COLORS = {
-  background: '#007BFF',
-  activeBackground: '#0056b3',
-  text: '#ffffff',
-};
+export type ButtonVariant = 'primary' | 'secondary' | 'transparent';
 
 const getButtonStyles = ({
   variant,
@@ -22,7 +18,7 @@ const getButtonStyles = ({
   activeBackgroundColor,
   isPressed,
 }: {
-  variant: 'primary' | 'secondary';
+  variant: ButtonVariant;
   backgroundColor: string;
   activeBackgroundColor: string;
   isPressed: boolean;
@@ -45,18 +41,30 @@ const getButtonStyles = ({
       },
     };
   }
-
-  return {
-    type: 'outline' as const,
-    buttonStyle: {
-      borderRadius: 8,
-      borderColor: isPressed ? activeBackgroundColor : backgroundColor,
-      borderWidth: 2,
-      backgroundColor: 'transparent',
-      ...baseStyle,
-    },
-    containerStyle: {}
-  };
+  if (variant === 'secondary') {
+    return {
+      type: 'outline' as const,
+      buttonStyle: {
+        borderRadius: 8,
+        borderColor: isPressed ? activeBackgroundColor : backgroundColor,
+        borderWidth: 2,
+        backgroundColor: 'transparent',
+        ...baseStyle,
+      },
+      containerStyle: {}
+    };
+  }
+  if (variant === 'transparent') {
+    return {
+      type: 'outline' as const,
+      buttonStyle: {
+        borderWidth: 0,
+        ...baseStyle
+      }
+    }
+  }
+  else throw new Error("Variant not recognized");
+  
 };
 
 const getTitleStyle = ({
@@ -66,7 +74,7 @@ const getTitleStyle = ({
   activeBackgroundColor,
   isPressed,
 }: {
-  variant: 'primary' | 'secondary';
+  variant: ButtonVariant;
   textColor: string;
   backgroundColor: string;
   activeBackgroundColor: string;
@@ -87,10 +95,10 @@ const getTitleStyle = ({
 };
 
 const HartzButton: React.FC<HartzButtonProps> = ({
-  variant = 'secondary',
-  backgroundColor = DEFAULT_COLORS.background,
-  activeBackgroundColor = DEFAULT_COLORS.activeBackground,
-  textColor = DEFAULT_COLORS.text,
+  variant,
+  backgroundColor,
+  activeBackgroundColor,
+  textColor,
   title,
   ...props
 }) => {

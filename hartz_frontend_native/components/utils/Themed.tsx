@@ -3,20 +3,27 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { TextProps as RNETextProps, Divider as DefaultDivider, DividerProps } from '@rneui/themed';
+import { Divider as DefaultDivider, DividerProps } from '@rneui/themed';
 import { View as DefaultView, ScrollView as DefaultScrollView } from 'react-native';
 import HartzText, { HartzTextProps } from '@/components/HartzText'
-import HartzButton, { HartzButtonProps } from '@/components/HartzButton';
+import HartzButton, { ButtonVariant, HartzButtonProps } from '@/components/HartzButton';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from './useColorScheme';
 import HartzInput, { HartzInputProps } from '../HartzInput';
+import type { ButtonProps as RNEUIButtonProps } from '@rneui/base/dist/Button/Button';
 
 type ThemeProps = {
   lightColor?: string;
   darkColor?: string;
 };
 
-type TextProps = ThemeProps & RNETextProps;
+type ButtonProps = ThemeProps & {
+  title: string,
+  variant: ButtonVariant,
+  backgroundColor?: string,
+  activeBackgroundColor?: string,
+  textColor?: string,
+} & Partial<Omit<RNEUIButtonProps, 'title'>>;;
 type ViewProps = ThemeProps & DefaultView['props'];
 type ScrollViewProps = ThemeProps & DefaultScrollView['props']
 
@@ -50,7 +57,7 @@ export function View(props: ViewProps) {
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
 
-export function Input(props: HartzInputProps){
+export function Input(props: HartzInputProps) {
   const {
     placeholderColor,
     placeholderBorderColor,
@@ -58,7 +65,7 @@ export function Input(props: HartzInputProps){
     textColor,
     ...otherProps
   } = props;
-  
+
   const resolvedPlaceholderColor =
     placeholderColor ?? useThemeColor({}, 'background');
   const resolvedPlaceholderBorderColor =
@@ -68,7 +75,7 @@ export function Input(props: HartzInputProps){
   const resolvedTextColor =
     textColor ?? useThemeColor({}, 'text');
 
-  return (<HartzInput 
+  return (<HartzInput
     placeholderColor={resolvedPlaceholderColor}
     placeholderBorderColor={resolvedPlaceholderBorderColor}
     placeholderBorderActiveColor={resolvedPlaceholderBorderActiveColor}
@@ -84,7 +91,7 @@ export function ScrollView(props: ScrollViewProps) {
   return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
 
-export function Button(props: HartzButtonProps) {
+export function Button(props: ButtonProps) {
   const {
     backgroundColor,
     activeBackgroundColor,
@@ -114,7 +121,7 @@ export function Divider(props: DividerProps) {
     <DefaultDivider
       color={useThemeColor({}, 'primary')}
       width={1}
-      style={{width: '90%'}}
+      style={{ width: '90%' }}
       {...props}>
     </DefaultDivider>
   );
