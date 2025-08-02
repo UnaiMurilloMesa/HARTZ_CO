@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { Image } from '@rneui/themed';
+import { HartzTextInput } from '@/components/utils/Themed';
 import { Button, Text, View } from '@/components/utils/Themed';
 import KeyboardHider from '@/components/utils/KeyboardHider';
-import HartzInput from '@/components/HartzInput';
 
 export default function InitScreen() {
   return (
@@ -18,8 +18,8 @@ export default function InitScreen() {
         </View>
 
         <View style={styles.form}>
-          <HartzInput placeholder='email@domain.com'></HartzInput>
-          <HartzInput placeholder='password'></HartzInput>
+          <HartzTextInput placeholder='email@domain.com'/>
+          <HartzTextInput placeholder='password'/>
         </View>
 
         <View style={{ width: '60%' }}>

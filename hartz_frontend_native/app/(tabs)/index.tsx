@@ -1,6 +1,6 @@
+import { HartzTextInput } from '@/components/utils/Themed';
+import { Button, Text, View } from '@/components/utils/Themed';
 import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import { Text, View, Button } from '@/components/utils/Themed';
-import HartzTextInput from '@/components/HartzInput';
 
 export default function TabOneScreen() {
   return (

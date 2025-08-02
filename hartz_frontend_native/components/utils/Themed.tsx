@@ -10,6 +10,7 @@ import HartzButton, { HartzButtonProps } from '@/components/HartzButton';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from './useColorScheme';
+import HartzInput, { HartzInputProps } from '../HartzInput';
 
 type ThemeProps = {
   lightColor?: string;
@@ -46,6 +47,33 @@ export function View(props: ViewProps) {
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+
+export function HartzTextInput(props: HartzInputProps){
+  const {
+    placeholderColor,
+    placeholderBorderColor,
+    placeholderBorderActiveColor,
+    textColor,
+    ...otherProps
+  } = props;
+  
+  const resolvedPlaceholderColor =
+    placeholderColor ?? useThemeColor({}, 'background');
+  const resolvedPlaceholderBorderColor =
+    placeholderBorderColor ?? useThemeColor({}, 'primary');
+  const resolvedPlaceholderBorderActiveColor =
+    placeholderBorderActiveColor ?? useThemeColor({}, 'secondary');
+  const resolvedTextColor =
+    textColor ?? useThemeColor({}, 'text');
+
+  return (<HartzInput 
+    placeholderColor={resolvedPlaceholderColor}
+    placeholderBorderColor={resolvedPlaceholderBorderColor}
+    placeholderBorderActiveColor={resolvedPlaceholderBorderActiveColor}
+    textColor={resolvedTextColor}
+    {...otherProps} />
+  );
 }
 
 export function Button(props: HartzButtonProps) {

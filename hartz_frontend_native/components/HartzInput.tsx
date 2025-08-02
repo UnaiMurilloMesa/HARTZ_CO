@@ -2,90 +2,81 @@
 import React from 'react';
 import { Input as RNEInput, InputProps } from '@rneui/themed';
 import { TextStyle, ViewStyle } from 'react-native';
-import { useThemeColor } from './utils/Themed';
-import Colors from '@/constants/Colors';
+import { color } from '@rneui/base';
 
-type ThemeProps  = {
-  lightColor?: string;
-  darkColor?: string;
-}
-
-export type HartzInputProps = ThemeProps & Omit<InputProps, 'placeholderTextColor'> & {
-  placeholderTextColor?: string;
+export type HartzInputProps = Omit<InputProps, 'placeholderTextColor'> 
+& {
+  placeholderColor?: string;
+  placeholderBorderColor?: string;
+  placeholderBorderActiveColor?: string;
+  textColor?: string;
 };
 
 const DEFAULT_INPUT_COLORS = {
-  background: '#FFF',                     // color de fondo en modo claro
-  border: '#6A7C8FFF',                  // borde neutro
-  borderFocused: Colors.dark.secondary,     // borde cuando está enfocado
-  text: '#000',                           // texto oscuro
-  placeholderOpacity: '80',               // sufijo hex para 50% opacity
+  backgroundColor: '#36802dff',                    // color de fondo en modo claro
+  borderNormal: '#9017b4ff',                        // borde neutro
+  borderFocused: '#04ffffff',                 // borde cuando está enfocado
+  textColor: '#ecff3dff',                          // texto oscuro
 };
 
-const getInputStyles = ({
-  backgroundColor,
-  isFocused,
-}: {
-  backgroundColor: string;
-  isFocused: boolean;
-}): { inputContainerStyle: ViewStyle; inputStyle: TextStyle } => {
+
+const getColors = (
+  {
+  placeholderColor,
+  placeholderBorderColor,
+  placeholderBorderActiveColor,
+  textColor,
+  isFocused
+}:{
+  placeholderColor?: string;
+  placeholderBorderColor?: string;
+  placeholderBorderActiveColor?: string;
+  textColor?: string;
+  isFocused?: boolean;
+}) => {
   return {
-    inputContainerStyle: {
-      backgroundColor,
+    placeHolderStyle: {
+      backgroundColor: placeholderColor,
+      borderColor: isFocused ? placeholderBorderActiveColor : placeholderBorderColor,
       borderWidth: 1,
-      borderColor: isFocused ? DEFAULT_INPUT_COLORS.borderFocused : DEFAULT_INPUT_COLORS.border,
       borderRadius: 8,
       paddingHorizontal: 10,
     },
-    inputStyle: {
+    inputTextStyle: {
+      color: textColor,
       fontSize: 16,
     }
   };
-};
-
-const resolveInputColors = ({
-  lightColor,
-  darkColor,
-  placeholderTextColor,
-}: Pick<HartzInputProps, 'lightColor' | 'darkColor' | 'placeholderTextColor'>) => {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
-  const textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const placeholderColor =
-    placeholderTextColor ?? textColor + DEFAULT_INPUT_COLORS.placeholderOpacity;
-
-  return { backgroundColor, textColor, placeholderColor };
-};
+}
 
 
 const HartzInput: React.FC<HartzInputProps> = ({
-  lightColor,
-  darkColor,
-  style,
-  inputContainerStyle,
-  placeholderTextColor,
+  placeholderColor,
+  placeholderBorderColor,
+  placeholderBorderActiveColor,
+  textColor,
   ...otherProps
 }) => {
   
   const [isFocused, setIsFocused] = React.useState(false);
 
-  // 1. Resolver colores
-  const { backgroundColor, textColor, placeholderColor } = resolveInputColors({
-    lightColor,
-    darkColor,
-    placeholderTextColor,
-  });
-
-  // 2. Obtener estilos finales
-  const { inputContainerStyle: baseContainer, inputStyle: baseInput } = getInputStyles({
-    backgroundColor,
-    isFocused,
-  });
+  const { placeHolderStyle, inputTextStyle } = getColors(
+    {
+      placeholderColor,
+      placeholderBorderColor,
+      placeholderBorderActiveColor,
+      textColor,
+      isFocused
+    }
+  ) as {
+    placeHolderStyle: ViewStyle;
+    inputTextStyle: TextStyle;
+  };
 
   return (
     <RNEInput
-      placeholderTextColor={placeholderColor}
-      inputStyle={[{ color: textColor }, baseInput, style]}
-      inputContainerStyle={[baseContainer, inputContainerStyle]}
+      inputStyle= {inputTextStyle}
+      inputContainerStyle={placeHolderStyle}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       {...otherProps}
