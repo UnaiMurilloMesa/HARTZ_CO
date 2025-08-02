@@ -51,7 +51,7 @@ export default function Profile() {
               color={useThemeColor({}, 'primary')}
             />
           </Button>
-          <Text style={styles.title}>Profile</Text>
+          <Text type='title'>Profile</Text>
           <Button title='settings' variant='secondary'>
             <Icon
               name='settings'
@@ -70,7 +70,7 @@ export default function Profile() {
           />
         </View>
         <View style={styles.bacic_info}>
-          <Text style={styles.username}>{profile.username}</Text>
+          <Text type='large' style={styles.username}>{profile.username}</Text>
           <Divider />
           <Image
             source={images[profile.mascot]}
@@ -80,24 +80,24 @@ export default function Profile() {
       </View>
 
       <View style={styles.workload}>
-        <Text style={styles.subtitle}>Workload</Text>
+        <Text type='subtitle' style={styles.subtitle}>Workload</Text>
         <HartzHeatMap style={styles.heatmap} data={data} columns={13} cellSize={15} color={useThemeColor({}, 'primary')} />
       </View>
 
       <View style={styles.personal_data}>
-        <Text style={styles.subtitle}>Personal data</Text>
+        <Text type='subtitle' style={styles.subtitle}>Personal data</Text>
         <View style={styles.data_container}>
           <View style={styles.data_row}>
-            <Text style={styles.data_label}>Weight</Text>
-            <Text style={styles.data_value}>{profile.weight} kg</Text>
+            <Text type='small'>Weight</Text>
+            <Text type='data'>{profile.weight} kg</Text>
           </View>
           <View style={styles.data_row}>
-            <Text style={styles.data_label}>Height</Text>
-            <Text style={styles.data_value}>{profile.height} cm</Text>
+            <Text type='small'>Height</Text>
+            <Text type='data'>{profile.height} cm</Text>
           </View>
           <View style={styles.data_row}>
-            <Text style={styles.data_label}>Age</Text>
-            <Text style={styles.data_value}>{getAge(profile.birthDate)} y/o</Text>
+            <Text type='small'>Age</Text>
+            <Text type='data'>{getAge(profile.birthDate)} y/o</Text>
           </View>
         </View>
       </View>
@@ -127,16 +127,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     marginBottom: 15
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
   subtitle: {
     alignSelf: 'flex-start',
     width: '100%',
     paddingLeft: 15,
-    fontSize: 25,
-    fontWeight: 'bold',
     textAlign: 'left'
   },
   info: {
@@ -164,7 +158,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   username: {
-    fontSize: 25,
     marginBottom: 10
   },
   workload: {
@@ -191,13 +184,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.1)',
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  data_label: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  data_value: {
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });

@@ -8,12 +8,12 @@ export default function InitScreen() {
     <KeyboardHider>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>HARTZ</Text>
+          <Text type='title'>HARTZ</Text>
           <Image
             source={require('../../assets/images/bears/hartz.png')}
             style={styles.image}
           />
-          <Text style={styles.title}>Create your account</Text>
+          <Text type='subtitle'>Create your account</Text>
         </View>
 
         <View style={styles.form}>
@@ -44,10 +44,6 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     marginBottom: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
   },
   form: {
     width: '80%',

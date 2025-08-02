@@ -6,8 +6,8 @@ export default function InitScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.texts}>
-        <Text style={styles.title}>Hey there!!</Text>
-        <Text style={styles.title}>Welcome to Hartz</Text>
+        <Text type='title'>Hey there!!</Text>
+        <Text type='title'>Welcome to Hartz</Text>
       </View>
 
       <Image
@@ -40,10 +40,6 @@ const styles = StyleSheet.create({
   texts: {
     alignItems: 'center',
     marginBottom: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
   },
   buttons: {
     width: '80%',

@@ -3,8 +3,9 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { Text as DefaultText, TextProps as RNETextProps, Divider as DefaultDivider, DividerProps } from '@rneui/themed';
+import { TextProps as RNETextProps, Divider as DefaultDivider, DividerProps } from '@rneui/themed';
 import { View as DefaultView, ScrollView as DefaultScrollView } from 'react-native';
+import HartzText, { HartzTextProps } from '@/components/HartzText'
 import HartzButton, { HartzButtonProps } from '@/components/HartzButton';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from './useColorScheme';
@@ -33,11 +34,13 @@ export function useThemeColor(
   }
 }
 
-export function Text(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
+export function Text(props: HartzTextProps & ThemeProps) {
+  const { style, lightColor, darkColor, type = 'data', ...otherProps } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-  return <DefaultText style={[{ color }, style]} {...otherProps} />;
+  return (
+    <HartzText type={type} style={[{ color }, style]} {...otherProps} />
+  );
 }
 
 export function View(props: ViewProps) {
